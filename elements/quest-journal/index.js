@@ -6,11 +6,10 @@ questTrigger.addEventListener('click', () => {
 fresco.onReady(function () {
     
     fresco.onStateChanged(function () {
-        // TODO
+
     });
     
-    fresco.initialize({}, { title: 'Quests' });
-    fresco.autoAdjustHeight();
+    fresco.initialize({ }, { title: 'Quests', autoAdjustHeight: true });
 });
 
 
