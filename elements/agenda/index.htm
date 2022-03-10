@@ -17,7 +17,16 @@
 
             .agenda-item {
                 flex: 1;
+                display: flex;
+                flex-direction: row;
+                align-items: center; 
             }
+
+            #agenda-item-name {
+                flex: 1;
+                margin-left: .5rem;
+            }
+
             .agenda { display: flex; flex-direction: row; }
             
             button {
@@ -43,7 +52,7 @@
         <div class="agenda">
             <button id='prev-button' >&lt;</button>
             <div class="agenda-item">
-                &#x1F9ED; <span id='agenda-item-name'>Waiting for the event to start</span>
+                <div>&#x1F9ED;</div><div id='agenda-item-name'>Waiting for the event to start</div><div id='agenda-item-duration'></div>
             </div>
             <button id='next-button'>&gt;</button>
         </div>
