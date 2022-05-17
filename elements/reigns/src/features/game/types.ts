@@ -48,6 +48,7 @@ export type GameState = {
   flags: GameFlags;
   gameUrl: string | null;
   definition: GameDefinition | null;
+  isController: boolean;
 };
 
 export type AppState = {

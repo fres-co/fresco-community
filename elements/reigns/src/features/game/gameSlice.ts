@@ -44,6 +44,7 @@ export const initialState: GameState = {
   flags: {},
   gameUrl: null,
   definition: null,
+  isController: false,
 };
 
 export const gameSlice = createSlice({
@@ -55,6 +56,7 @@ export const gameSlice = createSlice({
       state.selectedCard = action.payload.selectedCard;
       state.stats = action.payload.stats;
       state.gameUrl = action.payload.gameUrl;
+      state.isController = action.payload.isController;
     },
     startGame: (state: GameState) => {
       state.phase = GamePhase.STARTED;

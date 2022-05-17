@@ -22,7 +22,12 @@ const useFresco = function () {
       fresco.onStateChanged(function () {
         const state = fresco.element.state;
         console.log("onStateChanged", state);
-        dispatch(updateGame(state));
+        dispatch(
+          updateGame({
+            ...state,
+            isController: fresco.localParticipant.isController,
+          })
+        );
       });
 
       const defaultState = {
@@ -75,6 +80,9 @@ const useFresco = function () {
 
 export default function App() {
   const phase = useSelector((state: AppState) => state.game.phase);
+  const isController = useSelector(
+    (state: AppState) => state.game.isController
+  );
   const selectedCard = useSelector(
     (state: AppState) => state.game.selectedCard
   );
@@ -95,15 +103,23 @@ export default function App() {
   const { updateFrescoState, teleport } = useFresco();
 
   const doAnswerNo = () => {
-    dispatch(answerNo());
-    updateFrescoState();
-    teleport("neutral");
+    // TODO: host will call this in FRES-1112
+    if (isController) {
+      dispatch(answerNo());
+      updateFrescoState();
+      // TODO: teleport everyone
+      teleport("neutral");
+    }
   };
 
   const doAnswerYes = () => {
-    dispatch(answerYes());
-    updateFrescoState();
-    teleport("neutral");
+    // TODO: host will call this in FRES-1112
+    if (isController) {
+      dispatch(answerYes());
+      updateFrescoState();
+      // TODO: teleport everyone
+      teleport("neutral");
+    }
   };
 
   useEffect(() => {

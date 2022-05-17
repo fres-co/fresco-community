@@ -31,6 +31,10 @@ interface IFrescoSdk {
   setState(state: any): void;
   initialize(defaultState: any, options: IInitializeOptions): void;
   send(action: { type: string; payload: any }): void;
+  localParticipant: {
+    id: string;
+    isController: boolean;
+  };
 }
 
 declare var fresco: IFrescoSdk;
