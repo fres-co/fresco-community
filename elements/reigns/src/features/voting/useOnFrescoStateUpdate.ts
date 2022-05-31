@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
-import { updateConfig, updateGame } from "../game/gameSlice";
+import { setPhase, updateConfig, updateGame } from "../game/gameSlice";
 import { updateHost } from "../host/hostSlice";
 import { updateVote } from "./votingSlice";
 import { persistIsInsideElement } from "./persistIsInsideElement";
 import { getSdk } from "../../sdk";
 import { Game } from "../game/Game";
+import { GamePhase } from "../../constants";
 
 export const PARTICIPANT_INSIDE_TABLE = "participants-inside";
 
@@ -27,6 +28,8 @@ export const useOnFrescoStateUpdate = () => {
           stats: state.stats,
         })
       );
+    } else {
+      dispatch(setPhase(GamePhase.NOT_STARTED));
     }
     const sdk = getSdk();
     if (sdk.element.state) {

@@ -1,8 +1,8 @@
 import { AnyAction, Store } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import * as sdk from "../../sdk";
-import { AppState } from "../../store";
-import React from "react";
+import { AppState, createStore } from "../../store";
+import React, { FC, ReactNode } from "react";
 
 export const mockSdk = (
   sdkOverride: Partial<IFrescoSdk> = {},
@@ -33,13 +33,32 @@ export const mockSdk = (
         get: (tableName: string, key: string) => {
           return data[tableName] && data[tableName][key];
         },
-        all: (tableName: string) => data[tableName],
+        all: (tableName: string) => data[tableName] ?? {},
         clear: (tableName: string) => {
           data[tableName] = {};
         },
         data,
       },
     },
+    element: {
+      state: { gameUrl: "http://some-url/" },
+    },
     ...sdkOverride,
   } as unknown as IFrescoSdk);
 };
+
+type PropsWithChildren = {
+  children: ReactNode;
+};
+type MockReduxProviderProps = PropsWithChildren & {
+  store: Store<AppState, AnyAction>;
+};
+
+const MockReduxProvider: FC<MockReduxProviderProps> = ({ children, store }) => {
+  return <Provider store={store}>{children}</Provider>;
+};
+
+export const getWrapper =
+  (store = createStore()): FC<PropsWithChildren> =>
+  ({ children }) =>
+    <MockReduxProvider store={store}>{children}</MockReduxProvider>;
