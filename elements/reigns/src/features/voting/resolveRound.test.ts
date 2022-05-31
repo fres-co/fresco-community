@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { getSdk } from "../../sdk";
 import { mockSdk } from "../game/mocks";
 import { PARTICIPANT_INSIDE_TABLE } from "./useOnFrescoStateUpdate";

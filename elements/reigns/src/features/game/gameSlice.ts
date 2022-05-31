@@ -34,6 +34,9 @@ export const gameSlice = createSlice({
       state.selectedCard = action.payload.selectedCard;
       state.stats = action.payload.stats;
     },
+    setPhase: (state, action: PayloadAction<GamePhase>) => {
+      state.phase = action.payload;
+    },
     updateConfig: (state, action: PayloadAction<Configuration>) => {
       state.gameUrl = action.payload.gameUrl;
     },
@@ -63,5 +66,5 @@ export const gameSlice = createSlice({
   },
 });
 
-export const { updateGame, updateConfig } = gameSlice.actions;
+export const { updateGame, updateConfig, setPhase } = gameSlice.actions;
 export const gameReducer = gameSlice.reducer;
