@@ -15,7 +15,7 @@ export const Question = ({ card }: { card: Card | null }) => {
     <div className="block question">
       <div className="question__image">
         <img src={`${assetsUrl}/${card.bearer}.png`} />
-        {card.bearer}
+        <div className='question__bearer'>{card.bearer}</div>
       </div>
       <div className="question__text">{card.card}</div>
     </div>

@@ -65,6 +65,10 @@ body,
   font-size: 5vw;
 }
 
+.question__bearer {
+  font-size: 2vw;
+}
+
 .answers {
   display: flex;
   flex: 1;
@@ -90,6 +94,10 @@ body,
   flex: 1;
   padding: 1rem;
   color: #fff;
+}
+
+.answer__text {
+  font-size: 2vw;
 }
 
 .question__image {
