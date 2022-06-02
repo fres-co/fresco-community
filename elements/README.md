@@ -104,17 +104,17 @@ In order to do so, one can subscribe to the state change, by calling `fresco.onS
 The callback will be called without any parameter.
 State will need to be retrieved using the previously described `fresco.element.state` object, and the storage from `fresco.element.storage`.
 
-## Updating the state and storage
+## Updating state
 
 An extension can update part of it's state using the `fresco.setState` method.
-The `setState` method will be called with a javascript object corresponding to the part of the state that need to be udpated.
+The `setState` method will be called with a javascript object corresponding to the part of the state that need to be updated.
+Only users with admin permissions on a space may update state.
 
-You can also update `storage` by using the `fresco.storage.add` or `fresco.storage.remove` methods.
-`add`ing to storage requires a user-defined `tableName` and a `value` to store.
-Persisted items will be automatically assigned an `id` and are accessible afterwards on `fresco.element.storage.tableName`.
-Providing an `id` and `tableName` to `remove` will remove that item from the table.
+## Updating storage
 
-## Interactive with the space
+See [fresco.d.ts](reigns/src/fresco.d.ts).
+
+## Interact with the space
 
 An extension can also interact with the space in new way.
 For now, it can show two types of messages.
@@ -132,3 +132,7 @@ The second one is `options` which accepts the following values:
 
 - `color`: a string to describe the text color of the message
 - `background`: a string to describe the background color or the message
+
+## Subscribing to space events
+
+See [fresco.d.ts](reigns/src/fresco.d.ts).
