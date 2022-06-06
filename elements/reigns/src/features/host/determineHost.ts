@@ -1,5 +1,4 @@
-import { getSdk } from "../../sdk";
-import { GAME_TABLE } from "../game/Game";
+import { setHost } from "./persistence";
 
 export const HOST_KEY = "host";
 const DEBUG = false;
@@ -42,11 +41,7 @@ export const determineHost = ({
   if (DEBUG && !newHost) console.log("There is no eligible host");
 
   if (newHost && newHost.id === localParticipant.id) {
-    const { storage } = getSdk();
-    storage.realtime.set(GAME_TABLE, HOST_KEY, {
-      name: localParticipant.name,
-      id: localParticipant.id,
-    });
+    setHost(localParticipant);
   }
   return ordered[0];
 };

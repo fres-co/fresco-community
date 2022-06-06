@@ -1,4 +1,4 @@
-import React, { Dispatch, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Meters } from "./Meters";
 import { Question } from "./Question";
 import { NoAnswer } from "./NoAnswer";
@@ -12,8 +12,8 @@ import { AppState } from "./store";
 import { useOnFrescoStateUpdate } from "./features/voting/useOnFrescoStateUpdate";
 import { useVoteListener } from "./features/voting/useVoteListener";
 import { useCollateVotes } from "./features/voting/useCollateVotes";
-import { getSdk } from "./sdk";
 import { Game } from "./features/game/Game";
+import { getIsHost } from "./features/host/persistence";
 
 export default function App() {
   const phase = useSelector((state: AppState) => state.game.phase);
@@ -21,7 +21,7 @@ export default function App() {
   const selectedCard = useSelector(
     (state: AppState) => state.game.selectedCard
   );
-  const host = useSelector((state: AppState) => state.host.currentHost);
+  const currentHost = useSelector((state: AppState) => state.host.currentHost);
   const currentStats = useSelector((state: AppState) => state.game.stats);
   const gameUrl = useSelector((state: AppState) => state.game.gameUrl);
   const gameDefinition = useSelector(
@@ -51,13 +51,13 @@ export default function App() {
 
   const store = useStore<AppState>();
 
+  const isHost = getIsHost({ currentHost });
+
   const doRestartGame = () => {
     if (isHost) {
       new Game().startGame(store.getState().game);
     }
   };
-
-  const isHost = host && getSdk().localParticipant.id === host?.id;
 
   if (loading === Loading.InProgress) {
     return <div className="death">Loading...</div>;
@@ -92,7 +92,7 @@ export default function App() {
 
   return (
     <>
-      <div>The host is {host?.name}</div>
+      <div>The host is {currentHost?.name}</div>
       <Meters definition={gameDefinition} stats={currentStats} />
       <Question card={selectedCard} />
       <div className="answers">

@@ -9,6 +9,11 @@ import { GameState, PersistedGameState, Stat } from "./types";
 export const GAME_TABLE = "game";
 export const GAME_STATE_KEY = "state";
 
+/**
+ * Apart from `retrieve`, methods in this class should only ever
+ * be called by the player who is currently the host
+ */
+
 export class Game {
   retrieve(): PersistedGameState {
     return getSdk().storage.realtime.get(
@@ -18,15 +23,26 @@ export class Game {
   }
 
   private persist(state: PersistedGameState) {
-    const sdk = getSdk();
-    sdk.storage.realtime.set(GAME_TABLE, GAME_STATE_KEY, state);
+    getSdk().storage.realtime.set(GAME_TABLE, GAME_STATE_KEY, state);
     if (state.phase === GamePhase.ENDED) {
-      sdk.storage.realtime.set(GAME_TABLE, ROUND_RESOLUTION_KEY, undefined);
-      sdk.storage.realtime.clear(PARTICIPANT_VOTE_TABLE);
+      this.clearVotes();
     }
   }
 
+  private clearVotes() {
+    const sdk = getSdk();
+    sdk.storage.realtime.set(GAME_TABLE, ROUND_RESOLUTION_KEY, undefined);
+    sdk.storage.realtime.clear(PARTICIPANT_VOTE_TABLE);
+    return this;
+  }
+
+  changeGame() {
+    getSdk().storage.realtime.set(GAME_TABLE, GAME_STATE_KEY, undefined);
+    this.clearVotes();
+  }
+
   startGame(state: GameState) {
+    this.clearVotes();
     this.persist({
       phase: GamePhase.STARTED,
       selectedCard: selectNextCard(state.definition, state.flags),

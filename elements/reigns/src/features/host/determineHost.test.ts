@@ -68,7 +68,7 @@ describe("determineHost", () => {
 
   describe("on host change", () => {
     it("should persist new host if current user", () => {
-      const host = determineHost({
+      determineHost({
         mounted: { a: true },
         remoteParticipants: [createParticipant("b")],
         localParticipant: createParticipant("a"),
@@ -82,7 +82,7 @@ describe("determineHost", () => {
     });
 
     it("should not persist new host, if new host is another user", () => {
-      const host = determineHost({
+      determineHost({
         mounted: { a: true },
         remoteParticipants: [createParticipant("a")],
         localParticipant: createParticipant("b"),
