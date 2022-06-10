@@ -34,7 +34,6 @@ export const Game = () => {
 
   useEffect(() => {
     if (phase === GamePhase.ENDED) {
-      // This will cause a delay because the sound has not been pre-loaded first.
       const audio = new Audio('error.mp3');
       audio.play();
     }
