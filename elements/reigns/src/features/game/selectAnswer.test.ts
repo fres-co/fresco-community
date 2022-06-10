@@ -25,11 +25,11 @@ describe("selectAnswer", () => {
       expect(flags.chapter3).toBe("true");
     });
   });
-  it("should increment round at start", () => {
+  it("should set round to 1 at start", () => {
     const result = new Game()
-      .startGame(createGameState(undefined, { round: 1 }))
+      .startGame(createGameState(undefined, { round: 234234 }))
       .retrieve();
-    expect(result.round).toBe(2);
+    expect(result.round).toBe(1);
   });
   it("should increment round on yes", () => {
     const result = new Game()

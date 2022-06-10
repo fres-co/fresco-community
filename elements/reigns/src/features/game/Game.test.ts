@@ -42,7 +42,7 @@ describe("Game", () => {
       expect(getSdk().storage.realtime.all(PARTICIPANT_VOTE_TABLE)).toEqual({});
     });
     describe("startGame", () => {
-      it("should select a card", () => {
+      it("should select a card and set round to 1", () => {
         const result = new Game()
           .startGame(
             createGameState(
@@ -53,6 +53,7 @@ describe("Game", () => {
           )
           .retrieve();
         expect(result.selectedCard?.card).toBe("another card");
+        expect(result.round).toBe(1);
       });
     });
     describe("answerYes", () => {

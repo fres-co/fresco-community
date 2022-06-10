@@ -1,3 +1,8 @@
+:root {
+  --color-primary: #9e32d6;
+  --color-error: #e200a4;
+}
+
 html,
 body {
   font: 16px "Helvetica Neue", arial, sans-serif;
@@ -28,9 +33,23 @@ body,
 
 .header__side { flex: 1; }
 
-.round {
-  font-size: 2rem;
+.header .round {
   text-align: right;
+}
+
+.round {
+  color: #fff;
+  font-size: 2rem;
+}
+
+button {
+  color: #fff;
+  border-width: 0;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  padding: 1rem;
+  font-size: 2rem;
+  border-radius: 1rem;
 }
 
 .meters {
@@ -85,7 +104,7 @@ body,
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #9e32d6;
+  background-color: var(--color-primary);
 }
 
 .question {
@@ -107,11 +126,11 @@ body,
 }
 
 .answer--no {
-  background-color: #e200a4;
+  background-color: var(--color-error);
 }
 
 .answer--yes {
-  background-color: #9e32d6;
+  background-color: var(--color-primary);
 }
 
 .answer--neutral {
@@ -149,5 +168,12 @@ body,
   transform: translate(-50%, -50%);
 
   font-size: 6vw;
-  color: #e200a4;
+  color: var(--color-error);
+
+  width: 100%;
+  text-align: center;
+}
+
+.death__message {
+  margin-bottom: 2rem;
 }

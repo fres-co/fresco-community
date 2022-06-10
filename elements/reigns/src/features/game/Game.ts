@@ -53,7 +53,7 @@ export class Game {
       stats: state.definition
         ? state.definition.stats.map(({ value }) => value)
         : [],
-      round: state.round + 1,
+      round: 1,
       flags: {},
     });
     return this;

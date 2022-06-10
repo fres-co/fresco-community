@@ -50,8 +50,9 @@ export const Game = () => {
     return (
       <>
         <div className="death">
-          {gameDefinition?.deathMessage}
-          {isHost && <div onClick={doRestartGame}>Click to play again</div>}
+          <div className="round">{gameDefinition?.roundName} {round}</div>
+          <div className="death__message">{gameDefinition?.deathMessage}</div>
+          {isHost && <button onClick={doRestartGame}>Play again</button>}
         </div>
       </>
     );
@@ -59,8 +60,9 @@ export const Game = () => {
 
   if (phase === GamePhase.NOT_STARTED) {
     return (
-      <div className="death" onClick={doRestartGame}>
-        {isHost ? "Click to start" : "Waiting for host to start"}
+      <div className="death" >
+        {isHost && <button onClick={doRestartGame}>Start game</button>}
+        {!isHost && <div>Waiting for host to start</div>}
       </div>
     );
   }
