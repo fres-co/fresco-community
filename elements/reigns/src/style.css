@@ -168,12 +168,13 @@ button {
   transform: translate(-50%, -50%);
 
   font-size: 6vw;
-  color: var(--color-error);
-
+  
   width: 100%;
+  color: #fff;  
   text-align: center;
 }
 
 .death__message {
+  color: var(--color-error);
   margin-bottom: 2rem;
 }

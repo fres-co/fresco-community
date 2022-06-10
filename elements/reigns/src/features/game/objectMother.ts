@@ -46,6 +46,8 @@ export const createGameDefinition = (
       value: 5,
     },
   ],
+  roundName: 'Day',
+  gameName: 'My Game',
   assetsUrl: "whatever",
   deathMessage: "You died",
   ...override,

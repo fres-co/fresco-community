@@ -1,6 +1,7 @@
 {
   "deathMessage": "You have been fired!",
   "roundName": "Day",
+  "gameName": "A month in the life of a data officer",
   "stats": [
     {
       "name": "Profit",

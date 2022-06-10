@@ -60,9 +60,10 @@ export const Game = () => {
 
   if (phase === GamePhase.NOT_STARTED) {
     return (
-      <div className="death" >
+      <div className="death">
+        <div className="death__message">{gameDefinition?.gameName}</div>
         {isHost && <button onClick={doRestartGame}>Start game</button>}
-        {!isHost && <div>Waiting for host to start</div>}
+        {!isHost && <div>Waiting for host to start...</div>}
       </div>
     );
   }
