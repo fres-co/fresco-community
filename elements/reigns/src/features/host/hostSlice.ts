@@ -33,7 +33,6 @@ const hostSlice = createSlice({
       };
 
       state.currentHost = determineHost(hostParams);
-      console.log('currentHost', state.currentHost);
       state.frescoUpdateCount = state.frescoUpdateCount + 1;
 
       if (
