@@ -17,7 +17,9 @@ export const Question = ({ card }: { card: Card | null }) => {
         <img src={`${assetsUrl}/${card.bearer}.png`} />
         <div className='question__bearer'>{card.bearer}</div>
       </div>
-      <div className="question__text">{card.card}</div>
+      <div className='question__text-wrap'>
+        <div className="question__text">{card.card}</div>
+      </div>
     </div>
   );
 };

@@ -152,20 +152,14 @@
     "content": {
       "visuals": [
         {
-          "id": "is4b_8wjucmz8cbnn-iqb",
+          "id": "qpq4ifapibo7ko4flk52y",
           "isLocked": false,
-          "zIndex": 15,
+          "zIndex": 63,
           "layer": 0,
           "renderer": "Rectangle",
           "transform": {
-            "position": {
-              "x": 1490,
-              "y": 355
-            },
-            "size": {
-              "x": 1020,
-              "y": 60
-            },
+            "position": { "x": 5370, "y": -930 },
+            "size": { "x": 1740, "y": 420 },
             "rotation": 0
           },
           "appearance": {
@@ -180,49 +174,31 @@
           }
         },
         {
-          "id": "mvrm76bkrp0x9vxh67nbx",
+          "id": "_kn9ls-7gp0sk6vz58va8",
           "isLocked": false,
-          "zIndex": 27,
+          "zIndex": 64,
           "layer": 0,
-          "renderer": "IFrame",
+          "renderer": "LandingZone",
           "transform": {
-            "position": {
-              "x": 1490,
-              "y": 234
-            },
-            "size": {
-              "x": 1040,
-              "y": 640
-            },
+            "position": { "x": 5360, "y": -540 },
+            "size": { "x": 480, "y": 280 },
             "rotation": 0
           },
           "appearance": {
             "EVENTS": "",
-            "NAME": "story-quizz",
-            "TEXT_BEHAVIOUR": 2,
-            "STATE": {
-              "gameUrl": "games/gdpr.json"
-            },
-            "PROTECTED_STORAGE": {},
-            "PINNED": false,
-            "SOURCE": "https://fres-co.github.io/fresco-community/elements/reigns/dist/"
+            "TEXT_DISABLED": true,
+            "TEXT": "story-quizz-neutral"
           }
         },
         {
-          "id": "fqh9t0pvofof8gfhmvmbm",
+          "id": "vs0opi5da1p1zvgzr4ne5",
           "isLocked": false,
-          "zIndex": 160,
+          "zIndex": 65,
           "layer": 0,
           "renderer": "Rectangle",
           "transform": {
-            "position": {
-              "x": 1150,
-              "y": 435
-            },
-            "size": {
-              "x": 340,
-              "y": 220
-            },
+            "position": { "x": 4792, "y": -450 },
+            "size": { "x": 560, "y": 340 },
             "rotation": 0
           },
           "appearance": {
@@ -237,20 +213,14 @@
           }
         },
         {
-          "id": "gjifdpb4w0ukirobyei-l",
+          "id": "7-m_kpyw67qywfcqjsjq_",
           "isLocked": false,
-          "zIndex": 170,
+          "zIndex": 66,
           "layer": 0,
           "renderer": "Rectangle",
           "transform": {
-            "position": {
-              "x": 1830,
-              "y": 435
-            },
-            "size": {
-              "x": 340,
-              "y": 220
-            },
+            "position": { "x": 5939, "y": -451 },
+            "size": { "x": 540, "y": 340 },
             "rotation": 0
           },
           "appearance": {
@@ -265,66 +235,41 @@
           }
         },
         {
-          "id": "lzvhuurdcl2eqj1rrhafa",
+          "id": "wx5sbbdyf3t-y9jbqkplm",
           "isLocked": false,
-          "zIndex": 18,
+          "zIndex": 67,
           "layer": 0,
-          "renderer": "LandingZone",
+          "renderer": "IFrame",
           "transform": {
-            "position": {
-              "x": 1490,
-              "y": 460
-            },
-            "size": {
-              "x": 260,
-              "y": 160
-            },
+            "position": { "x": 5370, "y": -720 },
+            "size": { "x": 1780, "y": 920 },
             "rotation": 0
           },
           "appearance": {
             "EVENTS": "",
-            "TEXT_DISABLED": true,
-            "TEXT": "story-quizz-neutral"
+            "NAME": "story-quizz",
+            "TEXT_BEHAVIOUR": 2,
+            "STATE": {
+              "selectedCard": null,
+              "phase": "not-started",
+              "stats": [],
+              "gameUrl": "games/gdpr.json",
+              "cards": ""
+            },
+            "PROTECTED_STORAGE": {},
+            "PINNED": false,
+            "SOURCE": "https://fres-co.github.io/fresco-community/elements/reigns/dist/"
           }
         },
         {
-          "id": "c42owvlya9upl-smfmlwz",
+          "id": "xyv80qyqk3rkilgkiiz6c",
           "isLocked": false,
-          "zIndex": 23,
-          "layer": 0,
-          "renderer": "ConversationZone",
-          "transform": {
-            "position": {
-              "x": 1490,
-              "y": 245
-            },
-            "size": {
-              "x": 1020,
-              "y": 600
-            },
-            "rotation": 0
-          },
-          "appearance": {
-            "EVENTS": "",
-            "AUTOMUTE": false,
-            "TEXT_DISABLED": true
-          }
-        },
-        {
-          "id": "bvueueb9rxgus49f_ah1o",
-          "isLocked": false,
-          "zIndex": 25,
+          "zIndex": 3,
           "layer": 0,
           "renderer": "CameraFrame",
           "transform": {
-            "position": {
-              "x": 1490,
-              "y": 245
-            },
-            "size": {
-              "x": 1020,
-              "y": 600
-            },
+            "position": { "x": 5367, "y": -708 },
+            "size": { "x": 1800, "y": 920 },
             "rotation": 0
           },
           "appearance": {
@@ -333,32 +278,144 @@
             "APPEARANCE_CAMERA_MIN_ZOOM": 0,
             "APPEARANCE_MARGIN": 0
           }
+        },
+        {
+          "id": "nmklttxw-3x8gyslimkli",
+          "isLocked": false,
+          "zIndex": 2,
+          "layer": 0,
+          "renderer": "Sound",
+          "transform": {
+            "position": { "x": 5371, "y": -346 },
+            "size": { "x": 30, "y": 30 },
+            "rotation": 0
+          },
+          "appearance": {
+            "EVENTS": "",
+            "TEXT": "",
+            "TEXT_DISABLED": true,
+            "RADIUS": "900",
+            "SOURCE": "https://fres-co.github.io/fresco-community/assets/background-sounds/office.mp3",
+            "VOLUME": 5,
+            "LOOP": true,
+            "SPATIALIZED": true
+          }
+        },
+        {
+          "id": "wvwpeapqpx677hxafm39d",
+          "isLocked": false,
+          "zIndex": 68,
+          "layer": 0,
+          "renderer": "Raster",
+          "transform": {
+            "position": { "x": 6050, "y": -299 },
+            "size": { "x": 64, "y": 64 },
+            "rotation": 0
+          },
+          "appearance": {
+            "BORDER_RADIUS": 10,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "BACKGROUND_COLOR": "",
+            "IMAGE_TILED": false,
+            "ACTION": "",
+            "EVENTS": "",
+            "SOURCE": "https://fresco-upload-test.s3.amazonaws.com/public/z5blfymgs34e1efd9lcl9.png",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "nuwac0-d-ydb3vop-34qz",
+          "isLocked": false,
+          "zIndex": 69,
+          "layer": 0,
+          "renderer": "Raster",
+          "transform": {
+            "position": { "x": 5988, "y": -284 },
+            "size": { "x": 34, "y": 34 },
+            "rotation": 0
+          },
+          "appearance": {
+            "BORDER_RADIUS": 10,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "BACKGROUND_COLOR": "",
+            "IMAGE_TILED": false,
+            "ACTION": "",
+            "EVENTS": "",
+            "SOURCE": "https://fresco-upload-test.s3.amazonaws.com/public/z5blfymgs34e1efd9lcl9.png",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "ipjnnoeejr26thbkbyufd",
+          "isLocked": false,
+          "zIndex": 70,
+          "layer": 0,
+          "renderer": "Raster",
+          "transform": {
+            "position": { "x": 5941, "y": -284 },
+            "size": { "x": 34, "y": 34 },
+            "rotation": 0
+          },
+          "appearance": {
+            "BORDER_RADIUS": 10,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "BACKGROUND_COLOR": "",
+            "IMAGE_TILED": false,
+            "ACTION": "",
+            "EVENTS": "",
+            "SOURCE": "https://fresco-upload-test.s3.amazonaws.com/public/z5blfymgs34e1efd9lcl9.png",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "umkmnja54wglsudlaedjy",
+          "isLocked": false,
+          "zIndex": 71,
+          "layer": 0,
+          "renderer": "Raster",
+          "transform": {
+            "position": { "x": 5894, "y": -284 },
+            "size": { "x": 34, "y": 34 },
+            "rotation": 0
+          },
+          "appearance": {
+            "BORDER_RADIUS": 10,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "BACKGROUND_COLOR": "",
+            "IMAGE_TILED": false,
+            "ACTION": "",
+            "EVENTS": "",
+            "SOURCE": "https://fresco-upload-test.s3.amazonaws.com/public/z5blfymgs34e1efd9lcl9.png",
+            "STROKE_COLOR": 13224393
+          }
         }
       ],
       "groups": [
         {
-          "id": "npx8mpmtimznmdbboosg8",
-          "zIndex": 28,
+          "id": "8xeyvrz_esv4odoixj-jk",
+          "zIndex": 72,
           "isLocked": false,
           "layer": 0,
           "childIds": [
-            "is4b_8wjucmz8cbnn-iqb",
-            "mvrm76bkrp0x9vxh67nbx",
-            "fqh9t0pvofof8gfhmvmbm",
-            "gjifdpb4w0ukirobyei-l",
-            "lzvhuurdcl2eqj1rrhafa",
-            "c42owvlya9upl-smfmlwz",
-            "bvueueb9rxgus49f_ah1o"
+            "qpq4ifapibo7ko4flk52y",
+            "_kn9ls-7gp0sk6vz58va8",
+            "vs0opi5da1p1zvgzr4ne5",
+            "7-m_kpyw67qywfcqjsjq_",
+            "wx5sbbdyf3t-y9jbqkplm",
+            "xyv80qyqk3rkilgkiiz6c",
+            "nmklttxw-3x8gyslimkli",
+            "wvwpeapqpx677hxafm39d",
+            "nuwac0-d-ydb3vop-34qz",
+            "ipjnnoeejr26thbkbyufd",
+            "umkmnja54wglsudlaedjy"
           ],
           "transform": {
-            "position": {
-              "x": 0,
-              "y": 0
-            },
-            "size": {
-              "x": 0,
-              "y": 0
-            },
+            "position": { "x": 5367, "y": -714 },
+            "size": { "x": 1800, "y": 932 },
             "rotation": 0
           },
           "rotation": 0
