@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Meters } from "./Meters";
 import { Question } from "./Question";
 import { NoAnswer } from "./NoAnswer";
@@ -31,6 +31,14 @@ export const Game = () => {
   useVoteListener(phase);
 
   useCollateVotes();
+
+  useEffect(() => {
+    if (phase === GamePhase.ENDED) {
+      // This will cause a delay because the sound has not been pre-loaded first.
+      const audio = new Audio('error.mp3');
+      audio.play();
+    }
+  }, [phase]);
 
   const doRestartGame = () => {
     if (isHost) {
