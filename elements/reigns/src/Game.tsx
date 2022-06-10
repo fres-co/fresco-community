@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Meters } from "./Meters";
+import { Header } from "./Header";
 import { Question } from "./Question";
 import { NoAnswer } from "./NoAnswer";
 import { YesAnswer } from "./YesAnswer";
@@ -16,6 +16,7 @@ export const Game = () => {
   const currentHost = useSelector((state: AppState) => state.host.currentHost);
   const countdown = useSelector((state: AppState) => state.voting.countdown);
   const phase = useSelector((state: AppState) => state.game.phase);
+  const round = useSelector((state: AppState) => state.game.round);
   const selectedCard = useSelector(
     (state: AppState) => state.game.selectedCard
   );
@@ -34,7 +35,7 @@ export const Game = () => {
 
   useEffect(() => {
     if (phase === GamePhase.ENDED) {
-      const audio = new Audio('error.mp3');
+      const audio = new Audio("error.mp3");
       audio.play();
     }
   }, [phase]);
@@ -70,8 +71,7 @@ export const Game = () => {
 
   return (
     <>
-      <div>The host is {currentHost?.name}</div>
-      <Meters definition={gameDefinition} stats={currentStats} />
+      <Header definition={gameDefinition} stats={currentStats} round={round} />
       <Question card={selectedCard} />
       <div className="answers">
         <NoAnswer text={selectedCard.answer_no || "No"} />

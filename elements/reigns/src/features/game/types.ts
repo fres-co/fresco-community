@@ -38,6 +38,7 @@ export type GameDefinition = {
   stats: Stat[];
   assetsUrl: string;
   deathMessage: string;
+  roundName: string;
 };
 
 export type GameFlags = { [key: string]: string };

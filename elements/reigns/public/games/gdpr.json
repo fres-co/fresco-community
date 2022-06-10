@@ -1,5 +1,6 @@
 {
   "deathMessage": "You have been fired!",
+  "roundName": "Day",
   "stats": [
     {
       "name": "Profit",

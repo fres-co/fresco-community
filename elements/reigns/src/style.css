@@ -19,8 +19,21 @@ body,
   padding: 1rem;
 }
 
+.header {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header__side { flex: 1; }
+
+.round {
+  font-size: 2rem;
+  text-align: right;
+}
+
 .meters {
-  color: #fff;
   margin-bottom: 0;
   text-align: center;
   width: 400px;
