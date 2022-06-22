@@ -44,6 +44,63 @@ describe("validateGameDefinition", () => {
       ).toThrow();
     });
 
+    it("should pass with two cards with differnt ids", () => {
+      expect(() =>
+        validateCards([
+          {
+            card: "some card",
+            weight: 1,
+            conditions: "some rubbish",
+            id: "some-card",
+          } as Card,
+          {
+            card: "another card",
+            weight: 1,
+            conditions: "more rubbish",
+            id: "another-card",
+          } as Card,
+        ])
+      ).toThrow();
+    });
+
+    it("should throw with two card with same ids", () => {
+      expect(() =>
+        validateCards([
+          {
+            card: "some card",
+            weight: 1,
+            conditions: "some rubbish",
+            id: "card-id",
+          } as Card,
+
+          {
+            card: "another card",
+            weight: 1,
+            conditions: "more rubbish",
+            id: "card-id",
+          } as Card,
+        ])
+      ).toThrow();
+    });
+
+    it("should throw with two card with no ids", () => {
+      expect(() =>
+        validateCards([
+          {
+            card: "some card",
+            weight: 1,
+            conditions: "some rubbish",
+          } as Card,
+
+          {
+            card: "another card",
+            weight: 1,
+            conditions: "more rubbish",
+          } as Card,
+        ])
+      ).toThrow();
+    });
+
     it("should pass if good conditions", () => {
       expect(() =>
         validateCards([

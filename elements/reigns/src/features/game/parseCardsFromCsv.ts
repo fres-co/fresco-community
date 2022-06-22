@@ -15,5 +15,11 @@ export const parseCardsFromCsv = (
     throw new Error(parsedData.errors[0].message);
   }
 
-  return parsedData.data as Card[];
+  return (parsedData.data as Card[]).map((card: Card, index) => {
+    if (card.id !== '' && card.id !== null) {
+      return { ...card, id: `${card.id}` }
+    }
+
+    return { ...card, id: `index-${index}`}
+  }) as Card[];
 };

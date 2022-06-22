@@ -17,6 +17,7 @@ export const createGameState = (
 
 export const createCard = (cardOverride: Partial<Card> = {}): Card => ({
   card: "my card",
+  id: `created-card-${Date.now()}-${Math.floor(Math.random()* 1000)}`,
   bearer: "some text",
   weight: 1,
   answer_yes: "Yes!",
@@ -32,6 +33,7 @@ export const createCard = (cardOverride: Partial<Card> = {}): Card => ({
   no_stat4: 0,
   no_custom: "",
   conditions: "",
+  cooldown: 0,
   ...cardOverride,
 });
 
@@ -46,8 +48,8 @@ export const createGameDefinition = (
       value: 5,
     },
   ],
-  roundName: 'Day',
-  gameName: 'My Game',
+  roundName: "Day",
+  gameName: "My Game",
   assetsUrl: "whatever",
   deathMessage: "You died",
   ...override,

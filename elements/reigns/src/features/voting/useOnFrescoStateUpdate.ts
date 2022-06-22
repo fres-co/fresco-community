@@ -18,6 +18,7 @@ export const useOnFrescoStateUpdate = () => {
   }>({ id: null, isInsideElement: null });
   return () => {
     const state = new Game().retrieve();
+
     if (state) {
       dispatch(
         updateGame({
@@ -26,6 +27,7 @@ export const useOnFrescoStateUpdate = () => {
           round: state.round,
           selectedCard: state.selectedCard,
           stats: state.stats,
+          previouslySelectedCards: state.previouslySelectedCards,
         })
       );
     } else {

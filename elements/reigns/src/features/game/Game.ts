@@ -48,13 +48,15 @@ export class Game {
       selectedCard: selectNextCard(
         state.definition,
         state.flags,
-        state.designerCards
+        state.designerCards,
+        state.previouslySelectedCards
       ),
       stats: state.definition
         ? state.definition.stats.map(({ value }) => value)
         : [],
       round: 1,
       flags: {},
+      previouslySelectedCards: [],
     });
     return this;
   }

@@ -32,7 +32,7 @@ body,
 }
 
 .header__side {
-  flex: 1;
+  flex-grow: 1;
 }
 
 .header .round {
@@ -81,6 +81,28 @@ button {
   position: relative;
   padding: 0.25rem;
 }
+
+.meter__icon--grow .meter__percent {
+  background-color: green;
+}
+
+.meter__icon--shrink .meter__percent {
+  background-color: red;
+}
+
+@media only screen and (max-width: 600px) {
+  .meters {
+    width: 200px;
+  }
+  .meter__icon {
+    width: 32px;
+    height: 32px;
+  }
+  .meters img {
+    height: 32px;
+  }
+}
+
 .meter {
   position: relative;
 }
@@ -107,6 +129,7 @@ button {
   left: 0;
   right: 0;
   background-color: var(--color-primary);
+  transition: height 1s ease-in, background-color 0.3s ease-in;
 }
 
 .first-half {
@@ -120,6 +143,7 @@ button {
   display: flex;
   color: #fff;
   overflow: hidden;
+  min-height: 1px;
 }
 
 .question__text-wrap {

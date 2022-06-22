@@ -25,6 +25,7 @@ export const initialState: GameState = {
   gameUrl: null,
   definition: null,
   round: 0,
+  previouslySelectedCards: [],
 };
 
 export const gameSlice = createSlice({
@@ -37,6 +38,7 @@ export const gameSlice = createSlice({
       state.round = action.payload.round;
       state.selectedCard = action.payload.selectedCard;
       state.stats = action.payload.stats;
+      state.previouslySelectedCards = action.payload.previouslySelectedCards;
     },
     setPhase: (state, action: PayloadAction<GamePhase>) => {
       state.phase = action.payload;
@@ -45,8 +47,7 @@ export const gameSlice = createSlice({
       try {
         const cards = parseCardsFromCsv(action.payload.designerCardsCsv);
         if (cards) {
-          validateCards(cards);
-          state.designerCards = cards;
+          state.designerCards = validateCards(cards);
         } else {
           state.designerCards = undefined;
         }

@@ -202,7 +202,7 @@
             "rotation": 0
           },
           "appearance": {
-            "EVENTS": "[{\"event\":\"avatar.entered.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"mezljzbhbdowtosc2lxop\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.no' })\"}}]},{\"event\":\"avatar.left.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"dffpqjjhi1h4yvv1k2cqe\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.remove-vote' })\"}}]}]",
+            "EVENTS": "[{\"event\":\"avatar.stopped.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"mezljzbhbdowtosc2lxop\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.no' })\"}}]},{\"event\":\"avatar.left.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"dffpqjjhi1h4yvv1k2cqe\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.remove-vote' })\"}}]}]",
             "COLOR": "#5905F8",
             "STROKE_COLOR": 13224393,
             "STROKE_THICKNESS": 0,
@@ -224,7 +224,7 @@
             "rotation": 0
           },
           "appearance": {
-            "EVENTS": "[{\"event\":\"avatar.entered.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"v8k_3akjfshcvjw6xfcrp\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.yes' })\"}}]},{\"event\":\"avatar.left.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"ef0krxipjig7ap4u8xl4s\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.remove-vote' })\"}}]}]",
+            "EVENTS": "[{\"event\":\"avatar.stopped.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"v8k_3akjfshcvjw6xfcrp\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.yes' })\"}}]},{\"event\":\"avatar.left.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"ef0krxipjig7ap4u8xl4s\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.remove-vote' })\"}}]}]",
             "COLOR": "#5905F8",
             "STROKE_COLOR": 13224393,
             "STROKE_THICKNESS": 0,

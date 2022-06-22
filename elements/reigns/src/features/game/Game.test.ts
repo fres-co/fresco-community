@@ -6,7 +6,7 @@ import {
   persistParticipantVote,
 } from "../voting/useVoteListener";
 import { getLatestVote } from "../voting/votingSlice";
-import { Game } from "./Game";
+import { Game, GAME_STATE_KEY, GAME_TABLE } from "./Game";
 import { mockSdk } from "./mocks";
 import {
   createCard,
@@ -54,6 +54,20 @@ describe("Game", () => {
           .retrieve();
         expect(result.selectedCard?.card).toBe("another card");
         expect(result.round).toBe(1);
+      });
+      it("should clear flags", () => {
+        const game = new Game();
+        const state = createGameState(createGameDefinition(), {
+          flags: {
+            chapter3: "true",
+          },
+        });
+        getSdk().storage.realtime.set(GAME_TABLE, GAME_STATE_KEY, state);
+        expect(game.retrieve().flags.chapter3).toBe("true");
+
+        game.startGame(state);
+
+        expect(game.retrieve().flags.chapter3).toBe(undefined);
       });
     });
     describe("answerYes", () => {

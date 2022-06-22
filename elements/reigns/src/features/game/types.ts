@@ -13,8 +13,10 @@ export type CardFlag = {
 
 export type Card = {
   card: string;
+  id: string;
   bearer: string;
   weight: number;
+  cooldown: number;
 
   answer_yes: string;
   yes_stat1: number;
@@ -56,6 +58,7 @@ export type PersistedGameState = {
   stats: number[];
   round: number;
   flags: GameFlags;
+  previouslySelectedCards: Card[]; // array sorted in the reverse order, recently viewed card have the lowest index
 };
 
 export type PersistedState = Configuration & PersistedGameState;

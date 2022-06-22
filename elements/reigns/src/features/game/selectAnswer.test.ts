@@ -43,33 +43,47 @@ describe("selectAnswer", () => {
       .retrieve();
     expect(result.round).toBe(2);
   });
-  it("should end game if a card reduces a stat to zero", () => {
-    const result = new Game()
-      .answerYes(
-        createGameState(undefined, {
-          selectedCard: createCard({
-            yes_stat1: -1,
-          }),
-          stats: [1],
-          phase: GamePhase.STARTED,
-        })
-      )
-      .retrieve();
-    expect(result.phase).toBe(GamePhase.ENDED);
-  });
-  it("should not end game if a stat is already zero and not updated by a card", () => {
-    const result = new Game()
-      .answerYes(
-        createGameState(undefined, {
-          selectedCard: createCard({
-            yes_stat1: -1,
-            yes_stat2: 0,
-          }),
-          stats: [4, 0],
-          phase: GamePhase.STARTED,
-        })
-      )
-      .retrieve();
-    expect(result.phase).toBe(GamePhase.STARTED);
+  describe("game end", () => {
+    const chooseAnswerThatEndsGame = () => {
+      const result = new Game()
+        .answerYes(
+          createGameState(undefined, {
+            selectedCard: createCard({
+              yes_stat1: -1,
+            }),
+            stats: [1],
+            phase: GamePhase.STARTED,
+          })
+        )
+        .retrieve();
+      return result;
+    };
+    it("should end game if a card reduces a stat to zero", () => {
+      const result = chooseAnswerThatEndsGame();
+      expect(result.phase).toBe(GamePhase.ENDED);
+    });
+    it("should clear flags", () => {
+      const result = chooseAnswerThatEndsGame();
+      expect(result.flags).toStrictEqual({});
+    });
+    it("should clear selected card", () => {
+      const result = chooseAnswerThatEndsGame();
+      expect(result.selectedCard).toBe(null);
+    });
+    it("should not end game if a stat is already zero and not updated by a card", () => {
+      const result = new Game()
+        .answerYes(
+          createGameState(undefined, {
+            selectedCard: createCard({
+              yes_stat1: -1,
+              yes_stat2: 0,
+            }),
+            stats: [4, 0],
+            phase: GamePhase.STARTED,
+          })
+        )
+        .retrieve();
+      expect(result.phase).toBe(GamePhase.STARTED);
+    });
   });
 });

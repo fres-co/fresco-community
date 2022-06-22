@@ -1,4 +1,5 @@
 import { GamePhase } from "../../constants";
+import { Game } from "../../Game";
 import { selectNextCard } from "./selectNextCard";
 import {
   Card,
@@ -33,19 +34,33 @@ export const selectAnswer = (
     return newValue;
   });
 
-  const flags = setFlags(state.flags, getFlags(state.selectedCard!, cardFlag));
-
   const phase = stats.filter((_, ix) => cardStats[ix]).some((v) => v <= 0)
     ? GamePhase.ENDED
     : GamePhase.STARTED;
 
+  const flags =
+    phase === GamePhase.ENDED
+      ? {}
+      : setFlags(state.flags, getFlags(state.selectedCard!, cardFlag));
+
   const round = state.round + 1;
 
-  const selectedCard = selectNextCard(
-    state.definition,
-    flags,
-    state.designerCards
-  );
+  const previouslySelectedCards =
+    phase === GamePhase.ENDED
+      ? []
+      : state.selectedCard
+      ? [state.selectedCard, ...state.previouslySelectedCards]
+      : state.previouslySelectedCards;
+
+  const selectedCard =
+    phase === GamePhase.ENDED
+      ? null
+      : selectNextCard(
+          state.definition,
+          flags,
+          state.designerCards,
+          previouslySelectedCards
+        );
 
   return {
     phase,
@@ -53,6 +68,7 @@ export const selectAnswer = (
     stats,
     flags,
     selectedCard,
+    previouslySelectedCards,
   };
 };
 

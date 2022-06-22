@@ -48,9 +48,11 @@ export const Game = () => {
 
   if (phase === GamePhase.ENDED) {
     return (
-      <div className='game-half first-half'>
+      <div className="game-half first-half">
         <div className="death">
-          <div className="round">{gameDefinition?.roundName} {round}</div>
+          <div className="round">
+            {gameDefinition?.roundName} {round}
+          </div>
           <div className="death__message">{gameDefinition?.deathMessage}</div>
           {isHost && <button onClick={doRestartGame}>Play again</button>}
         </div>
@@ -60,7 +62,7 @@ export const Game = () => {
 
   if (phase === GamePhase.NOT_STARTED) {
     return (
-      <div className='game-half first-half'>
+      <div className="game-half first-half">
         <div className="death">
           <div className="death__message">{gameDefinition?.gameName}</div>
           {isHost && <button onClick={doRestartGame}>Start game</button>}
@@ -77,7 +79,11 @@ export const Game = () => {
   return (
     <>
       <div className="game-half first-half" onClick={doRestartGame}>
-        <Header definition={gameDefinition} stats={currentStats} round={round} />
+        <Header
+          definition={gameDefinition}
+          stats={currentStats}
+          round={round}
+        />
         <Question card={selectedCard} />
       </div>
       <div className="game-half answers">
