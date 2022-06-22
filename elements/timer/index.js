@@ -1,14 +1,15 @@
 const main = document.getElementById("main");
 let formDuration = null;
+let value = [10, 00];
 
 function render(timer) {
   if (fresco.element.state.timer === "initial") {
     main.innerHTML = `
       <div>
-      <form id="form" onchange="valueForm(this)">
-        <input type="number" id="minutes" min="0" max="59" value="10"/>
-        <input type="number" id="seconds" min="0" max="59" value="00"/>
-        <button id="start" type="submit" onclick="submitForm()">Start</button>
+      <form id="form" onkeyup="valueForm(this)">
+        <input type="number" id="minutes" min="0" max="59" value="${value[0]}"/>
+        <input type="number" id="seconds" min="0" max="59" value="${value[1]}"/>
+        <button id="start" type="submit" onclick="toggleTimer()">Start</button>
       </form>
       </div>
     `;
@@ -35,10 +36,6 @@ function valueForm(e) {
   const seconds = parseFloat(e[1].value) / 60;
   formDuration = minutes + seconds;
   fresco.setState({ duration: formDuration, startedAt: "initial" });
-}
-
-function submitForm() {
-  toggleTimer();
 }
 
 function toTime(milliseconds) {
@@ -78,7 +75,15 @@ function pauseTimer() {
 function resetTimer() {
   clearInterval(interval);
   interval = null;
+  resetValue(formDuration);
   fresco.setState({ duration: 10, startedAt: null, timer: "initial" });
+}
+
+function resetValue(e) {
+  let milliseconds = e * 60 * 1000;
+  const seconds = milliseconds / 1000;
+  value[0] = Math.floor(seconds / 60);
+  value[1] = Math.floor(seconds % 60);
 }
 
 function startTimer(targetTime, now) {
@@ -125,16 +130,14 @@ fresco.onReady(function () {
   };
 
   fresco.onStateChanged(function () {
-    if (fresco.element.state.startedAt === 'initial') {
-      console.log("here", fresco.element.state.startedAt);
-    }
-    else if (!fresco.element.state.startedAt) {
+    if (fresco.element.state.startedAt === "initial") {
+    } else if (!fresco.element.state.startedAt) {
       stopTimer();
     } else {
       stopTimer();
       targetTime =
-      fresco.element.state.startedAt +
-      fresco.element.state.duration * 60 * 1000;
+        fresco.element.state.startedAt +
+        fresco.element.state.duration * 60 * 1000;
       startTimer(targetTime, new Date().getTime());
     }
 
