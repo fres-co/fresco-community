@@ -1,5 +1,5 @@
 const main = document.getElementById("main");
-let formDuration = null;
+let formDuration = 10;
 let value = [10, 00];
 
 function render(timer) {
