@@ -22,7 +22,7 @@ export const useFresco = function (onUpdate: () => void) {
         selectedCard: null,
         phase: GamePhase.NOT_STARTED,
         stats: [],
-        gameUrl: "games/gdpr.json",
+        gameUrl: "games/gdpr.csv",
         cards: null,
       };
 
