@@ -4,7 +4,7 @@ import { Question } from "../Question";
 import { AnswerArea } from "../AnswerArea";
 import { Countdown } from "../Countdown";
 import { Card, GameDefinition } from "../features/game/types";
-import { AnswerText } from "../AnswerText";
+import { OptionalAnswerText } from "../OptionalAnswerText";
 
 export const StartedScreen = ({
   gameDefinition,
@@ -34,34 +34,28 @@ export const StartedScreen = ({
       <Header definition={gameDefinition} stats={currentStats} />
       <Question card={selectedCard} />
       <div className="answers">
-        {selectedCard.answer_no ? (
-          <AnswerText
-            text={selectedCard.answer_no || "No"}
-            answer="no"
-            progress={noProgress}
-            color="#e200a4"
-            votesMissing={noVotesMissing}
-          />
-        ) : (
-          <div className="answer" />
-        )}
+        <OptionalAnswerText
+          visible={Boolean(selectedCard.answer_no)}
+          text={selectedCard.answer_no || "No"}
+          answer="no"
+          progress={noProgress}
+          color="#e200a4"
+          votesMissing={noVotesMissing}
+        />
+
         <div className="answer">
           <div className="round">
             {gameDefinition.roundName} {round}
           </div>
         </div>
-
-        {selectedCard.answer_yes ? (
-          <AnswerText
-            text={selectedCard.answer_yes || "Yes"}
-            answer="yes"
-            progress={yesProgress}
-            color="#9e32d6"
-            votesMissing={yesVotesMissing}
-          />
-        ) : (
-          <div className="answer" />
-        )}
+        <OptionalAnswerText
+          visible={Boolean(selectedCard.answer_yes)}
+          text={selectedCard.answer_yes || "Yes"}
+          answer="yes"
+          progress={yesProgress}
+          color="#9e32d6"
+          votesMissing={yesVotesMissing}
+        />
       </div>
     </div>
     <div className="answers floor">
