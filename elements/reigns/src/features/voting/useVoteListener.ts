@@ -10,6 +10,7 @@ export const useVoteListener = (phase: GamePhase) => {
     if (phase === GamePhase.STARTED) {
       const sdk = getSdk();
       const yesListener = sdk.subscribeToGlobalEvent("custom.reign.yes", () => {
+        console.log("maxired yes listener", new Game().retrieve().selectedCard);
         if (new Game().retrieve().selectedCard?.answer_yes) {
           Logger.log(Logger.VOTE, "vote yes");
           persistParticipantVote(sdk.localParticipant.id, "Yes");
