@@ -1,6 +1,9 @@
-import React from "react";
-import { GameDefinition } from "../features/game/types";
+import React, { useEffect } from "react";
+import { Game } from "../features/game/Game";
+import { Card, GameDefinition } from "../features/game/types";
 import { useTextFit } from "../useTextFit";
+import { useVotes } from "./ConnectedStartedScreen";
+import { StartedScreen } from "./StartedScreen";
 
 export function NotStartedScreen({
   gameDefinition,
@@ -13,20 +16,30 @@ export function NotStartedScreen({
 }) {
   const messageRef = useTextFit(gameDefinition?.gameName);
 
+  const progress = useVotes();
+  if (!gameDefinition) {
+    // todo loading
+    return <div>Loading</div>;
+  }
+
+  useEffect(() => {
+    if (isHost && gameDefinition) {
+      new Game().prepareGame(gameDefinition);
+    }
+  }, [isHost, gameDefinition]);
+
+  if (!progress.selectedCard) {
+    return null;
+  }
+
   return (
-    <>
-      <div className="screen game--not-started">
-        <div className="end">
-          <div className="end__message" ref={messageRef} />
-          {isHost && (
-            <button className="end__restart_button" onClick={doRestartGame}>
-              Start game
-            </button>
-          )}
-          {!isHost && <div>Waiting for host to start...</div>}
-        </div>
-      </div>
-      <div className="floor" />
-    </>
+    <StartedScreen
+      round={0}
+      doRestartGame={doRestartGame}
+      gameDefinition={gameDefinition}
+      currentStats={[]}
+      {...progress}
+      selectedCard={progress.selectedCard}
+    />
   );
 }

@@ -31,7 +31,7 @@ export const StartedScreen = ({
 }) => (
   <>
     <div className="screen game--started" onClick={doRestartGame}>
-      <Header definition={gameDefinition} stats={currentStats} />
+      <Header definition={gameDefinition} stats={currentStats} round={round} />
       <Question card={selectedCard} />
       <div className="answers">
         <OptionalAnswerText
@@ -45,7 +45,7 @@ export const StartedScreen = ({
 
         <div className="answer">
           <div className="round">
-            {gameDefinition.roundName} {round}
+            {round !== 0 && `${gameDefinition.roundName} ${round}`}
           </div>
         </div>
         <OptionalAnswerText
@@ -61,7 +61,7 @@ export const StartedScreen = ({
     <div className="answers floor">
       <AnswerArea answer="no" visible={Boolean(selectedCard.answer_no)} />
       <div className="answer answer--neutral">
-        {countdown.isVoting && (
+        {countdown?.isVoting && (
           <div className="countdown" data-testid="countdown">
             <>{countdown.value}...</>
           </div>

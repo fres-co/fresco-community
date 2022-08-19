@@ -14,7 +14,7 @@ export const useCollateVotes = () => {
       const isHost = getIsHost(state.host);
       if (!isHost) return;
       const phase = state.game.phase;
-      if (phase !== GamePhase.STARTED) return;
+      // if (phase !== GamePhase.STARTED) return;
       resolveRound(state.game);
     },
     1000,

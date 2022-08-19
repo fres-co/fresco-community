@@ -29,6 +29,7 @@ export const selectAnswer = (
   state: GameState,
   cardFlag: Extract<FlagFields, "no_custom" | "yes_custom">
 ): PersistedGameState => {
+  console.log("maxired selectAnswer");
   const cardStats = getCardStats(state.selectedCard!, cardFlag);
   const stats = cardStats.map((cardStatValue, ix) => {
     const currentStat = state.stats[ix];

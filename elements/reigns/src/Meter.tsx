@@ -20,7 +20,14 @@ export const Meter = ({
   const [currentAnimation, setCurrentAnimation] = useState("");
   const previousPercent = useRef(0);
 
+  console.log("maxired meter", previousPercent, percent);
   useEffect(() => {
+    if (percent == undefined || previousPercent.current === undefined) {
+      if (percent !== undefined) {
+        previousPercent.current = percent;
+      }
+      return;
+    }
     const isBig = Math.abs(percent - previousPercent.current) > 5;
     // Whenever percent changes, we want to add a class
     // to the meter element to make it change color
