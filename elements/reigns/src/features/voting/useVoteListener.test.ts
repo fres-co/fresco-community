@@ -64,7 +64,7 @@ describe("use vote listener", () => {
       });
 
       describe("when current card has no answer_yes value", () => {
-        it("does triggers custom.reign.local_yes event", () => {
+        it("does not trigger custom.reign.local_yes event", () => {
           jest.spyOn(Game.prototype, "retrieve").mockImplementation(
             () =>
               ({
@@ -110,7 +110,7 @@ describe("use vote listener", () => {
       });
 
       describe("when current card has no answer_no value", () => {
-        it("does triggers custom.reign.local_no event", () => {
+        it("does not trigger custom.reign.local_no event", () => {
           jest.spyOn(Game.prototype, "retrieve").mockImplementation(
             () =>
               ({

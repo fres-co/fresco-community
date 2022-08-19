@@ -159,14 +159,14 @@ describe("validateGameDefinition", () => {
       expect(() => validateCards([card])).toThrow();
     });
 
-    it("should not throw if with a valid answer_yes and no answer_no", () => {
+    it("should not throw when a valid answer_yes and no answer_no", () => {
       const card = createDefaultCard();
       delete (card as any).answer_no;
       (card as any).answer_yes = "yes";
       expect(() => validateCards([card])).not.toThrow();
     });
 
-    it("should not throw if with a valid answer_no and no answer_yes", () => {
+    it("should not throw when a valid answer_no and no answer_yes", () => {
       const card = createDefaultCard();
       delete (card as any).answer_yes;
       (card as any).answer_no = "no";

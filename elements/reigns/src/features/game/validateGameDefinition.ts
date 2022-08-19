@@ -89,7 +89,7 @@ export const validateCards = (cards: Card[] | undefined): Card[] => {
     }
 
     if (!card.answer_no && !card.answer_yes) {
-      throw new Error(`Card ${i + 1} is invalid. At least an answer mut be supplied`)
+      throw new Error(`Card ${i + 1} is invalid. At least one answer must be supplied`)
     }
 
     validateFlags(getFlags(card, "yes_custom"), "yes_custom", i + 1);
