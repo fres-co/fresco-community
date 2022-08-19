@@ -151,7 +151,7 @@ describe("validateGameDefinition", () => {
       ).toThrow();
     });
 
-    it("should thrown if no answer_yes and no answer_no", () => {
+    it("should throw if no answer_yes and no answer_no", () => {
       const card = createDefaultCard();
       delete (card as any).answer_no;
       delete (card as any).answer_yes;
