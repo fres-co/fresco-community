@@ -10,7 +10,7 @@ const getVotesMissingMessage = (votesMissing: number) => {
   return `${votesMissing} votes ${VOTES_MISSING_SUFFIX}`;
 };
 
-type Props = {
+export type AnswerTextProps = {
   text: string;
   answer: "yes" | "no";
   progress: number;
@@ -24,7 +24,7 @@ export const AnswerText = ({
   progress,
   votesMissing,
   color,
-}: Props) => {
+}: AnswerTextProps) => {
   const isChangingQuestion = useSelector(
     (state: AppState) => state.transition.question
   );

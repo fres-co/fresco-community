@@ -4,7 +4,7 @@ import { Question } from "../Question";
 import { AnswerArea } from "../AnswerArea";
 import { Countdown } from "../Countdown";
 import { Card, GameDefinition } from "../features/game/types";
-import { AnswerText } from "../AnswerText";
+import { OptionalAnswerText } from "../OptionalAnswerText";
 
 export const StartedScreen = ({
   gameDefinition,
@@ -33,34 +33,33 @@ export const StartedScreen = ({
     <div className="screen game--started" onClick={doRestartGame}>
       <Header definition={gameDefinition} stats={currentStats} />
       <Question card={selectedCard} />
-      <div className='answers'>
-        <AnswerText
+      <div className="answers">
+        <OptionalAnswerText
+          visible={Boolean(selectedCard.answer_no)}
           text={selectedCard.answer_no || "No"}
           answer="no"
           progress={noProgress}
           color="#e200a4"
           votesMissing={noVotesMissing}
         />
-        <div className='answer'>
+
+        <div className="answer">
           <div className="round">
             {gameDefinition.roundName} {round}
           </div>
         </div>
-
-        <AnswerText
-        text={selectedCard.answer_yes || "Yes"}
-        answer="yes"
-        progress={yesProgress}
-        color="#9e32d6"
-        votesMissing={yesVotesMissing}
-      />
-
+        <OptionalAnswerText
+          visible={Boolean(selectedCard.answer_yes)}
+          text={selectedCard.answer_yes || "Yes"}
+          answer="yes"
+          progress={yesProgress}
+          color="#9e32d6"
+          votesMissing={yesVotesMissing}
+        />
       </div>
     </div>
     <div className="answers floor">
-      <AnswerArea
-        answer="no"
-      />
+      <AnswerArea answer="no" visible={Boolean(selectedCard.answer_no)} />
       <div className="answer answer--neutral">
         {countdown.isVoting && (
           <div className="countdown" data-testid="countdown">
@@ -68,7 +67,7 @@ export const StartedScreen = ({
           </div>
         )}
       </div>
-      <AnswerArea answer="yes" />
+      <AnswerArea answer="yes" visible={Boolean(selectedCard.answer_yes)} />
     </div>
   </>
 );

@@ -348,7 +348,7 @@
             "rotation": 0
           },
           "appearance": {
-            "EVENTS": "[{\"event\":\"avatar.stopped.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"mezljzbhbdowtosc2lxop\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.no' })\"}},{\"id\":\"yypjpec65doggdgthibpk\",\"type\":\"SET_PARTICIPANT_COLOR\",\"payload\":{\"color\":\"#e200a4\"}}]},{\"event\":\"avatar.left.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"dffpqjjhi1h4yvv1k2cqe\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.remove-vote' })\"}},{\"id\":\"mgezsn-lyzivq6uholety\",\"type\":\"RESET_PARTICIPANT_COLOR\",\"payload\":{}}]}]",
+            "EVENTS": "[{\"event\":\"avatar.stopped.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"mezljzbhbdowtosc2lxop\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.no' })\"}}]},{\"event\":\"avatar.left.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"dffpqjjhi1h4yvv1k2cqe\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.remove-vote' })\"}},{\"id\":\"mgezsn-lyzivq6uholety\",\"type\":\"RESET_PARTICIPANT_COLOR\",\"payload\":{}}]},{\"event\":\"custom.reign.local_no\",\"scope\":\"global\",\"actions\":[{\"id\":\"yypjpec65doggdgthibpk\",\"type\":\"SET_PARTICIPANT_COLOR\",\"payload\":{\"color\":\"#e200a4\"}}]}]",
             "COLOR": "#5905F8",
             "STROKE_COLOR": 13224393,
             "STROKE_THICKNESS": 0,
@@ -370,7 +370,7 @@
             "rotation": 0
           },
           "appearance": {
-            "EVENTS": "[{\"event\":\"avatar.stopped.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"v8k_3akjfshcvjw6xfcrp\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.yes' })\"}},{\"id\":\"y3i0iut57-szpwrxdzloq\",\"type\":\"SET_PARTICIPANT_COLOR\",\"payload\":{\"color\":\"#9e32d6\"}}]},{\"event\":\"avatar.left.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"ef0krxipjig7ap4u8xl4s\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.remove-vote' })\"}},{\"id\":\"_h4x84tmsd2px2wjtqoxo\",\"type\":\"RESET_PARTICIPANT_COLOR\",\"payload\":{}}]}]",
+            "EVENTS": "[{\"event\":\"avatar.stopped.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"v8k_3akjfshcvjw6xfcrp\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.yes' })\"}}]},{\"event\":\"avatar.left.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"ef0krxipjig7ap4u8xl4s\",\"type\":\"SCRIPT\",\"payload\":{\"script\":\"fresco.triggerEvent({ eventName: 'custom.reign.remove-vote' })\"}},{\"id\":\"_h4x84tmsd2px2wjtqoxo\",\"type\":\"RESET_PARTICIPANT_COLOR\",\"payload\":{}}]},{\"event\":\"custom.reign.local_yes\",\"scope\":\"global\",\"actions\":[{\"id\":\"y3i0iut57-szpwrxdzloq\",\"type\":\"SET_PARTICIPANT_COLOR\",\"payload\":{\"color\":\"#9e32d6\"}}]}]",
             "COLOR": "#5905F8",
             "STROKE_COLOR": 13224393,
             "STROKE_THICKNESS": 0,
