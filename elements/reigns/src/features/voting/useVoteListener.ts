@@ -11,9 +11,7 @@ export const useVoteListener = (phase: GamePhase) => {
     if (phase === GamePhase.STARTED || phase === GamePhase.NOT_STARTED) {
       const sdk = getSdk();
       const yesListener = sdk.subscribeToGlobalEvent("custom.reign.yes", () => {
-        console.log("useVoteListener yes");
         const game = new Game().retrieve();
-        console.log("useVoteListener yes", { game });
         const canVoteYes =
           (game.phase === GamePhase.STARTED && game.selectedCard?.answer_yes) ||
           game.phase === GamePhase.NOT_STARTED;

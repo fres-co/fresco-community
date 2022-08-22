@@ -20,7 +20,6 @@ export const Meter = ({
   const [currentAnimation, setCurrentAnimation] = useState("");
   const previousPercent = useRef(0);
 
-  console.log("maxired meter", previousPercent, percent);
   useEffect(() => {
     if (percent == undefined || previousPercent.current === undefined) {
       if (percent !== undefined) {
