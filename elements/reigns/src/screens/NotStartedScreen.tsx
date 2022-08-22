@@ -1,19 +1,16 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { GamePhase } from "../constants";
 import { Game } from "../features/game/Game";
-import { Card, GameDefinition } from "../features/game/types";
-import { useTextFit } from "../useTextFit";
-import { useVotes } from "./ConnectedStartedScreen";
-import { StartedScreen } from "./StartedScreen";
+import { GameDefinition } from "../features/game/types";
+import { useVotes } from "../useVotes";
+import { VotingScreen } from "./VotingScreen";
 
 export function NotStartedScreen({
   gameDefinition,
   isHost,
-  doRestartGame,
 }: {
   gameDefinition: GameDefinition | null;
   isHost: string | boolean | undefined;
-  doRestartGame: () => void;
 }) {
   const votes = useVotes();
   if (!gameDefinition) {
@@ -32,9 +29,8 @@ export function NotStartedScreen({
   }
 
   return (
-    <StartedScreen
+    <VotingScreen
       round={0}
-      doRestartGame={doRestartGame}
       gameDefinition={gameDefinition}
       currentStats={[]}
       {...votes}

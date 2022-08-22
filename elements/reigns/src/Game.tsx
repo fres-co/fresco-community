@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useStore } from "react-redux";
 import { GamePhase, VICTORY_FLAG_NAME, VICTORY_FLAG_VALUE } from "./constants";
 import { usePersistIsMounted } from "./features/host/usePersistIsMounted";
@@ -7,12 +7,10 @@ import { useVoteListener } from "./features/voting/useVoteListener";
 import { useCollateVotes } from "./features/voting/useCollateVotes";
 import { Game as GamePersistence } from "./features/game/Game";
 import { getIsHost } from "./features/host/persistence";
-import { Countdown } from "./Countdown";
 import { getSdk } from "./sdk";
 import { EndedScreen } from "./screens/EndedScreen/EndedScreen";
 import { NotStartedScreen } from "./screens/NotStartedScreen";
 import { StartedScreen } from "./screens/StartedScreen";
-import { ConnectedStartedScreen } from "./screens/ConnectedStartedScreen";
 
 export const Game = () => {
   const currentHost = useSelector((state: AppState) => state.host.currentHost);
@@ -65,13 +63,7 @@ export const Game = () => {
   };
 
   if (phase === GamePhase.NOT_STARTED) {
-    return (
-      <NotStartedScreen
-        gameDefinition={gameDefinition}
-        isHost={isHost}
-        doRestartGame={doRestartGame}
-      />
-    );
+    return <NotStartedScreen gameDefinition={gameDefinition} isHost={isHost} />;
   }
 
   if (!gameDefinition) {
@@ -87,18 +79,16 @@ export const Game = () => {
         isGameWon={isGameWon}
         round={round - 1}
         isHost={isHost}
-        doRestartGame={doRestartGame}
       />
     );
   }
 
   return (
-    <ConnectedStartedScreen
+    <StartedScreen
       key="screen"
       gameDefinition={gameDefinition}
       currentStats={currentStats}
       round={round}
-      doRestartGame={doRestartGame}
     />
   );
 };

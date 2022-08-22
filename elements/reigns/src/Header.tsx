@@ -6,16 +6,15 @@ export const Header = ({
   definition,
   stats,
   round,
-  phase
+  phase,
 }: {
   definition: GameDefinition;
   stats: number[];
   round: number;
-  phase: GamePhase
+  phase: GamePhase;
 }) => {
-
-  if(round === 0){
-    return null
+  if (round === 0) {
+    return null;
   }
   return (
     <div className="block header">
