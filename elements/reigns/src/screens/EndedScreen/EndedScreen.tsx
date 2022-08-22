@@ -1,8 +1,11 @@
 import React from "react";
 import { Header } from "../../Header";
-import { GameDefinition } from "../../features/game/types";
+import { Card, GameDefinition } from "../../features/game/types";
 import { useTextFit } from "../../useTextFit";
 import { getEndMessage } from "./utils";
+import { StartedScreen } from "../StartedScreen";
+import { useVotes } from "../ConnectedStartedScreen";
+import { GamePhase } from "../../constants";
 
 export function EndedScreen({
   gameDefinition,
@@ -22,24 +25,16 @@ export function EndedScreen({
   const endMessage = getEndMessage(gameDefinition, currentStats, isGameWon);
   const messageRef = useTextFit(endMessage, 86);
 
-  return (
-    <>
-      <div className="screen game--ended">
-        <Header definition={gameDefinition} stats={currentStats} />
-        <div className="round">
-          {gameDefinition.roundName} {round}
-        </div>
+  const progress = useVotes();
 
-        <div className="end">
-          <div className="end__message" ref={messageRef} />
-          {isHost && (
-            <button onClick={doRestartGame} className="end__restart_button">
-              Play again
-            </button>
-          )}
-        </div>
-      </div>
-      <div className="floor" />
-    </>
-  );
+  return <StartedScreen
+    gameDefinition={gameDefinition}
+    {...progress}
+    selectedCard={{card: endMessage, answer_yes: 'Play again', bearer: 'the-duck' } as Card}
+    currentStats={currentStats}
+    round={round}
+    doRestartGame={doRestartGame}
+    phase={GamePhase.ENDED}
+  />
+  
 }

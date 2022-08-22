@@ -5,6 +5,7 @@ import { AnswerArea } from "../AnswerArea";
 import { Countdown } from "../Countdown";
 import { Card, GameDefinition } from "../features/game/types";
 import { OptionalAnswerText } from "../OptionalAnswerText";
+import { GamePhase } from "../constants";
 
 export const StartedScreen = ({
   gameDefinition,
@@ -17,6 +18,7 @@ export const StartedScreen = ({
   yesVotesMissing,
   countdown,
   doRestartGame,
+  phase
 }: {
   gameDefinition: GameDefinition;
   currentStats: number[];
@@ -28,10 +30,11 @@ export const StartedScreen = ({
   yesVotesMissing: number | null;
   countdown: Countdown;
   doRestartGame: () => void;
+  phase: GamePhase
 }) => (
   <>
     <div className="screen game--started" onClick={doRestartGame}>
-      <Header definition={gameDefinition} stats={currentStats} round={round} />
+      <Header definition={gameDefinition} stats={currentStats} round={round} phase={phase} />
       <Question card={selectedCard} />
       <div className="answers">
         <OptionalAnswerText

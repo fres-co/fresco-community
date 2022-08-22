@@ -3,6 +3,7 @@ import { Card, GameDefinition } from "../features/game/types";
 import { AppState } from "../store";
 import { useSelector } from "react-redux";
 import { StartedScreen } from "./StartedScreen";
+import { GamePhase } from "../constants";
 
 export const useVotes = () => {
   const countdown = Countdown.from(
@@ -67,6 +68,7 @@ export const ConnectedStartedScreen = ({
       currentStats={currentStats}
       round={round}
       doRestartGame={doRestartGame}
+      phase={GamePhase.STARTED}
     />
   );
 };

@@ -38,7 +38,8 @@ export const resolveRound = (gameState: GameState) => {
   if (countdown.wasJustLocked) {
     const game = new Game();
 
-    if (game.retrieve().phase === GamePhase.NOT_STARTED) {
+    const gamePhase = game.retrieve().phase
+    if (gamePhase === GamePhase.NOT_STARTED || gamePhase === GamePhase.ENDED) {
       game.startGame(gameState);
       return;
     }

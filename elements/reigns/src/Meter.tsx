@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import { GamePhase } from "./constants";
 import { MeterArrow } from "./MeterArrow";
 import { AppState } from "./store";
 
@@ -8,10 +9,12 @@ export const Meter = ({
   src,
   percent,
   name,
+  phase
 }: {
   src: string;
   percent: number;
   name: string;
+  phase: GamePhase
 }) => {
   const assetsUrl = useSelector(
     (state: AppState) => state.game.definition?.assetsUrl
@@ -21,6 +24,9 @@ export const Meter = ({
   const previousPercent = useRef(0);
 
   useEffect(() => {
+    if (phase !== GamePhase.STARTED) {
+      return
+    }
     if (percent == undefined || previousPercent.current === undefined) {
       if (percent !== undefined) {
         previousPercent.current = percent;
@@ -44,10 +50,14 @@ export const Meter = ({
 
     previousPercent.current = percent;
     return () => clearTimeout(timeout);
-  }, [percent]);
+  }, [percent, phase]);
 
   return (
-    <div className={"meter"}>
+    <div className={clsx("meter",
+        phase === GamePhase.NOT_STARTED && 'meter--game-not-started',
+        phase === GamePhase.ENDED && 'meter--game-ended',
+        phase === GamePhase.STARTED && 'meter--game-started',
+      )}>
       <div className="meter__label">
         <img src={`${assetsUrl}/${src}`} />
         <div className="meter__name" title={name}>

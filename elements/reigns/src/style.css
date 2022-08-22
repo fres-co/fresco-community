@@ -186,11 +186,11 @@ button {
 
 .answers {
   display: flex;
-  flex: 1;
 }
 
 .screen {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   background-color: #eee;
   height: 75%;
@@ -338,7 +338,7 @@ button {
   max-height: 100%;
 }
 
-.game--ended .red-glow {
+.meter--game-ended .red-glow {
   --glow-color: red;
   animation: glow 1.5s;
   animation-iteration-count: infinite;
