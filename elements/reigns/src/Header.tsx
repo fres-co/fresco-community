@@ -19,16 +19,15 @@ export const Header = ({
   return (
     <div className="block header">
       <div className="meters">
-        {round !== 0 &&
-          definition.stats.map((stat, ix) => (
-            <Meter
-              key={stat.icon}
-              src={stat.icon}
-              percent={stats[ix]}
-              name={stat.name}
-              phase={phase}
-            />
-          ))}
+        {definition.stats.map((stat, ix) => (
+          <Meter
+            key={stat.icon}
+            src={stat.icon}
+            percent={stats[ix]}
+            name={stat.name}
+            phase={phase}
+          />
+        ))}
       </div>
     </div>
   );
