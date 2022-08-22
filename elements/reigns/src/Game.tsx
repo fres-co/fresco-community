@@ -85,7 +85,7 @@ export const Game = () => {
         gameDefinition={gameDefinition}
         currentStats={currentStats}
         isGameWon={isGameWon}
-        round={round}
+        round={round - 1}
         isHost={isHost}
         doRestartGame={doRestartGame}
       />

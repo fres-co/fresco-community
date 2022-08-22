@@ -38,6 +38,8 @@ body,
 .round {
   text-align: center;
   font-size: 2rem;
+  margin: auto;
+  margin-bottom: 1rem;
 }
 
 button {
@@ -324,13 +326,6 @@ button {
   height: calc(100% - 10rem);
   margin-left: 4rem;
   margin-right: 4rem;
-}
-
-.end__restart_button {
-  display: block;
-  margin: auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
 /* this class is dynamically added by textFit */

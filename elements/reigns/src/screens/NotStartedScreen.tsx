@@ -15,9 +15,7 @@ export function NotStartedScreen({
   isHost: string | boolean | undefined;
   doRestartGame: () => void;
 }) {
-  const messageRef = useTextFit(gameDefinition?.gameName);
-
-  const progress = useVotes();
+  const votes = useVotes();
   if (!gameDefinition) {
     // todo loading
     return <div>Loading</div>;
@@ -29,7 +27,7 @@ export function NotStartedScreen({
     }
   }, [isHost, gameDefinition]);
 
-  if (!progress.selectedCard) {
+  if (!votes.selectedCard) {
     return null;
   }
 
@@ -39,8 +37,8 @@ export function NotStartedScreen({
       doRestartGame={doRestartGame}
       gameDefinition={gameDefinition}
       currentStats={[]}
-      {...progress}
-      selectedCard={progress.selectedCard}
+      {...votes}
+      selectedCard={votes.selectedCard}
       phase={GamePhase.NOT_STARTED}
     />
   );

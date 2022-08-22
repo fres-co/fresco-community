@@ -54,16 +54,16 @@ export const ConnectedStartedScreen = ({
   round: number;
   doRestartGame: () => void;
 }) => {
-  const progress = useVotes();
+  const votes = useVotes();
 
-  if (progress.selectedCard === null) {
+  if (votes.selectedCard === null) {
     return null;
   }
 
   return (
     <StartedScreen
-      {...progress}
-      selectedCard={progress.selectedCard}
+      {...votes}
+      selectedCard={votes.selectedCard}
       gameDefinition={gameDefinition}
       currentStats={currentStats}
       round={round}

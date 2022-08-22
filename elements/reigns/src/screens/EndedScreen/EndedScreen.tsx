@@ -12,7 +12,6 @@ export function EndedScreen({
   currentStats,
   isGameWon,
   round,
-  isHost,
   doRestartGame,
 }: {
   gameDefinition: GameDefinition;
@@ -23,18 +22,22 @@ export function EndedScreen({
   doRestartGame: () => void;
 }) {
   const endMessage = getEndMessage(gameDefinition, currentStats, isGameWon);
-  const messageRef = useTextFit(endMessage, 86);
+  const votes = useVotes();
 
-  const progress = useVotes();
-
-  return <StartedScreen
-    gameDefinition={gameDefinition}
-    {...progress}
-    selectedCard={{card: endMessage, answer_yes: 'Play again', bearer: 'the-duck' } as Card}
-    currentStats={currentStats}
-    round={round}
-    doRestartGame={doRestartGame}
-    phase={GamePhase.ENDED}
-  />
-  
+  return (
+    <StartedScreen
+      gameDefinition={gameDefinition}
+      {...votes}
+      selectedCard={
+        {
+          card: endMessage,
+          answer_yes: "Play again",
+        } as Card
+      }
+      currentStats={currentStats}
+      round={round}
+      doRestartGame={doRestartGame}
+      phase={GamePhase.ENDED}
+    />
+  );
 }
