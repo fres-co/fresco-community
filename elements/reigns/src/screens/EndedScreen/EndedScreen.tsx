@@ -24,8 +24,10 @@ export function EndedScreen({
       gameDefinition={gameDefinition}
       {...votes}
       selectedCard={{
+        id: GamePhase.ENDED,
         card: endMessage,
         answer_yes: "Play again",
+        answer_no: "",
       }}
       currentStats={currentStats}
       round={round}

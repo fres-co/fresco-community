@@ -52,8 +52,10 @@ export class Game {
     this.persist({
       phase: GamePhase.NOT_STARTED,
       selectedCard: {
+        id: GamePhase.NOT_STARTED,
         card: definition.gameName,
-        answer_yes: "Move on the purple area to start the game",
+        answer_yes: "Move on the purple area the game",
+        answer_no: "",
       },
       round: 0,
       stats: [],
