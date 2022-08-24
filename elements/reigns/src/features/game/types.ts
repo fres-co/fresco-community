@@ -39,6 +39,8 @@ export type Card = {
   conditions: string;
 };
 
+export type MenuCard = Pick<Card, "card" | "answer_yes">;
+
 export type GameDefinition = {
   cards: Card[];
   stats: Stat[];
@@ -60,7 +62,7 @@ export type Configuration = {
 
 export type PersistedGameState = {
   phase: GamePhase;
-  selectedCard: Card | null;
+  selectedCard: Card | MenuCard | null;
   stats: number[];
   round: number;
   flags: GameFlags;

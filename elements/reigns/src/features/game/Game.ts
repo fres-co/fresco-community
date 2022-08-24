@@ -54,7 +54,7 @@ export class Game {
       selectedCard: {
         card: definition.gameName,
         answer_yes: "Move on the purple area to start the game",
-      } as Card,
+      },
       round: 0,
       stats: [],
       flags: {},
