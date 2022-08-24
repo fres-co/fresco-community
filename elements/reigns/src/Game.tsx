@@ -62,12 +62,13 @@ export const Game = () => {
     }
   };
 
-  if (phase === GamePhase.NOT_STARTED) {
-    return <NotStartedScreen gameDefinition={gameDefinition} isHost={isHost} />;
+  if (!gameDefinition) {
+    // this should actually never since this component is only visible when Loading.Ended
+    return null;
   }
 
-  if (!gameDefinition) {
-    return null;
+  if (phase === GamePhase.NOT_STARTED) {
+    return <NotStartedScreen gameDefinition={gameDefinition} isHost={isHost} />;
   }
 
   if (phase === GamePhase.ENDED) {

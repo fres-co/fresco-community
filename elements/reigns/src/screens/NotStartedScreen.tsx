@@ -9,17 +9,13 @@ export function NotStartedScreen({
   gameDefinition,
   isHost,
 }: {
-  gameDefinition: GameDefinition | null;
+  gameDefinition: GameDefinition;
   isHost: string | boolean | undefined;
 }) {
   const votes = useVotes();
-  if (!gameDefinition) {
-    // todo loading
-    return <div>Loading</div>;
-  }
 
   useEffect(() => {
-    if (isHost && gameDefinition) {
+    if (isHost) {
       new Game().prepareGame(gameDefinition);
     }
   }, [isHost, gameDefinition]);
