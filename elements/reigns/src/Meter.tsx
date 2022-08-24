@@ -53,11 +53,11 @@ export const Meter = ({
   }, [percent, phase]);
 
   return (
-    <div className={clsx("meter",
-        phase === GamePhase.NOT_STARTED && 'meter--game-not-started',
-        phase === GamePhase.ENDED && 'meter--game-ended',
-        phase === GamePhase.STARTED && 'meter--game-started',
-      )}>
+    <div className={clsx("meter", {
+      "meter--game-not-started": phase === GamePhase.NOT_STARTED,
+      "meter--game-ended": phase === GamePhase.ENDED,
+      "meter--game-started": phase === GamePhase.STARTED,
+    })}>
       <div className="meter__label">
         <img src={`${assetsUrl}/${src}`} />
         <div className="meter__name" title={name}>
