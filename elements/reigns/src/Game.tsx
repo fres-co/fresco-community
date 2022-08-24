@@ -5,7 +5,6 @@ import { usePersistIsMounted } from "./features/host/usePersistIsMounted";
 import { AppState } from "./store";
 import { useVoteListener } from "./features/voting/useVoteListener";
 import { useCollateVotes } from "./features/voting/useCollateVotes";
-import { Game as GamePersistence } from "./features/game/Game";
 import { getIsHost } from "./features/host/persistence";
 import { getSdk } from "./sdk";
 import { EndedScreen } from "./screens/EndedScreen/EndedScreen";
@@ -54,13 +53,6 @@ export const Game = () => {
       });
     }
   }, [phase, isGameWon]);
-
-  const doRestartGame = () => {
-    if (isHost) {
-      const gameState = store.getState().game;
-      new GamePersistence().startGame(gameState);
-    }
-  };
 
   if (!gameDefinition) {
     // this should actually never since this component is only visible when Loading.Ended
