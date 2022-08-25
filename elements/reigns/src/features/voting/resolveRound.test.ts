@@ -2,7 +2,7 @@ import { getSdk } from "../../sdk";
 import { mockSdk } from "../../mocks";
 import { PARTICIPANT_INSIDE_TABLE } from "./useOnFrescoStateUpdate";
 import { resolveRound } from "./resolveRound";
-import { createGameState } from "../game/objectMother";
+import { createGameStartedState, createGameState } from "../game/objectMother";
 import * as persistence from "./persistence";
 const {
   persistParticipantVote,
@@ -46,7 +46,7 @@ describe("resolveRound", () => {
     it("should apply vote instantly if everyone voted ", () => {
       vote("Yes", "Yes", "No");
 
-      resolveRound(createGameState());
+      resolveRound(createGameStartedState());
 
       const { answer, countdown } = getGameVote();
       expect(answer).toBe("Yes");
@@ -56,7 +56,7 @@ describe("resolveRound", () => {
     it("should start countdown if not everyone voted", () => {
       vote("Yes", "Yes", null);
 
-      resolveRound(createGameState());
+      resolveRound(createGameStartedState());
 
       const { answer, countdown } = getGameVote();
       expect(answer).toBe("Yes");
@@ -66,9 +66,9 @@ describe("resolveRound", () => {
     it("should apply vote instantly if everyone voted and countdown already started", () => {
       vote("Yes", "Yes", null);
 
-      resolveRound(createGameState());
+      resolveRound(createGameStartedState());
       persistParticipantVote("remote2", "Yes");
-      resolveRound(createGameState());
+      resolveRound(createGameStartedState());
 
       const { answer, countdown } = getGameVote();
       expect(answer).toBe("Yes");
@@ -78,11 +78,11 @@ describe("resolveRound", () => {
     it("should clear participant votes after countdown === -1", () => {
       vote("Yes", "Yes", "No");
 
-      resolveRound(createGameState());
+      resolveRound(createGameStartedState());
       expect(getGameVote().countdown).toBe(0);
-      resolveRound(createGameState());
+      resolveRound(createGameStartedState());
       expect(getGameVote().countdown).toBe(-1);
-      resolveRound(createGameState());
+      resolveRound(createGameStartedState());
 
       expect(sdk.storage.realtime.all(PARTICIPANT_VOTE_TABLE)).toEqual({});
     });
@@ -90,7 +90,7 @@ describe("resolveRound", () => {
     it("should start countdown", () => {
       vote("Yes", "Yes", null);
 
-      resolveRound(createGameState());
+      resolveRound(createGameStartedState());
 
       const { countdown } = getGameVote();
       expect(Countdown.from(countdown).isStarted).toBe(true);
@@ -100,19 +100,19 @@ describe("resolveRound", () => {
       beforeEach(() => {
         // majority voted
         vote("Yes", "Yes", null);
-        resolveRound(createGameState());
+        resolveRound(createGameStartedState());
         // remove vote
         vote("Yes", null, null);
       });
 
       it("should stop countdown", () => {
-        resolveRound(createGameState());
+        resolveRound(createGameStartedState());
 
         const { countdown: newCountdown } = getGameVote();
         expect(Countdown.from(newCountdown).isStarted).toBe(false);
       });
       it("should not clear other player votes", () => {
-        resolveRound(createGameState());
+        resolveRound(createGameStartedState());
 
         expect(getParticipantVotes()).toStrictEqual(
           expect.arrayContaining([expect.objectContaining({ answer: "Yes" })])
@@ -124,7 +124,7 @@ describe("resolveRound", () => {
       vote("Yes", "Yes", null);
 
       persistGameVote({ answer: "Yes", countdown: -43 });
-      resolveRound(createGameState());
+      resolveRound(createGameStartedState());
       const { answer, countdown } = getGameVote();
       expect(answer).toBeUndefined();
       expect(countdown).toBeUndefined();
@@ -136,9 +136,9 @@ describe("resolveRound", () => {
       vote("Yes", "Yes", "Yes");
       persistGameVote({ answer: "Yes", countdown: 1 });
 
-      resolveRound(createGameState()); //  0
-      resolveRound(createGameState()); // -1
-      resolveRound(createGameState()); // -2
+      resolveRound(createGameStartedState()); //  0
+      resolveRound(createGameStartedState()); // -1
+      resolveRound(createGameStartedState()); // -2
 
       expect(spy).toBeCalledTimes(1);
     });

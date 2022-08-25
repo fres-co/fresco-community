@@ -2,6 +2,10 @@
 window.addEventListener("load", (event) => {
   console.log("load");
   window.fresco._listeners.forEach((listener) => listener());
+
+  fresco.onReady = (cb) => {
+    cb();
+  };
 });
 
 let onStateChangedHandler;

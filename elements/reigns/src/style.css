@@ -38,6 +38,8 @@ body,
 .round {
   text-align: center;
   font-size: 2rem;
+  margin: auto;
+  margin-bottom: 1rem;
 }
 
 button {
@@ -186,11 +188,11 @@ button {
 
 .answers {
   display: flex;
-  flex: 1;
 }
 
 .screen {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   background-color: #eee;
   height: 75%;
@@ -204,7 +206,7 @@ button {
 .floor {
   display: flex;
   flex: 1;
-  padding: 1vw;
+  padding: 1vw 1vw 5vh 1vw;
   background-color: #dddddd;
   transform: rotateX(45deg);
   transform-origin: top;
@@ -326,19 +328,12 @@ button {
   margin-right: 4rem;
 }
 
-.end__restart_button {
-  display: block;
-  margin: auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 /* this class is dynamically added by textFit */
 .textFitAlignVert {
   max-height: 100%;
 }
 
-.game--ended .red-glow {
+.meter--game-ended .red-glow {
   --glow-color: red;
   animation: glow 1.5s;
   animation-iteration-count: infinite;

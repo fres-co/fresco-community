@@ -9,6 +9,7 @@ import {
   CardFlag,
   GameFlags,
   GameState,
+  isMenuCard,
   PersistedGameState,
 } from "./types";
 import { FlagFields, getFlags } from "./validateGameDefinition";
@@ -29,19 +30,25 @@ export const selectAnswer = (
   state: GameState,
   cardFlag: Extract<FlagFields, "no_custom" | "yes_custom">
 ): PersistedGameState => {
-  const cardStats = getCardStats(state.selectedCard!, cardFlag);
+  let cardStats: number[] = [];
+
+  if (!isMenuCard(state.selectedCard!)) {
+    cardStats = getCardStats(state.selectedCard!, cardFlag);
+  }
+
   const stats = cardStats.map((cardStatValue, ix) => {
     const currentStat = state.stats[ix];
     if (!cardStatValue) return currentStat;
     const newValue = updateValue(cardStatValue, currentStat);
     return newValue;
   });
-
   const nextPhase = stats.filter((_, ix) => cardStats[ix]).some((v) => v <= 0)
     ? GamePhase.ENDED
     : GamePhase.STARTED;
 
-  const flags = setFlags(state.flags, getFlags(state.selectedCard!, cardFlag));
+  const flags = isMenuCard(state.selectedCard!)
+    ? state.flags
+    : setFlags(state.flags, getFlags(state.selectedCard!, cardFlag));
   const round = state.round + 1;
 
   const victoryRoundThreshold = state.definition?.victoryRoundThreshold ?? 0;
