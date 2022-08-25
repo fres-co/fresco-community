@@ -9,6 +9,7 @@ import {
 import { calculateAnswer } from "./calculateAnswer";
 import { Countdown } from "../../Countdown";
 import { Logger } from "../../Logger";
+import { GamePhase } from "../../constants";
 
 export const resolveRound = (gameState: GameState) => {
   const { answer, countdown, everyoneVoted } = collateVotes();
@@ -36,6 +37,14 @@ export const resolveRound = (gameState: GameState) => {
 
   if (countdown.wasJustLocked) {
     const game = new Game();
+
+    if (
+      gameState.phase === GamePhase.NOT_STARTED ||
+      gameState.phase === GamePhase.ENDED
+    ) {
+      game.startGame(gameState);
+      return;
+    }
     switch (answer) {
       case "Yes":
         game.answerYes(gameState);

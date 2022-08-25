@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import { GamePhase } from "./constants";
 import { MeterArrow } from "./MeterArrow";
 import { AppState } from "./store";
 
@@ -8,10 +9,12 @@ export const Meter = ({
   src,
   percent,
   name,
+  phase
 }: {
   src: string;
   percent: number;
   name: string;
+  phase: GamePhase
 }) => {
   const assetsUrl = useSelector(
     (state: AppState) => state.game.definition?.assetsUrl
@@ -21,6 +24,15 @@ export const Meter = ({
   const previousPercent = useRef(0);
 
   useEffect(() => {
+    if (phase !== GamePhase.STARTED) {
+      return
+    }
+    if (percent == undefined || previousPercent.current === undefined) {
+      if (percent !== undefined) {
+        previousPercent.current = percent;
+      }
+      return;
+    }
     const isBig = Math.abs(percent - previousPercent.current) > 5;
     // Whenever percent changes, we want to add a class
     // to the meter element to make it change color
@@ -38,10 +50,14 @@ export const Meter = ({
 
     previousPercent.current = percent;
     return () => clearTimeout(timeout);
-  }, [percent]);
+  }, [percent, phase]);
 
   return (
-    <div className={"meter"}>
+    <div className={clsx("meter", {
+      "meter--game-not-started": phase === GamePhase.NOT_STARTED,
+      "meter--game-ended": phase === GamePhase.ENDED,
+      "meter--game-started": phase === GamePhase.STARTED,
+    })}>
       <div className="meter__label">
         <img src={`${assetsUrl}/${src}`} />
         <div className="meter__name" title={name}>

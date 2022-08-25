@@ -44,6 +44,7 @@ describe("use vote listener", () => {
           jest.spyOn(Game.prototype, "retrieve").mockImplementation(
             () =>
               ({
+                phase: GamePhase.STARTED,
                 selectedCard: {
                   card: "card",
                   answer_yes: "yes !",
@@ -132,10 +133,72 @@ describe("use vote listener", () => {
   });
 
   describe("when phase is NOT_STARTED", () => {
-    it("does not subscribe to event", () => {
+    it("does subscribe to custom.reign.yes", () => {
       renderHook(() => useVoteListener(GamePhase.NOT_STARTED));
 
-      expect(subscribeToGlobalEvent).not.toHaveBeenCalled();
+      expect(subscribeToGlobalEvent).toHaveBeenCalledWith(
+        "custom.reign.yes",
+        expect.any(Function)
+      );
+    });
+
+    describe("when receiving custom.reign.yes", () => {
+      it("triggers custom.reign.local_yes event", () => {
+        jest.spyOn(Game.prototype, "retrieve").mockImplementation(
+          () =>
+            ({
+              phase: GamePhase.NOT_STARTED,
+              selectedCard: {
+                card: "card",
+              } as Card,
+            } as PersistedGameState)
+        );
+
+        renderHook(() => useVoteListener(GamePhase.STARTED));
+        const listener = subscribeToGlobalEvent.mock.calls.find(
+          (call) => call[0] === "custom.reign.yes"
+        )[1];
+        listener();
+
+        expect(triggerEvent).toBeCalledWith({
+          eventName: "custom.reign.local_yes",
+        });
+      });
+    });
+  });
+
+  describe("when phase is ENDED", () => {
+    it("does subscribe to custom.reign.yes", () => {
+      renderHook(() => useVoteListener(GamePhase.ENDED));
+
+      expect(subscribeToGlobalEvent).toHaveBeenCalledWith(
+        "custom.reign.yes",
+        expect.any(Function)
+      );
+    });
+
+    describe("when receiving custom.reign.yes", () => {
+      it("triggers custom.reign.local_yes event", () => {
+        jest.spyOn(Game.prototype, "retrieve").mockImplementation(
+          () =>
+            ({
+              phase: GamePhase.ENDED,
+              selectedCard: {
+                card: "card",
+              } as Card,
+            } as PersistedGameState)
+        );
+
+        renderHook(() => useVoteListener(GamePhase.STARTED));
+        const listener = subscribeToGlobalEvent.mock.calls.find(
+          (call) => call[0] === "custom.reign.yes"
+        )[1];
+        listener();
+
+        expect(triggerEvent).toBeCalledWith({
+          eventName: "custom.reign.local_yes",
+        });
+      });
     });
   });
 });

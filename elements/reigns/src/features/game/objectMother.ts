@@ -1,3 +1,4 @@
+import { GamePhase } from "../../constants";
 import { initialState } from "./gameSlice";
 import { Card, GameDefinition, GameState } from "./types";
 
@@ -52,7 +53,7 @@ export const createGameDefinition = (
   gameName: "My Game",
   assetsUrl: "whatever",
   deathMessage: "You died",
-  victoryMessage: 'You won',
+  victoryMessage: "You won",
   victoryRoundThreshold: 0,
   ...override,
 });
@@ -61,3 +62,6 @@ export const createParticipant = (id: string): Participant => ({
   id,
   name: id,
 });
+
+export const createGameStartedState = () =>
+  createGameState(undefined, { phase: GamePhase.STARTED });

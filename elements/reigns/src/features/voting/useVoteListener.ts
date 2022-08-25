@@ -7,10 +7,20 @@ import { persistParticipantVote } from "./persistence";
 
 export const useVoteListener = (phase: GamePhase) => {
   useEffect(() => {
-    if (phase === GamePhase.STARTED) {
+    if (
+      phase === GamePhase.STARTED ||
+      phase === GamePhase.NOT_STARTED ||
+      phase === GamePhase.ENDED
+    ) {
       const sdk = getSdk();
       const yesListener = sdk.subscribeToGlobalEvent("custom.reign.yes", () => {
-        if (new Game().retrieve().selectedCard?.answer_yes) {
+        const game = new Game().retrieve();
+        const canVoteYes =
+          (game.phase === GamePhase.STARTED && game.selectedCard?.answer_yes) ||
+          game.phase === GamePhase.NOT_STARTED ||
+          game.phase === GamePhase.ENDED;
+
+        if (canVoteYes) {
           Logger.log(Logger.VOTE, "vote yes");
           persistParticipantVote(sdk.localParticipant.id, "Yes");
           sdk.triggerEvent({ eventName: "custom.reign.local_yes" });

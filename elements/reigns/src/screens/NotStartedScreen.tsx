@@ -1,32 +1,37 @@
-import React from "react";
+import { useEffect } from "react";
+import { GamePhase } from "../constants";
+import { Game } from "../features/game/Game";
 import { GameDefinition } from "../features/game/types";
-import { useTextFit } from "../useTextFit";
+import { useVotes } from "../useVotes";
+import { VotingScreen } from "./VotingScreen";
 
 export function NotStartedScreen({
   gameDefinition,
   isHost,
-  doRestartGame,
 }: {
-  gameDefinition: GameDefinition | null;
+  gameDefinition: GameDefinition;
   isHost: string | boolean | undefined;
-  doRestartGame: () => void;
 }) {
-  const messageRef = useTextFit(gameDefinition?.gameName);
+  const votes = useVotes();
+
+  useEffect(() => {
+    if (isHost) {
+      new Game().prepareGame(gameDefinition);
+    }
+  }, [isHost, gameDefinition]);
+
+  if (!votes.selectedCard) {
+    return null;
+  }
 
   return (
-    <>
-      <div className="screen game--not-started">
-        <div className="end">
-          <div className="end__message" ref={messageRef} />
-          {isHost && (
-            <button className="end__restart_button" onClick={doRestartGame}>
-              Start game
-            </button>
-          )}
-          {!isHost && <div>Waiting for host to start...</div>}
-        </div>
-      </div>
-      <div className="floor" />
-    </>
+    <VotingScreen
+      round={0}
+      gameDefinition={gameDefinition}
+      currentStats={[]}
+      {...votes}
+      selectedCard={votes.selectedCard}
+      phase={GamePhase.NOT_STARTED}
+    />
   );
 }

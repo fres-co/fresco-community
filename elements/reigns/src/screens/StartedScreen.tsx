@@ -1,73 +1,31 @@
-import React from "react";
-import { Header } from "../Header";
-import { Question } from "../Question";
-import { AnswerArea } from "../AnswerArea";
-import { Countdown } from "../Countdown";
-import { Card, GameDefinition } from "../features/game/types";
-import { OptionalAnswerText } from "../OptionalAnswerText";
+import { GameDefinition } from "../features/game/types";
+import { VotingScreen } from "./VotingScreen";
+import { GamePhase } from "../constants";
+import { useVotes } from "../useVotes";
 
 export const StartedScreen = ({
   gameDefinition,
   currentStats,
   round,
-  selectedCard,
-  noProgress,
-  yesProgress,
-  noVotesMissing,
-  yesVotesMissing,
-  countdown,
-  doRestartGame,
 }: {
   gameDefinition: GameDefinition;
   currentStats: number[];
   round: number;
-  selectedCard: Card;
-  noProgress: number;
-  yesProgress: number;
-  noVotesMissing: number | null;
-  yesVotesMissing: number | null;
-  countdown: Countdown;
-  doRestartGame: () => void;
-}) => (
-  <>
-    <div className="screen game--started" onClick={doRestartGame}>
-      <Header definition={gameDefinition} stats={currentStats} />
-      <Question card={selectedCard} />
-      <div className="answers">
-        <OptionalAnswerText
-          visible={Boolean(selectedCard.answer_no)}
-          text={selectedCard.answer_no || "No"}
-          answer="no"
-          progress={noProgress}
-          color="#e200a4"
-          votesMissing={noVotesMissing}
-        />
+}) => {
+  const votes = useVotes();
 
-        <div className="answer">
-          <div className="round">
-            {gameDefinition.roundName} {round}
-          </div>
-        </div>
-        <OptionalAnswerText
-          visible={Boolean(selectedCard.answer_yes)}
-          text={selectedCard.answer_yes || "Yes"}
-          answer="yes"
-          progress={yesProgress}
-          color="#9e32d6"
-          votesMissing={yesVotesMissing}
-        />
-      </div>
-    </div>
-    <div className="answers floor">
-      <AnswerArea answer="no" visible={Boolean(selectedCard.answer_no)} />
-      <div className="answer answer--neutral">
-        {countdown.isVoting && (
-          <div className="countdown" data-testid="countdown">
-            <>{countdown.value}...</>
-          </div>
-        )}
-      </div>
-      <AnswerArea answer="yes" visible={Boolean(selectedCard.answer_yes)} />
-    </div>
-  </>
-);
+  if (votes.selectedCard === null) {
+    return null;
+  }
+
+  return (
+    <VotingScreen
+      {...votes}
+      selectedCard={votes.selectedCard}
+      gameDefinition={gameDefinition}
+      currentStats={currentStats}
+      round={round}
+      phase={GamePhase.STARTED}
+    />
+  );
+};

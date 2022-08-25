@@ -3,7 +3,13 @@ import { getSdk } from "../../sdk";
 import { clearParticipantVotes, persistGameVote } from "../voting/persistence";
 import { selectAnswer } from "./selectAnswer";
 import { selectNextCard } from "./selectNextCard";
-import { GameState, PersistedGameState, Stat } from "./types";
+import {
+  Card,
+  GameDefinition,
+  GameState,
+  PersistedGameState,
+  Stat,
+} from "./types";
 
 export const GAME_TABLE = "game";
 export const GAME_STATE_KEY = "state";
@@ -40,6 +46,22 @@ export class Game {
       stats: [],
     });
     this.clearVotes();
+  }
+
+  prepareGame(definition: GameDefinition) {
+    this.persist({
+      phase: GamePhase.NOT_STARTED,
+      selectedCard: {
+        id: GamePhase.NOT_STARTED,
+        card: definition.gameName,
+        answer_yes: "Move on the purple area to start the game",
+        answer_no: "",
+      },
+      round: 0,
+      stats: [],
+      flags: {},
+      previouslySelectedCardIds: [],
+    });
   }
 
   startGame(state: Pick<GameState, "definition" | "designerCards">) {
