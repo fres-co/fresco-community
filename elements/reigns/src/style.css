@@ -206,7 +206,7 @@ button {
 .floor {
   display: flex;
   flex: 1;
-  padding: 1vw;
+  padding: 1vw 1vw 5vh 1vw;
   background-color: #dddddd;
   transform: rotateX(45deg);
   transform-origin: top;
