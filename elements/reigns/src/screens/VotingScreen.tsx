@@ -56,11 +56,7 @@ export const VotingScreen = ({
           votesMissing={noVotesMissing}
         />
 
-        <div className="answer">
-          <div className="round">
-            <RoundLabel round={round} gameDefinition={gameDefinition} />
-          </div>
-        </div>
+        <div className="answer" />
         <OptionalAnswerText
           visible={Boolean(selectedCard.answer_yes)}
           text={selectedCard.answer_yes}

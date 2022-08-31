@@ -1,6 +1,7 @@
 import { Meter } from "./Meter";
 import { GameDefinition } from "./features/game/types";
 import { GamePhase } from "./constants";
+import { RoundLabel } from "./RoundLabel";
 
 export const Header = ({
   definition,
@@ -18,6 +19,9 @@ export const Header = ({
   }
   return (
     <div className="block header">
+      <div className="round">
+            <RoundLabel round={round} gameDefinition={definition} />
+      </div>
       <div className="meters">
         {definition.stats.map((stat, ix) => (
           <Meter
