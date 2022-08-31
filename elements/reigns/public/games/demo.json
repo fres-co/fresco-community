@@ -1,6 +1,7 @@
 {
   "deathMessage": "You have been fired!",
   "victoryMessage": "Victory!",
+  "victoryRoundThreshold": 30,
   "roundName": "Day",
   "gameName": "A month in the life of a data officer (demo)",
   "stats": [

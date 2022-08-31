@@ -6,6 +6,7 @@ import { Card, GameDefinition, MenuCard } from "../features/game/types";
 import { OptionalAnswerText } from "../OptionalAnswerText";
 import { GamePhase } from "../constants";
 import { Message } from "../Message";
+import { RoundLabel } from "../RoundLabel";
 
 export const VotingScreen = ({
   gameDefinition,
@@ -57,7 +58,7 @@ export const VotingScreen = ({
 
         <div className="answer">
           <div className="round">
-            {round !== 0 && `${gameDefinition.roundName} ${round}`}
+            <RoundLabel round={round} gameDefinition={gameDefinition} />
           </div>
         </div>
         <OptionalAnswerText

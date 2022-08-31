@@ -1,6 +1,7 @@
 :root {
   --color-primary: #9e32d6;
   --color-error: #e200a4;
+  --color-light-grey: #9a9a9a;
   --card-fade-duration: 500ms;
   --stats-color-transition-duration: 300ms;
 }
@@ -349,4 +350,9 @@ button {
   100% {
     box-shadow: rgba(0, 0, 0, 0.56) 0px 0px 15px 2px;
   }
+}
+
+
+.round-label .round-label-threshold {
+  color: var(--color-light-grey);
 }
