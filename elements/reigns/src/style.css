@@ -1,6 +1,7 @@
 :root {
   --color-primary: #9e32d6;
   --color-error: #e200a4;
+  --color-light-grey: #999999;
   --card-fade-duration: 500ms;
   --stats-color-transition-duration: 300ms;
 }
@@ -25,19 +26,10 @@ body,
   padding: 1rem;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.header__side {
-  flex-grow: 1;
-}
-
 .round {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
   margin: auto;
   margin-bottom: 1rem;
 }
@@ -349,4 +341,9 @@ button {
   100% {
     box-shadow: rgba(0, 0, 0, 0.56) 0px 0px 15px 2px;
   }
+}
+
+
+.round-label .round-label-threshold {
+  color: var(--color-light-grey);
 }
