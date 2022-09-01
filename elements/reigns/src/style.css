@@ -134,7 +134,7 @@ button {
 .meter__percent {
   height: 10px;
   border-radius: 5px;
-  background-color: #000;
+  background-color: #b2b2b2;
   transition: width 1s ease-in,
     background-color var(--stats-color-transition-duration) ease-in;
 }
