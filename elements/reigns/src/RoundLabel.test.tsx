@@ -10,7 +10,7 @@ describe('RoundLabel', () => {
     expect(res.container.innerHTML).toBe('')
   })
 
-  it('returns day and round value for round other round', () => {
+  it('returns round label and value when round number above zero', () => {
     const gameDefinition = createGameDefinition()
     const res = render(<RoundLabel round={12} gameDefinition={gameDefinition} />)
     expect(res.container.textContent).toBe('Day 12')
