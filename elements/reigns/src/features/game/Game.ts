@@ -2,7 +2,8 @@ import { GamePhase } from "../../constants";
 import { getSdk } from "../../sdk";
 import { clearParticipantVotes, persistGameVote } from "../voting/persistence";
 import { selectAnswer } from "./selectAnswer";
-import { selectNextCard } from "./selectNextCard";
+import { hasStatChange, selectNextCard } from "./selectNextCard";
+import { SHOW_RESOURCES_FLAG } from "./selectors";
 import {
   Card,
   GameDefinition,
@@ -25,6 +26,18 @@ export class Game {
       GAME_TABLE,
       GAME_STATE_KEY
     ) as PersistedGameState;
+  }
+
+  private appendFlags(state: PersistedGameState) {
+    const { selectedCard, flags } = state;
+    if (
+      selectedCard &&
+      flags[SHOW_RESOURCES_FLAG] !== "true" &&
+      hasStatChange(selectedCard as Card)
+    ) {
+      return { ...state, flags: { ...flags, [SHOW_RESOURCES_FLAG]: "true" } };
+    }
+    return state;
   }
 
   private persist(state: PersistedGameState) {
@@ -71,26 +84,28 @@ export class Game {
     const stats = state.definition
       ? state.definition.stats.map(({ value }) => value)
       : [];
-    this.persist({
-      phase: GamePhase.STARTED,
-      selectedCard: selectNextCard(
-        state.definition,
-        flags,
-        state.designerCards,
+    this.persist(
+      this.appendFlags({
+        phase: GamePhase.STARTED,
+        selectedCard: selectNextCard(
+          state.definition,
+          flags,
+          state.designerCards,
+          stats,
+          previouslySelectedCardIds
+        ),
         stats,
-        previouslySelectedCardIds
-      ),
-      stats,
-      round: 1,
-      flags,
-      previouslySelectedCardIds,
-    });
+        round: 1,
+        flags,
+        previouslySelectedCardIds,
+      })
+    );
     return this;
   }
 
   answerNo(state: GameState) {
     if (state.selectedCard) {
-      this.persist(selectAnswer(state, "no_custom"));
+      this.persist(this.appendFlags(selectAnswer(state, "no_custom")));
       getSdk().triggerEvent({
         eventName: "custom.reigns.answer",
         eventValue: JSON.stringify({
@@ -107,7 +122,7 @@ export class Game {
 
   answerYes(state: GameState) {
     if (state.selectedCard) {
-      this.persist(selectAnswer(state, "yes_custom"));
+      this.persist(this.appendFlags(selectAnswer(state, "yes_custom")));
 
       getSdk().triggerEvent({
         eventName: "custom.reigns.answer",
