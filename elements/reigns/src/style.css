@@ -22,6 +22,10 @@ body,
   height: 100%;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .block {
   padding: 1rem;
 }
@@ -342,7 +346,6 @@ button {
     box-shadow: rgba(0, 0, 0, 0.56) 0px 0px 15px 2px;
   }
 }
-
 
 .round-label .round-label-threshold {
   color: var(--color-light-grey);
