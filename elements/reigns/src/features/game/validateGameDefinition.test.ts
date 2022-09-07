@@ -13,16 +13,23 @@ import demo from "../../../public/games/demo.json";
 
 import dont_starve from "../../../public/games/dont-starve.json";
 
+const createDefaultCard = (
+  card: string = "card",
+  override: Partial<Card> = {}
+) =>
+  ({
+    card,
+    weight: 1,
+    answer_yes: "yes",
+    answer_no: "no",
+    ...override,
+  } as Card);
+
 describe("validateGameDefinition", () => {
   describe("validateCards", () => {
     it("should succeed if cards are valid", () => {
       expect(() =>
-        validateCards([
-          {
-            card: "some card",
-            weight: 1,
-          } as Card,
-        ])
+        validateCards([createDefaultCard("some card")])
       ).not.toThrow();
     });
 
@@ -30,22 +37,29 @@ describe("validateGameDefinition", () => {
       expect(() => validateCards([])).toThrow();
     });
 
+    it("should validate default card", () => {
+      expect(() => validateCards([createDefaultCard()])).not.toThrow();
+    });
+
     it("should throw if weight less than 1", () => {
-      expect(() => validateCards([{ weight: 0 } as Card])).toThrow();
+      expect(() =>
+        validateCards([createDefaultCard("card", { weight: 0 })])
+      ).toThrow();
     });
 
     it("should throw if weight higher than 100", () => {
-      expect(() => validateCards([{ weight: 101 } as Card])).toThrow();
+      expect(() =>
+        validateCards([createDefaultCard("card", { weight: 101 })])
+      ).toThrow();
     });
 
     it("should throw if bad conditions", () => {
       expect(() =>
         validateCards([
-          {
-            card: "some card",
+          createDefaultCard("some card", {
             weight: 1,
             conditions: "some rubbish",
-          } as Card,
+          }),
         ])
       ).toThrow();
     });
@@ -53,16 +67,12 @@ describe("validateGameDefinition", () => {
     it("should pass with two cards with differnt ids", () => {
       expect(() =>
         validateCards([
-          {
-            card: "some card",
-            weight: 1,
+          createDefaultCard("some card", {
             id: "some-card",
-          } as Card,
-          {
-            card: "another card",
-            weight: 1,
+          }),
+          createDefaultCard("another card", {
             id: "another-card",
-          } as Card,
+          }),
         ])
       ).not.toThrow();
     });
@@ -70,17 +80,8 @@ describe("validateGameDefinition", () => {
     it("should throw with two card with same ids", () => {
       expect(() =>
         validateCards([
-          {
-            card: "some card",
-            weight: 1,
-            id: "card-id",
-          } as Card,
-
-          {
-            card: "another card",
-            weight: 1,
-            id: "card-id",
-          } as Card,
+          createDefaultCard("some card", { id: "card-id" }),
+          createDefaultCard("another card", { id: "card-id" }),
         ])
       ).toThrow();
     });
@@ -88,15 +89,8 @@ describe("validateGameDefinition", () => {
     it("should throw with two card with no ids", () => {
       expect(() =>
         validateCards([
-          {
-            card: "some card",
-            weight: 1,
-          } as Card,
-
-          {
-            card: "another card",
-            weight: 1,
-          } as Card,
+          createDefaultCard("some card"),
+          createDefaultCard("another card"),
         ])
       ).toThrow();
     });
@@ -104,11 +98,9 @@ describe("validateGameDefinition", () => {
     it("should pass if good conditions", () => {
       expect(() =>
         validateCards([
-          {
-            card: "some card",
-            weight: 1,
+          createDefaultCard("some card", {
             conditions: "someCondition==true",
-          } as Card,
+          }),
         ])
       ).not.toThrow();
     });
@@ -116,11 +108,9 @@ describe("validateGameDefinition", () => {
     it("should not throw if cooldown is a positive number", () => {
       expect(() =>
         validateCards([
-          {
-            card: "some card",
-            weight: 1,
+          createDefaultCard("some card", {
             cooldown: 10,
-          } as Card,
+          }),
         ])
       ).not.toThrow();
     });
@@ -128,60 +118,68 @@ describe("validateGameDefinition", () => {
     it("should not throw if cooldown is a 0", () => {
       expect(() =>
         validateCards([
-          {
-            card: "some card",
-            weight: 1,
+          createDefaultCard("some card", {
             cooldown: 0,
-          } as Card,
+          }),
         ])
       ).not.toThrow();
     });
 
     it("should not throw if cooldown is not defined", () => {
-      expect(() =>
-        validateCards([
-          {
-            card: "some card",
-            weight: 1,
-          } as Card,
-        ])
-      ).not.toThrow();
+      const card = createDefaultCard("some card");
+      delete card.cooldown;
+      expect(() => validateCards([card])).not.toThrow();
     });
 
     it("should throw if cooldown is an empty string", () => {
       expect(() =>
-        validateCards([
-          {
-            card: "some card",
-            weight: 1,
-            cooldown: "" as any,
-          } as Card,
-        ])
+        validateCards([createDefaultCard("some card", { cooldown: "" as any })])
       ).toThrow();
     });
 
     it("should throw if cooldown is an number string", () => {
       expect(() =>
         validateCards([
-          {
-            card: "some card",
-            weight: 1,
-            cooldown: "10" as any,
-          } as Card,
+          createDefaultCard("some card", { cooldown: "10" as any }),
         ])
       ).toThrow();
     });
 
     it("should throw if cooldown is an float string", () => {
       expect(() =>
-        validateCards([
-          {
-            card: "some card",
-            weight: 1,
-            cooldown: 3.5 as any,
-          } as Card,
-        ])
+        validateCards([createDefaultCard("some card", { cooldown: 3.5 })])
       ).toThrow();
+    });
+
+    it("should throw if no answer_yes and no answer_no", () => {
+      const card = createDefaultCard();
+      delete (card as any).answer_no;
+      delete (card as any).answer_yes;
+
+      expect(() => validateCards([card])).toThrow();
+    });
+
+    it("should not throw when a valid answer_yes and no answer_no", () => {
+      const card = createDefaultCard();
+      delete (card as any).answer_no;
+      (card as any).answer_yes = "yes";
+      expect(() => validateCards([card])).not.toThrow();
+    });
+
+    it("should not throw when a valid answer_no and no answer_yes", () => {
+      const card = createDefaultCard();
+      delete (card as any).answer_yes;
+      (card as any).answer_no = "no";
+      expect(() => validateCards([card])).not.toThrow();
+    });
+
+    it("should not throw if both valid answer_no and answer_yes are defined", () => {
+      const card = createDefaultCard();
+      delete (card as any).answer_yes;
+      card.answer_no = "no";
+      card.answer_yes = "yes";
+
+      expect(() => validateCards([card])).not.toThrow();
     });
   });
 
@@ -279,8 +277,20 @@ describe("validateGameDefinition", () => {
   describe("validateGameDefinition", () => {
     const getDefinition = (
       cards: Card[] = [
-        { card: "foo", id: "fooId", weight: 1 },
-        { card: "bar", id: "barId", weight: 1 },
+        {
+          card: "foo",
+          id: "fooId",
+          weight: 1,
+          answer_no: "no",
+          answer_yes: "yes",
+        },
+        {
+          card: "bar",
+          id: "barId",
+          weight: 1,
+          answer_no: "no",
+          answer_yes: "yes",
+        },
       ] as Card[]
     ) => ({
       cards,
@@ -295,8 +305,20 @@ describe("validateGameDefinition", () => {
 
     it("should returns cards provided with id", () => {
       const definitionCards = [
-        { card: "foo", id: "fooId", weight: 1 },
-        { card: "bar", id: "barId", weight: 1 },
+        {
+          card: "foo",
+          id: "fooId",
+          weight: 1,
+          answer_no: "no",
+          answer_yes: "yes",
+        },
+        {
+          card: "bar",
+          id: "barId",
+          weight: 1,
+          answer_no: "no",
+          answer_yes: "yes",
+        },
       ] as Card[];
       const gameDefinition = validateGameDefinition(
         getDefinition(definitionCards)
@@ -307,9 +329,15 @@ describe("validateGameDefinition", () => {
 
     it("should generate ids for cards without id", () => {
       const definitionCards = [
-        { card: "foo", weight: 1 },
-        { card: "bar", id: "barId", weight: 1 },
-        { card: "baz", weight: 1 },
+        { card: "foo", weight: 1, answer_no: "no", answer_yes: "yes" },
+        {
+          card: "bar",
+          id: "barId",
+          weight: 1,
+          answer_no: "no",
+          answer_yes: "yes",
+        },
+        { card: "baz", weight: 1, answer_no: "no", answer_yes: "yes" },
       ] as Card[];
 
       const gameDefinition = validateGameDefinition(

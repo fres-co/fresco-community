@@ -39,6 +39,15 @@ export type Card = {
   conditions: string;
 };
 
+// a Card that has no impact, weight or stats, that is used by the game as menu screen (start, restart)
+export type MenuCard = Pick<Card, "card" | "answer_yes" | "answer_no"> & {
+  id: GamePhase.ENDED | GamePhase.NOT_STARTED;
+};
+
+export function isMenuCard(card: Card | MenuCard): card is MenuCard {
+  return card.id === GamePhase.ENDED || card.id === GamePhase.NOT_STARTED;
+}
+
 export type GameDefinition = {
   cards: Card[];
   stats: Stat[];
@@ -60,7 +69,7 @@ export type Configuration = {
 
 export type PersistedGameState = {
   phase: GamePhase;
-  selectedCard: Card | null;
+  selectedCard: Card | MenuCard | null;
   stats: number[];
   round: number;
   flags: GameFlags;

@@ -1,6 +1,7 @@
 :root {
   --color-primary: #9e32d6;
   --color-error: #e200a4;
+  --color-light-grey: #999999;
   --card-fade-duration: 500ms;
   --stats-color-transition-duration: 300ms;
 }
@@ -21,23 +22,20 @@ body,
   height: 100%;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .block {
   padding: 1rem;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.header__side {
-  flex-grow: 1;
-}
-
 .round {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: auto;
+  margin-bottom: 1rem;
 }
 
 button {
@@ -140,7 +138,7 @@ button {
 .meter__percent {
   height: 10px;
   border-radius: 5px;
-  background-color: var(--color-primary);
+  background-color: #b2b2b2;
   transition: width 1s ease-in,
     background-color var(--stats-color-transition-duration) ease-in;
 }
@@ -186,11 +184,11 @@ button {
 
 .answers {
   display: flex;
-  flex: 1;
 }
 
 .screen {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   background-color: #eee;
   height: 75%;
@@ -204,7 +202,7 @@ button {
 .floor {
   display: flex;
   flex: 1;
-  padding: 1vw;
+  padding: 1vw 1vw 5vh 1vw;
   background-color: #dddddd;
   transform: rotateX(45deg);
   transform-origin: top;
@@ -326,19 +324,12 @@ button {
   margin-right: 4rem;
 }
 
-.end__restart_button {
-  display: block;
-  margin: auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 /* this class is dynamically added by textFit */
 .textFitAlignVert {
   max-height: 100%;
 }
 
-.game--ended .red-glow {
+.meter--game-ended .red-glow {
   --glow-color: red;
   animation: glow 1.5s;
   animation-iteration-count: infinite;
@@ -354,4 +345,8 @@ button {
   100% {
     box-shadow: rgba(0, 0, 0, 0.56) 0px 0px 15px 2px;
   }
+}
+
+.round-label .round-label-threshold {
+  color: var(--color-light-grey);
 }
