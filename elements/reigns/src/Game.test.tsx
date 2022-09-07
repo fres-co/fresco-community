@@ -11,7 +11,6 @@ import {
 } from "./features/game/objectMother";
 import { Game as GamePersistence } from "./features/game/Game";
 import { Card } from "./features/game/types";
-import "@testing-library/jest-dom";
 import {
   persistGameVote,
   persistParticipantVote,

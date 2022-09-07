@@ -131,3 +131,19 @@ export function isCardOnCooldown(
 
   return !(round > lastPlayedRound + cooldownValue);
 }
+
+const STAT_CHANGES: (keyof Card)[] = [
+  "no_stat1",
+  "no_stat2",
+  "no_stat3",
+  "no_stat4",
+  "yes_stat1",
+  "yes_stat2",
+  "yes_stat3",
+  "yes_stat4",
+];
+
+export const hasStatChange = (card: Card) =>
+  STAT_CHANGES.some(
+    (statChange) => card[statChange] !== undefined && card[statChange] !== 0
+  );
