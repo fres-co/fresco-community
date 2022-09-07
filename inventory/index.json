@@ -399,7 +399,7 @@
               "selectedCard": null,
               "phase": "not-started",
               "stats": [],
-              "gameUrl": "games/gdpr.json",
+              "gameUrl": "games/gdpr.csv",
               "cards": null
             },
             "PROTECTED_STORAGE": {},
