@@ -3,9 +3,9 @@ main,gameName,deathMessage,roundName,victoryMessage,victoryRoundThreshold,assets
 ,A month in the life of a DPO.,You have been fired.,Day,Congrats! You have won!,31,https://fres-co.github.io/fresco-community/elements/reigns/dist/games,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,
 stats,name,icon,value,deathMessage,,,,,,,,,,,,,,,
-,Profit,noun-coins-1123601.svg,50,Your company went bankrupt,,,,,,,,,,,,,,,
-,Customer service,noun-crowd-2383331.svg,50,Your customers moved to a competitor,,,,,,,,,,,,,,,
-,GDPR compliance,noun-shield-4865890.svg,50,"You have been fired, personal data wasn't safe with you",,,,,,,,,,,,,,,
+,Profit,icon-profit.svg,50,Your company went bankrupt,,,,,,,,,,,,,,,
+,Customer service,icon-users.svg,50,Your customers moved to a competitor,,,,,,,,,,,,,,,
+,GDPR compliance,icon-compliance.svg,50,"You have been fired, personal data wasn't safe with you",,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,
 cards,card,id,bearer,conditions,cooldown,weight,override_yes,answer_yes,yes_stat1,yes_stat2,yes_stat3,yes_stat4,yes_custom,answer_no,no_stat1,no_stat2,no_stat3,no_stat4,no_custom
 ,You must be our new data protection officer! Finally someone can answer our questions regarding GDPR!,,coworker,started==false,,100,,Nice to meet you too.,0,0,10,0,started=true intro1=true,I am what?,0,0,10,0,started=true info=true
