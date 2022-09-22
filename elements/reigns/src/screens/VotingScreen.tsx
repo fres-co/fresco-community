@@ -6,7 +6,6 @@ import { Card, GameDefinition, MenuCard } from "../features/game/types";
 import { OptionalAnswerText } from "../OptionalAnswerText";
 import { GamePhase } from "../constants";
 import { Message } from "../Message";
-import { RoundLabel } from "../RoundLabel";
 
 export const VotingScreen = ({
   gameDefinition,
