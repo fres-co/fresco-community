@@ -26,7 +26,6 @@ export const Game = () => {
   const gameDefinition = useSelector(
     (state: AppState) => state.game.definition
   );
-  const store = useStore<AppState>();
   const isHost = getIsHost({ currentHost });
 
   usePersistIsMounted();
@@ -70,7 +69,7 @@ export const Game = () => {
         gameDefinition={gameDefinition}
         currentStats={currentStats}
         isGameWon={isGameWon}
-        round={round - 1}
+        round={isGameWon ? round : round - 1}
         isHost={isHost}
       />
     );

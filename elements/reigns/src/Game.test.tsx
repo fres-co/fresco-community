@@ -10,26 +10,30 @@ import {
   createParticipant,
 } from "./features/game/objectMother";
 import { Game as GamePersistence } from "./features/game/Game";
-import { Card } from "./features/game/types";
+import { Card, GameDefinition } from "./features/game/types";
 import {
   persistGameVote,
   persistParticipantVote,
 } from "./features/voting/persistence";
 import { updateVote } from "./features/voting/votingSlice";
 import "jest-webgl-canvas-mock";
-import { range } from "lodash";
+import { range, update } from "lodash";
+import { GamePhase, VICTORY_FLAG_NAME, VICTORY_FLAG_VALUE } from "./constants";
 
 jest.mock("textfit");
 
 const renderGame = ({
   card = createCard(),
   store = createStore(),
+  gameDefinitionOverride = {},
 }: Partial<{
   card: Card;
   store: ReturnType<typeof createStore>;
+  gameDefinitionOverride?: Partial<GameDefinition>;
 }>) => {
   const gameDefinition = createGameDefinition({
     cards: [card],
+    ...gameDefinitionOverride,
   });
   let game = new GamePersistence().startGame(createGameState(gameDefinition));
   const state = game.retrieve();
@@ -164,6 +168,47 @@ describe("Game", () => {
       });
 
       expect(getByTestId("yes-votes-missing")).toHaveTextContent("");
+    });
+  });
+
+  describe("On victory after victorythreshold", () => {
+    const renderWiningGame = () => {
+      const store = createStore();
+
+      const { findByText, findByTestId, queryByTestId } = renderGame({
+        store,
+        gameDefinitionOverride: {
+          victoryMessage: "You made it !",
+          victoryRoundThreshold: 33,
+        },
+      });
+
+      store.dispatch(
+        updateGame({
+          ...store.getState().game,
+          phase: GamePhase.ENDED,
+          round: 33,
+          flags: {
+            [VICTORY_FLAG_NAME]: VICTORY_FLAG_VALUE,
+          },
+        })
+      );
+
+      return { findByText, findByTestId, queryByTestId };
+    };
+
+    it("shows victory message", async () => {
+      const { findByText } = renderWiningGame();
+
+      await findByText("You made it !");
+    });
+
+    it("shows correct round value", async () => {
+      const { queryByTestId } = renderWiningGame();
+
+      await waitFor(() =>
+        expect(queryByTestId("round-label")?.textContent).toBe("Day 33 / 33")
+      );
     });
   });
 });
