@@ -244,3 +244,7 @@ input:hover:not(:disabled) {
     display: block;
   }
 }
+
+.inputs-group:has(input:focus) + .buttons-group .button--start {
+  visibility: hidden;
+}
