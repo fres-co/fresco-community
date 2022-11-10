@@ -45,7 +45,7 @@ function render(timer) {
 
   main.innerHTML = `
       <div>
-      <form id="form" onchange="valueForm(event)" onkeyup="valueForm(event)">
+      <form id="form" onchange="valueForm(event)" >
         <div class="inputs-group">
         <input ${renderIf(
           fresco.element.state.timer !== "initial" || !admin,
