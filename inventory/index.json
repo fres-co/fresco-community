@@ -311,7 +311,8 @@
           "appearance": {
             "EVENTS": "",
             "TEXT_DISABLED": true,
-            "TEXT": "story-quizz-neutral"
+            "TEXT": "story-quizz-neutral",
+            "NAME": "story-quizz-neutral"
           }
         },
         {
