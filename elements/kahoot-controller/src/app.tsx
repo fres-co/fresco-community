@@ -5,7 +5,6 @@ import { usePin } from './usePin'
 import { SettingScreen } from './settingScreen'
 
 
-
 export function App() {
   const { pin, setPin } = usePin()
 

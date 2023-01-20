@@ -8,11 +8,14 @@ export const SettingScreen = ({ setPin }: { setPin: (pin:number) => void }) => {
 
     const [editingPin, setEditingPin] = useState<number| ''>('')
     const validatePin = useCallback((e) => {
-if(e.target.value === '') {
-    setEditingPin('')
-} else {
-    setEditingPin(() => 33);
-}
+    if (e.target.value === '') {
+     setEditingPin('')
+    } else {
+        const pin = Number.parseInt(e.target.value)
+        if  (!Number.isNaN(pin) && `${pin}` === e.target.value){
+            setEditingPin(pin);
+        }
+    }
     }, [setEditingPin])
 
     return       (
