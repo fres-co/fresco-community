@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
-import { Center } from "./components/Center"
-import { Form } from "./components/Form"
-import { Styled } from "./components/Styled";
+import { Center } from "../components/Center"
+import { Form } from "../components/Form"
+import { Styled } from "../components/Styled";
 
 
 export const SettingScreen = ({ setPin }: { setPin: (pin:number) => void }) => {
