@@ -1,4 +1,4 @@
-import { useCallback, useState } from "preact/hooks";
+import { useCallback, useState } from "react";
 import { Center } from "./components/Center"
 import { Form } from "./components/Form"
 import { Styled } from "./components/Styled";

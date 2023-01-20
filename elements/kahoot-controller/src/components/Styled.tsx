@@ -1,5 +1,4 @@
-import { cloneElement } from "preact";
-import { JSX } from "preact/jsx-runtime";
+import { cloneElement } from "react";
 import { useStyle } from "../hooks/useStyle";
 
 const div = <div />;

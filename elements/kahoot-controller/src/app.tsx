@@ -1,6 +1,5 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import './app.css'
+import { useState } from 'react'
+import './App.css'
 import { KahootPlayer } from './kahootPlayer'
 import { usePin } from './usePin'
 import { SettingScreen } from './settingScreen'
