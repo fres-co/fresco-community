@@ -1,11 +1,9 @@
-import { useMemo } from "preact/hooks"
-import { useStyle } from "../hooks/useStyle"
-
+import { useMemo } from "preact/hooks";
+import { useStyle } from "../hooks/useStyle";
 
 export const Form = (props: any) => {
-
-    const { className, style } = useStyle(
-        `
+  const { className, style } = useStyle(
+    `
             background-color: white;
             max-width: 800px;
             display: flex;
@@ -13,10 +11,12 @@ export const Form = (props: any) => {
             padding: 15px;
             width: 300px;
             ${props.css}
-        `   
-)
-    return <>
-        {style}
-        <form {...props} className={className} />
+        `
+  );
+  return (
+    <>
+      {style}
+      <form {...props} className={className} />
     </>
-}
+  );
+};

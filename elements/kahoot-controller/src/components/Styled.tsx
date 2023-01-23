@@ -2,13 +2,21 @@ import { cloneElement } from "react";
 import { useStyle } from "../hooks/useStyle";
 
 const div = <div />;
-export const Styled = ({ el = div, css, ...props }: { el?: JSX.Element; css: string; } & any) => {
+export const Styled = ({
+  el = div,
+  css,
+  ...props
+}: { el?: JSX.Element; css: string } & any) => {
+  const styles = useStyle(css);
 
-    const styles = useStyle(css);
-
-    const eiWithProps = cloneElement(el, { ...props, className: styles.className });
-    return <>
-        {styles.style}
-        {eiWithProps}
-    </>;
+  const eiWithProps = cloneElement(el, {
+    ...props,
+    className: styles.className,
+  });
+  return (
+    <>
+      {styles.style}
+      {eiWithProps}
+    </>
+  );
 };
