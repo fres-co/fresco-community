@@ -9,14 +9,14 @@ export const Styled = ({
 }: { el?: JSX.Element; css: string } & any) => {
   const styles = useStyle(css);
 
-  const eiWithProps = cloneElement(el, {
+  const elementWithProps = cloneElement(el, {
     ...props,
     className: styles.className,
   });
   return (
     <>
       {styles.style}
-      {eiWithProps}
+      {elementWithProps}
     </>
   );
 };
