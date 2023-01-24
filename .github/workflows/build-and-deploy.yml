@@ -47,6 +47,20 @@ jobs:
         run: rm -rf node_modules && rm index.html
       ## END PREPARE REIGNS ##
 
+      ## START PREPARE KAHOOT CONTROLLER##
+      - name: Install kahoot-controller dependencies
+        working-directory: ./elements/kahoot-controller
+        run: npm i
+
+      - name: Build kahoot-controller
+        working-directory: ./elements/kahoot-controller
+        run: npm run build
+
+      - name: Clean-up kahoot-controller
+        working-directory: ./elements/kahoot-controller
+        run: rm -rf node_modules && rm index.html
+      ## END PREPARE KAHOOT CONTROLLER##
+
       - name: Build jekyll
         uses: actions/jekyll-build-pages@v1
 
