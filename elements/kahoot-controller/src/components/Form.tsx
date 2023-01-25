@@ -15,7 +15,7 @@ export const Form = (props: any) => {
   return (
     <>
       {style}
-      <form {...props}  className={className} />
+      <form {...props} className={className} />
     </>
   );
 };

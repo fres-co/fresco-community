@@ -10,7 +10,7 @@ export const SettingScreen = ({
 }) => {
   const [editingPin, setEditingPin] = useState<number | "">("");
   const validatePin = useCallback(
-    (e:React.FormEvent<HTMLInputElement>) => {
+    (e: React.FormEvent<HTMLInputElement>) => {
       if (e.currentTarget.value === "") {
         setEditingPin("");
       } else {
@@ -33,7 +33,7 @@ export const SettingScreen = ({
             var formData = new FormData(e.currentTarget);
             const { pin } = Object.fromEntries(formData);
             e.preventDefault();
-            setPin(Number.parseInt(pin  as string, 10));
+            setPin(Number.parseInt(pin as string, 10));
           }}
         >
           <Styled
