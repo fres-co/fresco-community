@@ -25,4 +25,10 @@ jobs:
 
       - name: Build kahoot-controller
         working-directory: ./elements/kahoot-controller
-        run: npm i && npm run build
+        run: npm i
+      - name: ls
+        working-directory: ./elements/kahoot-controller
+        run: ls -alh src/
+      - name: Build kahoot-controller
+        working-directory: ./elements/kahoot-controller
+        run: npm run build
