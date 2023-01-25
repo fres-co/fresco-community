@@ -120,7 +120,7 @@ export function App() {
   if (state.pin) {
     return (
       <KahootPlayer
-        pin={state.pin}
+        pin={`${state.pin}`}
         canSetPin={state.canSetPin}
         resetPin={resetPin}
       />

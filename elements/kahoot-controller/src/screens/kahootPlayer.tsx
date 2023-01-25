@@ -14,7 +14,7 @@ export const KahootPlayer = ({
   canSetPin,
   resetPin,
 }: {
-  pin?: number;
+  pin?: string;
   canSetPin: boolean;
   resetPin: () => void;
 }) => {
