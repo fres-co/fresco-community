@@ -1,4 +1,3 @@
-import { useMemo } from "preact/hooks";
 import { useStyle } from "../hooks/useStyle";
 
 export const Form = (props: any) => {

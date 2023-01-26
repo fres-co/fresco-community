@@ -22,3 +22,13 @@ jobs:
       - name: Typecheck reigns
         working-directory: ./elements/reigns
         run: npm run check:types
+
+      - name: Build kahoot-controller
+        working-directory: ./elements/kahoot-controller
+        run: npm i
+      - name: ls
+        working-directory: ./elements/kahoot-controller
+        run: ls -alh src/
+      - name: Build kahoot-controller
+        working-directory: ./elements/kahoot-controller
+        run: npm run build

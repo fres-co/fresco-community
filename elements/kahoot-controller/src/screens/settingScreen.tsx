@@ -10,12 +10,12 @@ export const SettingScreen = ({
 }) => {
   const [editingPin, setEditingPin] = useState<number | "">("");
   const validatePin = useCallback(
-    (e) => {
-      if (e.target.value === "") {
+    (e: React.FormEvent<HTMLInputElement>) => {
+      if (e.currentTarget.value === "") {
         setEditingPin("");
       } else {
-        const pin = Number.parseInt(e.target.value);
-        if (!Number.isNaN(pin) && `${pin}` === e.target.value) {
+        const pin = Number.parseInt(e.currentTarget.value);
+        if (!Number.isNaN(pin) && `${pin}` === e.currentTarget.value) {
           setEditingPin(pin);
         }
       }
@@ -29,11 +29,11 @@ export const SettingScreen = ({
         <KahootLogo />
         <Form
           css="border-radius: 4px"
-          onSubmit={(e) => {
-            var formData = new FormData(e.target);
+          onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+            var formData = new FormData(e.currentTarget);
             const { pin } = Object.fromEntries(formData);
             e.preventDefault();
-            setPin(pin);
+            setPin(Number.parseInt(pin as string, 10));
           }}
         >
           <Styled
