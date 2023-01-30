@@ -87,12 +87,13 @@ const useAppStore = () => {
     if (!loadedRef.current) {
       loadedRef.current = true;
 
-      fresco.onStateChanged(() => {
-        dispatch({
-          type: ACTIONS.FRESCO_STATE_CHANGED,
-        });
-      });
       fresco.onReady(() => {
+        fresco.onStateChanged(() => {
+          dispatch({
+            type: ACTIONS.FRESCO_STATE_CHANGED,
+          });
+        });
+
         dispatch({
           type: ACTIONS.FRESCO_READY,
         });
