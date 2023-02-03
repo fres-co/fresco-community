@@ -28,6 +28,7 @@ export const SettingScreen = ({
       <Center>
         <KahootLogo />
         <Form
+          autoComplete="off"
           css="border-radius: 4px"
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
             var formData = new FormData(e.currentTarget);
@@ -46,6 +47,7 @@ export const SettingScreen = ({
               border-radius: 4px;
             `}
             type="text"
+            autoComplete="off"
             name="pin"
             placeholder={"Game PIN"}
             value={editingPin}
