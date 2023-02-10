@@ -55,6 +55,7 @@ export const KahootPlayer = ({
             font-weight: bold;
             cursor: pointer;
             background: white;
+            color: #371271;
           `}
           onClick={resetPin}
         >
