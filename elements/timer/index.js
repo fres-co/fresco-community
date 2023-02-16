@@ -44,19 +44,17 @@ function render(timer) {
   const user = !admin;
 
   main.innerHTML = `
-      <div>
       <form id="form" onchange="valueForm(event)" >
         <div class="inputs-group">
         <input ${renderIf(
           fresco.element.state.timer !== "initial" || !admin,
           "disabled"
-        )} type="number" id="minutes" min="0" max="59" onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'" value="${minutes}"/>
-        <p class="time-label time-label-min">min</p>
+        )} type="number" id="minutes" min="0" max="59" onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'" value="${minutes <= 9 ? '0' + minutes : minutes}"/>
+        <div class="time-label">:</div>
         <input ${renderIf(
           fresco.element.state.timer !== "initial" || !admin,
           "disabled"
-        )} type="number" id="seconds" min="00" max="59" onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'" value="${seconds}"/>
-        <p class="time-label time-label-sec">sec</p>
+        )} type="number" id="seconds" min="00" max="59" onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'" value="${seconds <= 9 ? '0' + seconds : seconds}"/>
         </div>
       <div class="buttons-group">
         ${renderIf(
@@ -67,7 +65,7 @@ function render(timer) {
             fresco.element.state.timer === "pause"
               ? `<button type="button" class="button--start"  onclick="toggleTimer()"
                 ${renderIf(minutes === 0 && seconds === 0, "disabled")}
-              >Start</button>`
+              >${fresco.element.state.timer === "pause" ? "Resume" : "Start"}</button>`
               : ""
           }
 
@@ -92,7 +90,6 @@ function render(timer) {
 
         </div>
         </form>
-      </div>
     `;
 }
 
