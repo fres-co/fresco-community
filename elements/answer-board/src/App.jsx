@@ -7,6 +7,9 @@ const initialState = {
   question: "What is your favorite color?",
   maxAnswersPerParticipant: 1,
   blurAnswersUntilParticipantAnswers: false,
+  borderRadius: 10,
+  backgroundColor: "#fff",
+  textColor: "#000",
 };
 
 const hash = function (str, seed = 0) {
@@ -27,61 +30,13 @@ const hash = function (str, seed = 0) {
 };
 
 const colors = [
-  "#fdd43c",
-  "#f7901e",
-  "#fe00ec",
-  "#e93e44",
-  "#36f75a",
-  "#22ebcb",
+  "#F6C2D9",
+  "#FFF69B",
+  "#BCDFC9",
+  "#A1C8E9",
+  "#E4DAE2",
+  "#D9DDFC",
 ];
-
-const style = {
-  question: {
-    padding: 20,
-    margin: 0,
-    borderBottom: "1px black solid",
-  },
-  answers: {
-    display: "flex",
-    flexWrap: "wrap",
-    padding: 0,
-    margin: 0,
-  },
-  answer: {
-    backgroundColor: "#94B300",
-    width: 140,
-    height: 140,
-    padding: 5,
-    margin: 10,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    position: "relative",
-    fontSize: 20,
-    textAlign: "center",
-    border: "solid 1px black",
-  },
-  delete: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    margin: 5,
-    fontWeight: "bold",
-  },
-  yourAnswerContainer: {
-    marginTop: 10,
-    padding: 10,
-  },
-  yourAnswerTextbox: {
-    padding: 10,
-    fontSize: 16,
-  },
-  yourAnswerButton: {
-    padding: 10,
-    marginLeft: 10,
-    fontSize: 16,
-  },
-};
 
 const useForceUpdate = () => {
   const [_, updateCount] = useState(0);
@@ -109,6 +64,21 @@ const Home = () => {
         autoAdjustHeight: true,
         toolbarButtons: [
           {
+            title: "Title color",
+            ui: { type: "color" },
+            property: "titleColor",
+          },
+          {
+            title: "Background color",
+            ui: { type: "color" },
+            property: "backgroundColor",
+          },
+          {
+            title: "Border radius",
+            ui: { type: "slider", min: 0, max: 200 },
+            property: "borderRadius",
+          },
+          {
             title: "Question",
             ui: { type: "string" },
             property: "question",
@@ -129,7 +99,7 @@ const Home = () => {
   }, []);
 
   if (!ready || !fresco.element.state) {
-    return <h1>Initialising...</h1>;
+    return <div className='big-message'>Initialising...</div>;
   }
 
   const answers = fresco.element?.storage[ANSWERS_STORAGE] || [];
@@ -139,17 +109,20 @@ const Home = () => {
   ).length;
 
   const allowedAnswers = fresco.element.state.maxAnswersPerParticipant;
+  const backgroundColor = fresco.element.state.backgroundColor;
+  const borderRadius = fresco.element.state.borderRadius;
+  const titleColor = fresco.element.state.titleColor;
+
   const canAddAnswer = myAnswerCount < allowedAnswers;
   const hasAnswered = myAnswerCount > 0;
 
   const answerStyle =
     !hasAnswered && fresco.element.state.blurAnswersUntilParticipantAnswers
       ? {
-          ...style.answer,
           color: "transparent",
           "text-shadow": "0 0 8px #000",
         }
-      : style.answer;
+      : null;
 
   const addAnswer = (e) => {
     const value = newAnswerText.trim();
@@ -166,28 +139,11 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1 style={style.question}>{fresco?.element?.state?.question}</h1>
-      {canAddAnswer && (
-        <div style={style.yourAnswerContainer}>
-          <form>
-            <input
-              style={style.yourAnswerTextbox}
-              type="text"
-              name="comment"
-              placeholder="Add your answer"
-              value={newAnswerText}
-              maxLength={MAX_ANSWER_CHARACTERS}
-              onChange={(e) => setNewAnswerText(e.target.value)}
-            />
-            <button style={style.yourAnswerButton} onClick={addAnswer}>
-              Add answer
-            </button>
-          </form>
-        </div>
-      )}
+    <div className='app' style={{ backgroundColor, borderRadius }}>
+      {!!fresco?.element?.state?.question && <h1 style={{ color: titleColor }}>{fresco?.element?.state?.question}</h1>}
+      
       {answers.length ? (
-        <ul style={style.answers}>
+        <ul>
           {answers.map((answer) => (
             <li
               key={answer.id}
@@ -200,25 +156,36 @@ const Home = () => {
               {answer.ownerId === fresco.localParticipant.identityId && (
                 <button
                   onClick={(e) => deleteAnswer(e, answer.id)}
-                  style={style.delete}
+                  className='button--delete'
                 >
-                  X
+                  ✘
                 </button>
               )}
             </li>
           ))}
         </ul>
       ) : (
-        <p>No answers yet, add your own!</p>
+        <p className='explanation'>No answers yet, add your own!</p>
       )}
+
+      <form>
+        <input
+          type="text"
+          name="comment"
+          disabled={!canAddAnswer}
+          placeholder="Add your answer"
+          value={newAnswerText}
+          maxLength={MAX_ANSWER_CHARACTERS}
+          onChange={(e) => setNewAnswerText(e.target.value)}
+        />
+        <button disabled={!canAddAnswer} onClick={addAnswer}>
+          Add answer
+        </button>
+      </form>
     </div>
   );
 };
 
 export default function App() {
-  return (
-    <div>
-      <Home />
-    </div>
-  );
+  return <Home />;
 }
