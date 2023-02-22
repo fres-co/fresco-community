@@ -7,6 +7,9 @@ const initialState = {
   question: "What is your favorite color?",
   maxAnswersPerParticipant: 1,
   blurAnswersUntilParticipantAnswers: false,
+  borderRadius: 10,
+  backgroundColor: "#fff",
+  textColor: "#000",
 };
 
 const hash = function (str, seed = 0) {
@@ -61,6 +64,21 @@ const Home = () => {
         autoAdjustHeight: true,
         toolbarButtons: [
           {
+            title: "Title color",
+            ui: { type: "color" },
+            property: "titleColor",
+          },
+          {
+            title: "Background color",
+            ui: { type: "color" },
+            property: "backgroundColor",
+          },
+          {
+            title: "Border radius",
+            ui: { type: "slider", min: 0, max: 200 },
+            property: "borderRadius",
+          },
+          {
             title: "Question",
             ui: { type: "string" },
             property: "question",
@@ -91,6 +109,10 @@ const Home = () => {
   ).length;
 
   const allowedAnswers = fresco.element.state.maxAnswersPerParticipant;
+  const backgroundColor = fresco.element.state.backgroundColor;
+  const borderRadius = fresco.element.state.borderRadius;
+  const titleColor = fresco.element.state.titleColor;
+
   const canAddAnswer = myAnswerCount < allowedAnswers;
   const hasAnswered = myAnswerCount > 0;
 
@@ -117,8 +139,8 @@ const Home = () => {
   };
 
   return (
-    <>
-      {!!fresco?.element?.state?.question && <h1>{fresco?.element?.state?.question}</h1>}
+    <div className='app' style={{ backgroundColor, borderRadius }}>
+      {!!fresco?.element?.state?.question && <h1 style={{ color: titleColor }}>{fresco?.element?.state?.question}</h1>}
       
       {answers.length ? (
         <ul>
@@ -160,7 +182,7 @@ const Home = () => {
           Add answer
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

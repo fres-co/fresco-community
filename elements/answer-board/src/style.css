@@ -1,14 +1,18 @@
 html,
-body {
+body,
+#root {
   font: 14px/1.21 "Helvetica Neue", arial, sans-serif;
   font-weight: 400;
-  background-color: #fff;
   margin: 0;
   padding: 0;
   height: 100%;
+
 }
 
 h1 {
+  font-size: 3rem;
+  padding: 0;
+  margin: 1rem 0 1rem 0;
   text-align: center;
 }
 
@@ -27,7 +31,7 @@ h1 {
   justify-content: center;
 }
 
-#root {
+ .app {
   text-align: center;
   position: fixed;
   top: 0;
@@ -36,6 +40,7 @@ h1 {
   bottom: 0;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
 
 button {
@@ -70,14 +75,14 @@ form {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
+  margin-top: 1rem;
 }
 
 .button--delete {
   position: absolute;
   top: .25rem;
   right: .25rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
   width: 40px;
   height: 40px;
   display: flex;
@@ -105,7 +110,7 @@ li {
   width: 140px;
   height: 140px;
   padding: .25rem;
-  margin: .5rem;
+  margin: .5rem .5rem 1.5rem .5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,11 +119,13 @@ li {
   text-align: center;
   font-weight: bold;
   box-shadow: 5px 5px 7px rgba(33,33,33,.4);
+  transform: rotate(-2deg);
 }
 
 .big-message {
   font-size: 2rem;
   font-weight: 700;
+  background-color: #fff;
   color: #666;
   position: absolute;
   top: 50%;
@@ -134,10 +141,6 @@ button:disabled {
 input:disabled {
   background-color: #eee;
   cursor: not-allowed;
-}
-
-ul li {
-  transform: rotate(-2deg);
 }
 
 li:nth-child(even) {
