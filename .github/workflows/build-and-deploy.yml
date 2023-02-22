@@ -14,7 +14,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
+      - uses: actions/setup-node@v3
+        with:
+        node-version: 16
       ## START PREPARE ANSWER-BOARD ##
       - name: Install answer-board dependencies
         working-directory: ./elements/answer-board
@@ -30,21 +32,21 @@ jobs:
       ## END PREPARE ANSWER-BOARD ##
 
       ## START PREPARE REIGNS ##
-      # - name: Install reigns dependencies
-      #   working-directory: ./elements/reigns
-      #   run: npm i
+      - name: Install reigns dependencies
+        working-directory: ./elements/reigns
+        run: npm i
 
-      # - name: Test reigns
-      #   working-directory: ./elements/reigns
-      #   run: npm run test
+      - name: Test reigns
+        working-directory: ./elements/reigns
+        run: npm run test
 
-      # - name: Build reigns
-      #   working-directory: ./elements/reigns
-      #   run: npm run build
+      - name: Build reigns
+        working-directory: ./elements/reigns
+        run: npm run build
 
-      # - name: Clean-up reigns
-      #   working-directory: ./elements/reigns
-      #   run: rm -rf node_modules && rm index.html
+      - name: Clean-up reigns
+        working-directory: ./elements/reigns
+        run: rm -rf node_modules && rm index.html
       ## END PREPARE REIGNS ##
 
       ## START PREPARE KAHOOT CONTROLLER##
