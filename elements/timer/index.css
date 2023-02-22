@@ -1,250 +1,88 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap");
 
 html {
+  font-family: "Quicksand", sans-serif;
+}
+
+html, body, #main {
   height: 100%;
-}
-
-body {
-  border-radius: 24px;
-  display: flex;
-  height: 95%;
-  margin: 0;
-}
-
-div#main {
-  background-color: #fff;
-  border: 5px solid #9e32d6;
-  box-shadow: 0px 6px 0px #5f2080;
-  border-radius: 24px;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-div#main > div {
-  height: 100%;
+#main {
+  border-radius: 1em;
+  background-color: #fff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.inputs-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 8vw;
+}
+
+input {
+  border-width: 0;
+  font-size: 30vw;
+  width: 40vw;
+  display: inline-block;
+  caret-color: #9e32d6;
+  border-radius: 5vw;
+  background-color: #f2f2f2;
+  
+}
+
+.time-label {
+  font-size: 20vw;
+}
+
+input:hover, input:focus {
+  background-color: #f2f2f2;
 }
 
 input:disabled {
   background-color: initial;
 }
-.none {
-  display: none;
-}
 
-.block {
-  display: block;
-}
-
-.hidden {
-  visibility: hidden;
-}
-
-.visible {
-  visibility: visible;
-}
-
-form {
+.buttons-group {
+  margin-top: 2vw;
+  text-align: center;
   display: flex;
+  
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  padding-top: 1px;
+  gap: 4vw;
 }
 
 button {
-  font-size: 20px;
-  font-family: "Quicksand", sans-serif;
+  background-color: #9e32d6;
   color: #fff;
-  border-radius: 8px;
-  border: none;
-  padding: 6px 25px;
-  transition: ease 0.3s;
-}
-
-input,
-p {
-  color: #313e47;
-  font-size: 128px;
-  font-weight: 700;
-  font-family: "Quicksand", sans-serif;
-  text-align: center;
-  width: 156px;
-  border: none;
-  caret-color: #9e32d6;
-}
-
-p {
-  height: 110px;
-  padding-bottom: 24px;
-}
-
-input {
-  text-align: right;
-  text-align: right;
-  line-height: 1.2em;
-  height: 1.2em;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+  border-radius: 4vw;
+  padding: 2vw 4vw;
+  border-width: 0px;
+  cursor: pointer;
+  font-size: 10vw;
+  flex: 1;
 }
 
 input[type="number"] {
   -moz-appearance: textfield;
 }
 
-input:focus,
-input:hover:not(:disabled) {
-  background: #f2f2f2;
-  border-radius: 15px;
-  outline: none;
-}
-
-.inputs-group {
-  display: flex;
-  align-items: flex-end;
-  padding-top: 18px;
-  margin-bottom: -24px;
-}
-
-.buttons-group {
-  display: flex;
-  align-items: center;
-  height: 90px;
-  gap: 15px;
-}
-
-:is(.button--start, .button--pause, .button--reset):hover:not(:disabled) {
-  font-size: 19.7px;
-  box-shadow: 0px 0px 0px transparent;
-}
-
 .button--start {
-  background: #4bb958;
-  box-shadow: 0px 3px 0px #4b5f58;
-}
-
-.button--start:disabled {
-  background-color: #ddd;
-  cursor: not-allowed;
-}
-
-.button--pause {
-  background: #eb3142;
-  box-shadow: 0px 3px 0px #5f3142;
-}
-
-.button--user_pause {
-  background: #eb3142;
+  background-color: #4bb958;
 }
 
 .button--reset {
-  background: #ffb136;
-  box-shadow: 0px 3px 0px #845f25;
-}
-
-.time-label {
-  margin: 0;
-  padding-left: 5px;
-  font-size: 20px;
-  height: fit-content !important;
-  width: auto;
-}
-
-.time-label-min {
-  padding-right: 20px;
-}
-
-.user > div {
-  justify-content: center;
-  align-items: center;
-}
-
-.user form {
-  padding-bottom: 5px;
-}
-
-.user .inputs-group {
-  padding-top: 0;
-}
-
-@media (max-width: 430px), (max-height: 210px) {
-  button {
-    font-size: 18px;
-  }
-  :is(.button--start, .button--pause, .button--reset):hover {
-    font-size: 18.5px;
-  }
-  input,
-  p {
-    font-size: 80px;
-    width: 100px;
-  }
-  p {
-    height: 70px;
-  }
-  .timer p {
-    height: 80px;
-  }
-  .buttons-group {
-    height: 65px;
-  }
-}
-
-@media screen and (max-width: 330px) {
-  button {
-    font-size: 16px;
-    padding: 6px 20px;
-  }
-  :is(.button--start, .button--pause, .button--reset):hover {
-    font-size: 16.5px;
-  }
-  input,
-  p {
-    font-size: 55px;
-
-    width: 70px;
-  }
-  p {
-    height: 50px;
-  }
-
-  .buttons-group {
-    height: 65px;
-  }
-}
-
-#resize-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: white;
-  text-align: center;
-  border: 5px solid #9e32d6;
-  border-radius: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#main {
-  display: none;
-}
-@media (min-width: 300px) and (min-height: 140px) {
-  #resize-overlay {
-    display: none;
-  }
-
-  #main {
-    display: block;
-  }
-}
-
-.inputs-group:has(input:focus) + .buttons-group .button--start {
-  visibility: hidden;
+  background-color: #ffb136;
 }
