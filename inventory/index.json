@@ -37,6 +37,50 @@
     }
   },
   {
+    "name": "Answer wall",
+    "displayName": "Answer wall",
+    "displaySearch": "Answer wall",
+    "url": "answer-wall.png",
+    "content": {
+      "visuals": [
+        {
+          "id": "vfx1kdhav2dvim9vzlnjk",
+          "isLocked": false,
+          "zIndex": 2,
+          "layer": 0,
+          "renderer": "IFrame",
+          "transform": {
+            "position": { "x": 2520, "y": 660 },
+            "size": { "x": 640, "y": 400 },
+            "rotation": 0
+          },
+          "appearance": {
+            "PROTECTED_STORAGE": {
+              "answers": []
+            },
+            "TEXT_BEHAVIOUR": 2,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT_DISABLED": true,
+            "STATE": {
+              "question": "What is your favorite color?",
+              "maxAnswersPerParticipant": 2,
+              "blurAnswersUntilParticipantAnswers": false,
+              "borderRadius": 10,
+              "backgroundColor": "#fff",
+              "textColor": "#000"
+            },
+            "VISIBLE_IN_CONTAINER": true,
+            "PINNED": false,
+            "EVENTS": "",
+            "SOURCE": "https://fres-co.github.io/fresco-community/elements/answer-board/dist/"
+          }
+        }
+      ],
+      "groups": []
+    }
+  },
+  {
     "name": "Icebreakers 1",
     "displayName": "Icebreakers 1",
     "displaySearch": "Icebreakers 1",
