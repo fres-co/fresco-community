@@ -99,10 +99,11 @@ const Home = () => {
   }, []);
 
   if (!ready || !fresco.element.state) {
-    return <div className='big-message'>Initialising...</div>;
+    return <div className="big-message">Initialising...</div>;
   }
 
-  const answers = fresco.element?.storage[ANSWERS_STORAGE] || [];
+  let answers = fresco.element?.storage[ANSWERS_STORAGE] || [];
+  answers = [...answers].reverse();
 
   const myAnswerCount = answers.filter(
     (a) => a.ownerId === fresco.localParticipant.identityId
@@ -139,9 +140,13 @@ const Home = () => {
   };
 
   return (
-    <div className='app' style={{ backgroundColor, borderRadius }}>
-      {!!fresco?.element?.state?.question && <h1 style={{ color: titleColor }}>{fresco?.element?.state?.question}</h1>}
-      
+    <div className="app" style={{ backgroundColor, borderRadius }}>
+      {!!fresco?.element?.state?.question && (
+        <h1 style={{ color: titleColor }}>
+          {fresco?.element?.state?.question}
+        </h1>
+      )}
+
       {answers.length ? (
         <ul>
           {answers.map((answer) => (
@@ -156,7 +161,7 @@ const Home = () => {
               {answer.ownerId === fresco.localParticipant.identityId && (
                 <button
                   onClick={(e) => deleteAnswer(e, answer.id)}
-                  className='button--delete'
+                  className="button--delete"
                 >
                   ✘
                 </button>
@@ -165,7 +170,7 @@ const Home = () => {
           ))}
         </ul>
       ) : (
-        <p className='explanation'>No answers yet, add your own!</p>
+        <p className="explanation">No answers yet, add your own!</p>
       )}
 
       <form>
