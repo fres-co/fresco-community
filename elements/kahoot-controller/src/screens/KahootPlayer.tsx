@@ -31,9 +31,14 @@ const KahootPlayerWithStorage = ({
   const prevUrlRef = useRef(url);
   const savedPin = React.useMemo(() => window.localStorage.getItem('kahoot-pin'), [pin]);
 
+  useEffect(() => {
+    if (pin && savedPin !== `${pin}`) {
+      window.localStorage.setItem('kahoot-pin', `${pin}`);
+    }
+  }, [pin, savedPin])
+
   if (pin && savedPin !== `${pin}`) {
     url.searchParams.set("pin", pin);
-    window.localStorage.setItem('kahoot-pin', `${pin}`);
     prevUrlRef.current = url;
   } else if (isMounted.current === false) {
     // pin is same as before but element is not mounted
