@@ -28,7 +28,7 @@ const KahootPlayerWithStorage = ({
 
 
   const url = new URL(KahootURL);
-  const prevUrlRef = useRef(url)
+  const prevUrlRef = useRef(url);
   const savedPin = React.useMemo(() => window.localStorage.getItem('kahoot-pin'), [pin]);
 
   if (pin && savedPin !== `${pin}`) {
