@@ -24,7 +24,7 @@ const KahootPlayerWithStorage = ({
   const isMounted = React.useRef(false)
   useEffect(() => {
     isMounted.current = true;
-  }, [])
+  }, []);
 
 
   const url = new URL(KahootURL);
