@@ -1,9 +1,9 @@
-import { useReducer, useEffect, useRef, useCallback } from "react";
+import React, { useReducer, useEffect, useRef, useCallback } from "react";
 import "./App.css";
-import { KahootPlayer } from "./screens/kahootPlayer";
+import { KahootPlayer } from "./screens/KahootPlayer";
 
-import { SettingScreen } from "./screens/settingScreen";
-import { WaitPin } from "./screens/waitPin";
+import { SettingScreen } from "./screens/SettingScreen";
+import { WaitPin } from "./screens/WaitPin";
 
 interface FrescoElementState {
   pin: number | "";
@@ -120,17 +120,36 @@ export function App() {
 
   if (state.pin) {
     return (
-      <KahootPlayer
+      <PhoneWrapper><KahootPlayer
         pin={`${state.pin}`}
         canSetPin={state.canSetPin}
         resetPin={resetPin}
-      />
+      /></PhoneWrapper>
     );
   }
 
   if (state.canSetPin) {
-    return <SettingScreen setPin={setPin} />;
+    return <PhoneWrapper><SettingScreen setPin={setPin} /></PhoneWrapper>;
   }
 
-  return <WaitPin />;
+  return <PhoneWrapper><WaitPin /></PhoneWrapper>;
 }
+
+
+
+const PhoneWrapper = ({ children }: { children: React.ReactElement}) => {
+
+  return (<div className="gJaRNL">
+    
+      <div className="inner"></div>
+      <div className="overflow"><div className="shadow"></div></div>
+      <div className="speaker"></div>
+      <div className="sensors"></div>
+      <div className="more-sensors"></div>
+      <div className="sleep"></div>
+      <div className="volume"></div>
+      <div className="camera"></div>
+      <div className="screen">{children}</div>
+
+    </div>)
+} 
