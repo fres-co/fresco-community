@@ -23,7 +23,7 @@ const KahootPlayerWithStorage = ({
 
   const isMounted = React.useRef(false)
   useEffect(() => {
-    isMounted.current = true
+    isMounted.current = true;
   }, [])
 
 
