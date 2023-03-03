@@ -33,13 +33,13 @@ const KahootPlayerWithStorage = ({
 
   if (pin && savedPin !== `${pin}`) {
     url.searchParams.set("pin", pin);
-    window.localStorage.setItem('kahoot-pin', `${pin}`)
-    prevUrlRef.current = url
+    window.localStorage.setItem('kahoot-pin', `${pin}`);
+    prevUrlRef.current = url;
   } else if (isMounted.current === false) {
     // pin is same as before but element is not mounted
     // lets try to continue game
-    url.pathname = '/start'
-    prevUrlRef.current = url
+    url.pathname = '/start';
+    prevUrlRef.current = url;
   }
 
   return (
@@ -70,7 +70,7 @@ const KahootPlayerWithStorage = ({
           RESET PIN
         </Styled>
       )}
-    </>)
+    </>);
 
 }
 
@@ -96,6 +96,6 @@ export const KahootPlayer = ({
     );
   }
 
-  return <KahootPlayerWithStorage pin={pin} resetPin={resetPin} canSetPin={canSetPin} />
+  return <KahootPlayerWithStorage pin={pin} resetPin={resetPin} canSetPin={canSetPin} />;
 
 };

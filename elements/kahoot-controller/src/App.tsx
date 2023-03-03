@@ -1,9 +1,9 @@
 import React, { useReducer, useEffect, useRef, useCallback } from "react";
 import "./App.css";
-import { KahootPlayer } from "./screens/kahootPlayer";
+import { KahootPlayer } from "./screens/KahootPlayer";
 
-import { SettingScreen } from "./screens/settingScreen";
-import { WaitPin } from "./screens/waitPin";
+import { SettingScreen } from "./screens/SettingScreen";
+import { WaitPin } from "./screens/WaitPin";
 
 interface FrescoElementState {
   pin: number | "";
