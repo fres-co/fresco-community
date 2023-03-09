@@ -3,17 +3,14 @@ import { Center } from "../components/Center";
 import { Form } from "../components/Form";
 import { Styled } from "../components/Styled";
 
-
-const setPinIfValide = (pinString: string, setPin: (pin: number) => void) => {
-
-
+const setPinIfValid = (pinString: string, setPin: (pin: number) => void) => {
   const pin = Number.parseInt(pinString, 10);
   if (!Number.isNaN(pin) && `${pin}` === pinString) {
     setPin(pin);
-    return true
+    return true;
   }
-  return false
-}
+  return false;
+};
 
 export const SettingScreen = ({
   setPin,
@@ -26,15 +23,14 @@ export const SettingScreen = ({
       if (e.currentTarget.value === "") {
         setEditingPin("");
       } else {
-        const valid = setPinIfValide(e.currentTarget.value, setEditingPin);
+        const valid = setPinIfValid(e.currentTarget.value, setEditingPin);
 
         if (!valid) {
-
           try {
             const url = new URL(e.currentTarget.value);
-            const pin = url.searchParams.get('pin');
+            const pin = url.searchParams.get("pin");
             if (pin) {
-              setPinIfValide(pin, setEditingPin)
+              setPinIfValid(pin, setEditingPin);
             }
           } catch {
             // nop
