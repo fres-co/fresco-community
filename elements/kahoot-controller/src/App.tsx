@@ -1,4 +1,10 @@
-import React, { useReducer, useEffect, useRef, useCallback } from "react";
+import React, {
+  useReducer,
+  useEffect,
+  useRef,
+  useCallback,
+  useState,
+} from "react";
 import "./App.css";
 import { KahootPlayer } from "./screens/KahootPlayer";
 
@@ -113,36 +119,66 @@ export function App() {
     [dispatch]
   );
 
-  const resetPin = useCallback(() => setPin(""), [setPin]);
+  const [isResetPinModalVisible, setResetPinModalVisible] = useState(false);
+  const confirmBeforeResetPin = useCallback(() => {
+    setResetPinModalVisible(true);
+  }, [setPin]);
+
+  const discardResetPin = useCallback(() => {
+    setResetPinModalVisible(false);
+  }, [setPin]);
+
+  const resetPin = useCallback(() => {
+    setResetPinModalVisible(false);
+    setPin("");
+  }, [setPin]);
+
   if (!state.loaded) {
     return null;
   }
 
+  if (state.pin && isResetPinModalVisible) {
+    return (
+      <PhoneWrapper>
+        <Confirm onOk={resetPin} onDismiss={discardResetPin} />
+      </PhoneWrapper>
+    );
+  }
+
   if (state.pin) {
     return (
-      <PhoneWrapper><KahootPlayer
-        pin={`${state.pin}`}
-        canSetPin={state.canSetPin}
-        resetPin={resetPin}
-      /></PhoneWrapper>
+      <PhoneWrapper>
+        <KahootPlayer
+          pin={`${state.pin}`}
+          canSetPin={state.canSetPin}
+          resetPin={confirmBeforeResetPin}
+        />
+      </PhoneWrapper>
     );
   }
 
   if (state.canSetPin) {
-    return <PhoneWrapper><SettingScreen setPin={setPin} /></PhoneWrapper>;
+    return (
+      <PhoneWrapper>
+        <SettingScreen setPin={setPin} />
+      </PhoneWrapper>
+    );
   }
 
-  return <PhoneWrapper><WaitPin /></PhoneWrapper>;
+  return (
+    <PhoneWrapper>
+      <WaitPin />
+    </PhoneWrapper>
+  );
 }
 
-
-
-const PhoneWrapper = ({ children }: { children: React.ReactElement}) => {
-
-  return (<div className="gJaRNL">
-    
+const PhoneWrapper = ({ children }: { children: React.ReactElement }) => {
+  return (
+    <div className="gJaRNL">
       <div className="inner"></div>
-      <div className="overflow"><div className="shadow"></div></div>
+      <div className="overflow">
+        <div className="shadow"></div>
+      </div>
       <div className="speaker"></div>
       <div className="sensors"></div>
       <div className="more-sensors"></div>
@@ -150,6 +186,38 @@ const PhoneWrapper = ({ children }: { children: React.ReactElement}) => {
       <div className="volume"></div>
       <div className="camera"></div>
       <div className="screen">{children}</div>
+    </div>
+  );
+};
 
-    </div>)
-} 
+const Confirm = ({
+  onOk,
+  onDismiss,
+}: {
+  onOk: () => void;
+  onDismiss: () => void;
+}) => {
+  return (
+    <div className="confirm">
+      <div className="confirm-box">
+        <div className="confirm--prompt">
+          Are you sure you want to reset the Game&nbsp;PIN?
+          <br />
+          This will disconnect all players.
+        </div>
+
+        <div className="confirm--button-container">
+          <button className="confirm--button confirm--button-ok" onClick={onOk}>
+            Reset Game PIN
+          </button>
+          <button
+            className="confirm--button confirm--button-cancel"
+            onClick={onDismiss}
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
