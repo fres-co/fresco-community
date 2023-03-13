@@ -202,7 +202,7 @@ const Confirm = ({
       <div className="confirm-box">
         <div className="confirm--prompt">
           Are you sure you want to reset the Game&nbsp;PIN?
-          <br />
+          <br /><br />
           This will disconnect all players.
         </div>
 
