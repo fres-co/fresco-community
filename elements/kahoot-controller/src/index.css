@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -56,33 +56,304 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.gJaRNL { display: inline-block; position: relative; box-sizing: border-box; width: 100%; height: 100%; background: black; border-radius: 34px; padding: 45px 10px; }
-.gJaRNL .screen { width: 100%; position: relative; height: 100%; z-index: 3; background: white; overflow: hidden; display: block; border-radius: 14px; box-shadow: none; }
-.gJaRNL .top-bar, .gJaRNL .bottom-bar { height: 3px; background: black; width: 100%; display: block; }
-.gJaRNL .middle-bar { width: 3px; height: 4px; top: 0px; left: 90px; background: black; position: absolute; }
-.gJaRNL .overflow { width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; border-radius: 34px; overflow: hidden; }
-.gJaRNL .speaker { height: 8px; width: 56px; left: 50%; position: absolute; top: 25px; margin-left: -28px; background: rgb(23, 24, 24); z-index: 1; border-radius: 8px; }
-.gJaRNL .camera { height: 18px; width: 18px; left: 86px; position: absolute; top: 18px; background: rgb(33, 43, 54); z-index: 1; border-radius: 100%; }
-.gJaRNL .camera::before { content: ""; height: 8px; width: 8px; left: -22px; position: absolute; top: 5px; background: rgb(33, 43, 54); z-index: 1; border-radius: 100%; }
-.gJaRNL .sensors { height: 10px; width: 10px; left: 120px; position: absolute; top: 22px; background: rgb(29, 35, 59); z-index: 1; border-radius: 100%; }
-.gJaRNL .sensors::before { content: ""; height: 10px; width: 10px; left: 18px; position: absolute; top: 0px; background: rgb(29, 35, 59); z-index: 1; border-radius: 100%; }
-.gJaRNL .more-sensors { height: 16px; width: 16px; left: 285px; position: absolute; top: 18px; background: rgb(51, 36, 74); z-index: 1; border-radius: 100%; }
-.gJaRNL .more-sensors::before { content: ""; height: 11px; width: 11px; left: 40px; position: absolute; top: 4px; background: rgb(33, 74, 97); z-index: 1; border-radius: 100%; }
-.gJaRNL .sleep { width: 2px; height: 56px; background: black; position: absolute; top: 288px; right: -2px; }
-.gJaRNL .volume { width: 2px; height: 120px; background: black; position: absolute; top: 168px; left: -2px; }
-.gJaRNL .volume::before { content: ""; top: 168px; width: 2px; position: absolute; left: 0px; background: black; height: 56px; }
-.gJaRNL .inner { width: 100%; height: calc(100% - 8px); position: absolute; top: 2px; content: ""; left: 0px; border-radius: 34px; border-top: 2px solid rgb(159, 160, 162); border-bottom: 2px solid rgb(159, 160, 162); background: black; z-index: 1; }
-.gJaRNL .shadow { height: 101%; position: absolute; top: -0.5%; content: ""; width: calc(100% - 20px); left: 10px; border-radius: 38px; z-index: 5; pointer-events: none; }
-.gJaRNL.landscape { height: 400px; width: 822px; padding: 10px 45px; }
-.gJaRNL.landscape .speaker { height: 56px; width: 8px; top: 50%; margin-top: -28px; margin-left: 0px; right: 25px; left: auto; }
-.gJaRNL.landscape .camera { top: 86px; right: 18px; left: auto; }
-.gJaRNL.landscape .camera::before { top: -22px; left: 5px; }
-.gJaRNL.landscape .sensors { top: 120px; right: 22px; left: auto; }
-.gJaRNL.landscape .sensors::before { top: 18px; left: 0px; }
-.gJaRNL.landscape .more-sensors { top: 285px; right: 18px; left: auto; }
-.gJaRNL.landscape .more-sensors::before { top: 40px; left: 4px; }
-.gJaRNL.landscape .sleep { bottom: -2px; top: auto; right: 288px; width: 56px; height: 2px; }
-.gJaRNL.landscape .volume { width: 120px; height: 2px; top: -2px; right: 168px; left: auto; }
-.gJaRNL.landscape .volume::before { right: 168px; left: auto; top: 0px; width: 56px; height: 2px; }
-.gJaRNL.landscape .inner { height: 100%; width: calc(100% - 8px); left: 2px; top: 0px; border-width: 0px 2px; border-top-style: initial; border-top-color: initial; border-bottom-style: initial; border-bottom-color: initial; border-left-style: solid; border-left-color: rgb(159, 160, 162); border-right-style: solid; border-right-color: rgb(159, 160, 162); }
-.gJaRNL.landscape .shadow { width: 101%; height: calc(100% - 20px); left: -0.5%; top: 10px; }
+.gJaRNL {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 34px;
+  padding: 45px 10px;
+}
+.gJaRNL .screen {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  z-index: 3;
+  background: white;
+  overflow: hidden;
+  display: block;
+  border-radius: 14px;
+  box-shadow: none;
+}
+.gJaRNL .top-bar,
+.gJaRNL .bottom-bar {
+  height: 3px;
+  background: black;
+  width: 100%;
+  display: block;
+}
+.gJaRNL .middle-bar {
+  width: 3px;
+  height: 4px;
+  top: 0px;
+  left: 90px;
+  background: black;
+  position: absolute;
+}
+.gJaRNL .overflow {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 34px;
+  overflow: hidden;
+}
+.gJaRNL .speaker {
+  height: 8px;
+  width: 56px;
+  left: 50%;
+  position: absolute;
+  top: 25px;
+  margin-left: -28px;
+  background: rgb(23, 24, 24);
+  z-index: 1;
+  border-radius: 8px;
+}
+.gJaRNL .camera {
+  height: 18px;
+  width: 18px;
+  left: 86px;
+  position: absolute;
+  top: 18px;
+  background: rgb(33, 43, 54);
+  z-index: 1;
+  border-radius: 100%;
+}
+.gJaRNL .camera::before {
+  content: "";
+  height: 8px;
+  width: 8px;
+  left: -22px;
+  position: absolute;
+  top: 5px;
+  background: rgb(33, 43, 54);
+  z-index: 1;
+  border-radius: 100%;
+}
+.gJaRNL .sensors {
+  height: 10px;
+  width: 10px;
+  left: 120px;
+  position: absolute;
+  top: 22px;
+  background: rgb(29, 35, 59);
+  z-index: 1;
+  border-radius: 100%;
+}
+.gJaRNL .sensors::before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 18px;
+  position: absolute;
+  top: 0px;
+  background: rgb(29, 35, 59);
+  z-index: 1;
+  border-radius: 100%;
+}
+.gJaRNL .more-sensors {
+  height: 16px;
+  width: 16px;
+  left: 285px;
+  position: absolute;
+  top: 18px;
+  background: rgb(51, 36, 74);
+  z-index: 1;
+  border-radius: 100%;
+}
+.gJaRNL .more-sensors::before {
+  content: "";
+  height: 11px;
+  width: 11px;
+  left: 40px;
+  position: absolute;
+  top: 4px;
+  background: rgb(33, 74, 97);
+  z-index: 1;
+  border-radius: 100%;
+}
+.gJaRNL .sleep {
+  width: 2px;
+  height: 56px;
+  background: black;
+  position: absolute;
+  top: 288px;
+  right: -2px;
+}
+.gJaRNL .volume {
+  width: 2px;
+  height: 120px;
+  background: black;
+  position: absolute;
+  top: 168px;
+  left: -2px;
+}
+.gJaRNL .volume::before {
+  content: "";
+  top: 168px;
+  width: 2px;
+  position: absolute;
+  left: 0px;
+  background: black;
+  height: 56px;
+}
+.gJaRNL .inner {
+  width: 100%;
+  height: calc(100% - 8px);
+  position: absolute;
+  top: 2px;
+  content: "";
+  left: 0px;
+  border-radius: 34px;
+  border-top: 2px solid rgb(159, 160, 162);
+  border-bottom: 2px solid rgb(159, 160, 162);
+  background: black;
+  z-index: 1;
+}
+.gJaRNL .shadow {
+  height: 101%;
+  position: absolute;
+  top: -0.5%;
+  content: "";
+  width: calc(100% - 20px);
+  left: 10px;
+  border-radius: 38px;
+  z-index: 5;
+  pointer-events: none;
+}
+.gJaRNL.landscape {
+  height: 400px;
+  width: 822px;
+  padding: 10px 45px;
+}
+.gJaRNL.landscape .speaker {
+  height: 56px;
+  width: 8px;
+  top: 50%;
+  margin-top: -28px;
+  margin-left: 0px;
+  right: 25px;
+  left: auto;
+}
+.gJaRNL.landscape .camera {
+  top: 86px;
+  right: 18px;
+  left: auto;
+}
+.gJaRNL.landscape .camera::before {
+  top: -22px;
+  left: 5px;
+}
+.gJaRNL.landscape .sensors {
+  top: 120px;
+  right: 22px;
+  left: auto;
+}
+.gJaRNL.landscape .sensors::before {
+  top: 18px;
+  left: 0px;
+}
+.gJaRNL.landscape .more-sensors {
+  top: 285px;
+  right: 18px;
+  left: auto;
+}
+.gJaRNL.landscape .more-sensors::before {
+  top: 40px;
+  left: 4px;
+}
+.gJaRNL.landscape .sleep {
+  bottom: -2px;
+  top: auto;
+  right: 288px;
+  width: 56px;
+  height: 2px;
+}
+.gJaRNL.landscape .volume {
+  width: 120px;
+  height: 2px;
+  top: -2px;
+  right: 168px;
+  left: auto;
+}
+.gJaRNL.landscape .volume::before {
+  right: 168px;
+  left: auto;
+  top: 0px;
+  width: 56px;
+  height: 2px;
+}
+.gJaRNL.landscape .inner {
+  height: 100%;
+  width: calc(100% - 8px);
+  left: 2px;
+  top: 0px;
+  border-width: 0px 2px;
+  border-top-style: initial;
+  border-top-color: initial;
+  border-bottom-style: initial;
+  border-bottom-color: initial;
+  border-left-style: solid;
+  border-left-color: rgb(159, 160, 162);
+  border-right-style: solid;
+  border-right-color: rgb(159, 160, 162);
+}
+.gJaRNL.landscape .shadow {
+  width: 101%;
+  height: calc(100% - 20px);
+  left: -0.5%;
+  top: 10px;
+}
+
+.confirm {
+  background: rgb(56, 18, 114);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.confirm .confirm-box {
+  background: white;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.confirm .confirm--prompt {
+  text-align: center;
+  color: rgb(51, 36, 74);
+  font-size: 24px;
+}
+
+.confirm .confirm--button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  flex-direction: column;
+}
+
+.confirm .confirm--button-container .confirm--button {
+  height: 50px;
+  text-align: center;
+  margin: 4px;
+  background-color: #333;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px;
+}
+
+.confirm .confirm--button-container .confirm--button-ok {
+  background-color: rgb(51, 36, 74);
+  color: white;
+}
+
+.confirm .confirm--button-container .confirm--button-cancel {
+  background-color: #eee;
+  color: #222;
+}
