@@ -16,7 +16,7 @@ fresco.onReady(function () {
   };
 
   fresco.initialize(defaultState, {
-    title: "Qrcoe",
+    title: "QRcode",
     toolbarButtons: [
       {
         title: "text or url to show",
