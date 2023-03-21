@@ -607,5 +607,91 @@
         }
       ]
     }
+  },
+  {
+    "group": "Tools",
+    "name": "Dice",
+    "displayName": "Dice",
+    "displaySearch": "Dice",
+    "url": "dice.png",
+    "content": {
+      "visuals": [
+        {
+          "id": "6eugsdh6c0xqbhvbkqwj8",
+          "isLocked": false,
+          "zIndex": 17,
+          "layer": 0,
+          "renderer": "IFrame",
+          "transform": {
+            "position": { "x": 890, "y": 260 },
+            "size": { "x": 100, "y": 120 },
+            "rotation": 0
+          },
+          "appearance": {
+            "FRAMELESS": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "PROTECTED_STORAGE": {},
+            "TEXT_BEHAVIOUR": 2,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT_DISABLED": true,
+            "STATE": {
+              "url": "https://fresco-upload-test.s3.amazonaws.com/public/of7f5n4duarlrsj0w24jh.png",
+              "urlIndex": 0,
+              "random": true,
+              "imageURLList": "https://fresco-upload-test.s3.amazonaws.com/public/of7f5n4duarlrsj0w24jh.png|https://fresco-upload-test.s3.amazonaws.com/public/nukw1kc2oe-z0e3vea-qn.png|https://fresco-upload-test.s3.amazonaws.com/public/wez6t73d-8imcycovh2xf.png|https://fresco-upload-test.s3.amazonaws.com/public/3cvi4qwxnzkv9ozfvsujp.png|https://fresco-upload-test.s3.amazonaws.com/public/ounr3upmth70hfozicxpg.png|https://fresco-upload-test.s3.amazonaws.com/public/uoigmzmv6832hx5ok8oyz.png"
+            },
+            "VISIBLE_IN_CONTAINER": true,
+            "PINNED": false,
+            "EVENTS": "",
+            "SOURCE": "https://dev-community.fres.co/elements/carousel/index.htm"
+          }
+        }
+      ],
+      "groups": []
+    }
+  },
+  {
+    "group": "Tools",
+    "name": "Traffic light",
+    "displayName": "Traffic light",
+    "displaySearch": "Traffic light",
+    "url": "traffic-light.png",
+    "content": {
+      "visuals": [
+        {
+          "id": "yax3a7jut75tiz4wrlq4p",
+          "isLocked": false,
+          "zIndex": 17,
+          "layer": 0,
+          "renderer": "IFrame",
+          "transform": {
+            "position": { "x": 990, "y": 545 },
+            "size": { "x": 120, "y": 340 },
+            "rotation": 0
+          },
+          "appearance": {
+            "FRAMELESS": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "PROTECTED_STORAGE": {},
+            "TEXT_BEHAVIOUR": 2,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT_DISABLED": true,
+            "STATE": {
+              "url": "https://d2nour97nrwdwq.cloudfront.net/public/lc0j9bzed9bqpeeg2gnli.png",
+              "urlIndex": 0,
+              "random": false,
+              "imageURLList": "https://d2nour97nrwdwq.cloudfront.net/public/lc0j9bzed9bqpeeg2gnli.png|https://d2nour97nrwdwq.cloudfront.net/public/w8oranxtf4kovulzax5ev.png|https://d2nour97nrwdwq.cloudfront.net/public/dzhtksgit2bxliswm0cdv.png|https://d2nour97nrwdwq.cloudfront.net/public/ai0jizakoijugo1zyjvue.png"
+            },
+            "VISIBLE_IN_CONTAINER": true,
+            "PINNED": false,
+            "EVENTS": "",
+            "SOURCE": "https://dev-community.fres.co/elements/carousel/index.htm"
+          }
+        }
+      ],
+      "groups": []
+    }
   }
 ]
