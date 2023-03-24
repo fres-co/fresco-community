@@ -84,6 +84,50 @@
   },
   {
     "group": "Tools",
+    "name": "Kahoot! controller",
+    "displayName": "Kahoot! controller",
+    "displaySearch": "Kahoot! controller",
+    "url": "kahoot-controller.png",
+    "content": {
+      "visuals": [
+        {
+          "id": "wvy-tswam02kahx-5v4zq",
+          "isLocked": false,
+          "zIndex": 2,
+          "layer": 0,
+          "renderer": "IFrame",
+          "transform": {
+            "position": {
+              "x": 550,
+              "y": -490
+            },
+            "size": {
+              "x": 420,
+              "y": 820
+            },
+            "rotation": 0
+          },
+          "appearance": {
+            "FRAMELESS": false,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "PROTECTED_STORAGE": {},
+            "TEXT_BEHAVIOUR": 2,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT_DISABLED": true,
+            "STATE": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "PINNED": false,
+            "EVENTS": "",
+            "SOURCE": "https://fres-co.github.io/fresco-community/elements/kahoot-controller/dist/"
+          }
+        }
+      ],
+      "groups": []
+    }
+  },
+  {
+    "group": "Tools",
     "name": "Icebreakers 1",
     "displayName": "Icebreakers 1",
     "displaySearch": "Icebreakers 1",
