@@ -7,21 +7,21 @@ const getURLs = () => {
     !fresco.element ? defaultURLList : fresco.element.state.imageURLList
   ).split("|");
 
-  return urls
+  return urls;
 }
 
 
 function showCard(state) {
   document.body.style.setProperty(
     "--url",
-    `url(${ state.url })`
+    `url(${state.url})`
   );
 }
 
 document.body.addEventListener("click", () => {
 
-  const urls = getURLs()
-  if(fresco.element.state.random) {
+  const urls = getURLs();
+  if (fresco.element.state.random) {
     const next = Math.floor(Math.random() * urls.length);
     fresco.setState({ urlIndex: next, url: urls[next] });
   } else {
@@ -33,12 +33,12 @@ document.body.addEventListener("click", () => {
 
 fresco.onReady(function () {
   fresco.onStateChanged(function () {
-    showCard(fresco.element.state)
+    showCard(fresco.element.state);
   });
 
   const defaultState = {
-    url: null,
-    urlIndex:0,
+    url: 'https://d2nour97nrwdwq.cloudfront.net/public/2x3vg1tlbhfpvkqanhcca.png',
+    urlIndex: 0,
     random: false,
     imageURLList: defaultURLList,
   };
