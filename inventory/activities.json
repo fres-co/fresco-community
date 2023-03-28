@@ -3388,5 +3388,937 @@
       ],
       "groups": []
     }
+  },
+  {
+    "group": "ActivityTemplateSelectionModal.groups.whereAreYou",
+    "name": "where-are-you-world-1",
+    "displayName": "Where are you? (World)",
+    "displaySearch": "This activity is a fun icebreaker to show where people are from. It is also a great way to teach people how to move in Fresco.",
+    "url": "where-are-you-world-1.png",
+    "content": {
+      "visuals": [
+        {
+          "id": "k2vwi-cqdxzyo7fxhu8qf",
+          "isLocked": false,
+          "zIndex": 367,
+          "layer": 0,
+          "renderer": "ConversationZone",
+          "transform": {
+            "position": { "x": 5967, "y": 9970 },
+            "size": { "x": 2240, "y": 1060 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "NAME": "plenary",
+            "APPEARANCE_MARGIN": 150
+          }
+        },
+        {
+          "id": "wntbw12khxrjyhkwokzvm",
+          "isLocked": false,
+          "zIndex": 368,
+          "layer": 0,
+          "renderer": "Rectangle",
+          "transform": {
+            "position": { "x": 5967, "y": 9970 },
+            "size": { "x": 2440, "y": 1260 },
+            "rotation": 0
+          },
+          "appearance": {
+            "COLOR": "#b3c6ff",
+            "BORDER_RADIUS": 0,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "OPACITY": 100,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "BODY_TYPE": "PASSTHROUGH",
+            "EVENTS": "",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "tl3ldushajujv22lexf5l",
+          "isLocked": false,
+          "zIndex": 369,
+          "layer": 0,
+          "renderer": "CameraFrame",
+          "transform": {
+            "position": { "x": 5967, "y": 9970 },
+            "size": { "x": 2240, "y": 1060 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "APPEARANCE_CAMERA_MIN_ZOOM": 0,
+            "APPEARANCE_MARGIN": 0,
+            "APPEARANCE_SCREEN_PADDING": 5
+          }
+        },
+        {
+          "id": "eesyxvnpisuvk07ufas9t",
+          "isLocked": false,
+          "zIndex": 371,
+          "layer": 1,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5965, "y": 9545 },
+            "size": { "x": 678, "y": 90 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": "",
+            "TEXT": "Where in the world are you?",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 48,
+            "BACKGROUND_COLOR": "#ffffff",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "m36ce630vxlljw2lkuoqy",
+          "isLocked": false,
+          "zIndex": 373,
+          "layer": 0,
+          "renderer": "Raster",
+          "transform": {
+            "position": { "x": 5965.5, "y": 10021 },
+            "size": { "x": 1721, "y": 922 },
+            "rotation": 0
+          },
+          "appearance": {
+            "BORDER_RADIUS": 10,
+            "IMAGE_MODE": "FILL",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "BACKGROUND_COLOR": "",
+            "IMAGE_TILED": false,
+            "VISIBLE_IN_CONTAINER": true,
+            "ACTION": "",
+            "EVENTS": "",
+            "SOURCE": "https://fresco-upload-prod2.s3.amazonaws.com/public/uysgmjhs4rmormams6ar2.png",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "0kgh-h6vufyb0hok3wk2-",
+          "isLocked": false,
+          "zIndex": 375,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5965, "y": 9612 },
+            "size": { "x": 606, "y": 76 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": "#737373",
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "normal",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": null,
+            "TEXT": "Move your avatar by double clicking\n",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 36,
+            "BACKGROUND_COLOR": "#ffffff",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        }
+      ],
+      "groups": []
+    }
+  },
+  {
+    "group": "ActivityTemplateSelectionModal.groups.others",
+    "name": "take-a-break-1",
+    "displayName": "Take a break",
+    "displaySearch": "This activity is used when you want participants to have a break.",
+    "url": "take-a-break-1.png",
+    "content": {
+      "visuals": [
+        {
+          "id": "oddewcr_ar2ugxle0opwe",
+          "isLocked": false,
+          "zIndex": 429,
+          "layer": 0,
+          "renderer": "Rectangle",
+          "transform": {
+            "position": { "x": 5940, "y": 14230 },
+            "size": { "x": 2440, "y": 1260 },
+            "rotation": 0
+          },
+          "appearance": {
+            "COLOR": "#f7bec0",
+            "BORDER_RADIUS": 0,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "OPACITY": 100,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "BODY_TYPE": "PASSTHROUGH",
+            "EVENTS": "",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "wjmytkxr7oa_pb3zxgdm5",
+          "isLocked": false,
+          "zIndex": 430,
+          "layer": 0,
+          "renderer": "CameraFrame",
+          "transform": {
+            "position": { "x": 5940, "y": 14230 },
+            "size": { "x": 2240, "y": 1060 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "APPEARANCE_CAMERA_MIN_ZOOM": 0,
+            "APPEARANCE_MARGIN": 0,
+            "APPEARANCE_SCREEN_PADDING": 5
+          }
+        },
+        {
+          "id": "ltcmnulmdlwysreg-emdb",
+          "isLocked": false,
+          "zIndex": 431,
+          "layer": 1,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5938, "y": 13805 },
+            "size": { "x": 330, "y": 90 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": "",
+            "TEXT": "Have a break",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 48,
+            "BACKGROUND_COLOR": "#ffffff",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "fna6f_n921yzh6ctswopx",
+          "isLocked": false,
+          "zIndex": 432,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5938, "y": 13878 },
+            "size": { "x": 372, "y": 76 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": "#737373",
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "normal",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": null,
+            "TEXT": "We will be back soon\n",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 36,
+            "BACKGROUND_COLOR": "#ffffff",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "monkjkzek0l-ag-gwjd7j",
+          "isLocked": false,
+          "zIndex": 434,
+          "layer": 0,
+          "renderer": "GlobalStage",
+          "transform": {
+            "position": { "x": 5940, "y": 14060 },
+            "size": { "x": 458, "y": 120 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false
+          }
+        },
+        {
+          "id": "fqstyduhlquete4hwfrch",
+          "isLocked": false,
+          "zIndex": 435,
+          "layer": 0,
+          "renderer": "IFrame",
+          "transform": {
+            "position": { "x": 4940, "y": 14660 },
+            "size": { "x": 200, "y": 160 },
+            "rotation": 0
+          },
+          "appearance": {
+            "FRAMELESS": false,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "PROTECTED_STORAGE": {},
+            "TEXT_BEHAVIOUR": 2,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT_DISABLED": true,
+            "STATE": {
+              "duration": 5,
+              "startedAt": "initial",
+              "timer": "initial",
+              "setValue": 5
+            },
+            "VISIBLE_IN_CONTAINER": true,
+            "PINNED": false,
+            "EVENTS": "",
+            "SOURCE": "https://fres-co.github.io/fresco-community/elements/timer/index.htm?duration=10"
+          }
+        },
+        {
+          "id": "8emnkdvmitvckvv66v19l",
+          "isLocked": false,
+          "zIndex": 436,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5940, "y": 14283 },
+            "size": { "x": 334, "y": 286 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": "",
+            "TEXT": "☕",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 218,
+            "BACKGROUND_COLOR": "transparent",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        }
+      ],
+      "groups": []
+    }
+  },
+  {
+    "group": "ActivityTemplateSelectionModal.groups.others",
+    "name": "kahoot-quiz-1",
+    "displayName": "Kahoot quiz",
+    "displaySearch": "This activity will make running a Kahoot a breeze.",
+    "url": "kahoot-quiz-1.png",
+    "content": {
+      "visuals": [
+        {
+          "id": "trxioa7ms8l9-fhkbzf3g",
+          "isLocked": false,
+          "zIndex": 124,
+          "layer": 0,
+          "renderer": "ConversationZone",
+          "transform": {
+            "position": { "x": 5906, "y": 16150 },
+            "size": { "x": 2240, "y": 1060 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "NAME": "plenary",
+            "APPEARANCE_MARGIN": 150
+          }
+        },
+        {
+          "id": "bucvg_2ktkqfluboftcrg",
+          "isLocked": false,
+          "zIndex": 437,
+          "layer": 0,
+          "renderer": "Rectangle",
+          "transform": {
+            "position": { "x": 5906, "y": 16150 },
+            "size": { "x": 2440, "y": 1260 },
+            "rotation": 0
+          },
+          "appearance": {
+            "COLOR": "#371271",
+            "BORDER_RADIUS": 0,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "OPACITY": 100,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "BODY_TYPE": "PASSTHROUGH",
+            "EVENTS": "",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "stm85poac00ptsgrdhhtd",
+          "isLocked": false,
+          "zIndex": 438,
+          "layer": 0,
+          "renderer": "CameraFrame",
+          "transform": {
+            "position": { "x": 5906, "y": 16150 },
+            "size": { "x": 2240, "y": 1060 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "APPEARANCE_CAMERA_MIN_ZOOM": 0,
+            "APPEARANCE_MARGIN": 0,
+            "APPEARANCE_SCREEN_PADDING": 5
+          }
+        },
+        {
+          "id": "pug_sfy1is-b6iw2t6_ok",
+          "isLocked": false,
+          "zIndex": 441,
+          "layer": 0,
+          "renderer": "Screen",
+          "transform": {
+            "position": { "x": 5524.5, "y": 15990 },
+            "size": { "x": 1449, "y": 714 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "[{\"event\":\"avatar.entered.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"k7xkyqdnoe8ssoh2vwd5-\",\"type\":\"TELEPORT\",\"payload\":{\"anchorName\":\"activity-kahoot-quiz\"}}]}]",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "JITSI_ID": "auto-plenary",
+            "APPEARANCE_VIDEO_TYPE": "all"
+          }
+        },
+        {
+          "id": "ar6esbkcdmh6x8cijd8m-",
+          "isLocked": false,
+          "zIndex": 442,
+          "layer": 0,
+          "renderer": "Screen",
+          "transform": {
+            "position": { "x": 6790, "y": 15743 },
+            "size": { "x": 420, "y": 220 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "JITSI_ID": "auto-plenary",
+            "APPEARANCE_VIDEO_TYPE": "camera"
+          }
+        },
+        {
+          "id": "bgbzatobcxadcktloj-ph",
+          "isLocked": false,
+          "zIndex": -3384,
+          "layer": 0,
+          "renderer": "LandingZone",
+          "transform": {
+            "position": { "x": 5926.5, "y": 16500 },
+            "size": { "x": 2071, "y": 240 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "NAME": "activity-kahoot-quiz"
+          }
+        },
+        {
+          "id": "qt_ttaam6-digaobcjlit",
+          "isLocked": false,
+          "zIndex": 3385,
+          "layer": 0,
+          "renderer": "IFrame",
+          "transform": {
+            "position": { "x": 6790.5, "y": 16087 },
+            "size": { "x": 439, "y": 520 },
+            "rotation": 0
+          },
+          "appearance": {
+            "FRAMELESS": false,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "PROTECTED_STORAGE": {},
+            "TEXT_BEHAVIOUR": 2,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT_DISABLED": true,
+            "STATE": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "PINNED": false,
+            "EVENTS": "[{\"event\":\"avatar.entered.zone\",\"scope\":\"self\",\"actions\":[{\"id\":\"aw7-cklmozgwyogxyliha\",\"type\":\"TELEPORT\",\"payload\":{\"anchorName\":\"activity-kahoot-quiz\"}}]}]",
+            "SOURCE": "https://fres-co.github.io/fresco-community/elements/kahoot-controller/dist/"
+          }
+        }
+      ],
+      "groups": []
+    }
+  },
+  {
+    "group": "ActivityTemplateSelectionModal.groups.iceBreakers",
+    "name": "feedback-1",
+    "displayName": "How are you?",
+    "displaySearch": "This activity allows you to see how participants are feeling right now.",
+    "url": "feedback-1.png",
+    "content": {
+      "visuals": [
+        {
+          "id": "h28mbnrki-ftgkfscqqwl",
+          "isLocked": false,
+          "zIndex": 443,
+          "layer": 0,
+          "renderer": "ConversationZone",
+          "transform": {
+            "position": { "x": 5858, "y": 18170 },
+            "size": { "x": 2240, "y": 1060 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "NAME": "plenary",
+            "APPEARANCE_MARGIN": 150
+          }
+        },
+        {
+          "id": "go4veimsh_g1t4ckxilus",
+          "isLocked": false,
+          "zIndex": 444,
+          "layer": 0,
+          "renderer": "Rectangle",
+          "transform": {
+            "position": { "x": 5858, "y": 18170 },
+            "size": { "x": 2440, "y": 1260 },
+            "rotation": 0
+          },
+          "appearance": {
+            "COLOR": "#f7bec0",
+            "BORDER_RADIUS": 0,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "OPACITY": 100,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "BODY_TYPE": "PASSTHROUGH",
+            "EVENTS": "",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "peqlpxnxleyix1lbac5ll",
+          "isLocked": false,
+          "zIndex": 445,
+          "layer": 0,
+          "renderer": "CameraFrame",
+          "transform": {
+            "position": { "x": 5858, "y": 18170 },
+            "size": { "x": 2240, "y": 1060 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "APPEARANCE_CAMERA_MIN_ZOOM": 0,
+            "APPEARANCE_MARGIN": 0,
+            "APPEARANCE_SCREEN_PADDING": 5
+          }
+        },
+        {
+          "id": "byrvfk5tlru6o5koypfci",
+          "isLocked": false,
+          "zIndex": 446,
+          "layer": 1,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5861, "y": 17745 },
+            "size": { "x": 518, "y": 90 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": "",
+            "TEXT": "How are you feeling?",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 48,
+            "BACKGROUND_COLOR": "#ffffff",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "eapyzo1kggoikbdbksk8-",
+          "isLocked": false,
+          "zIndex": 447,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5861, "y": 17818 },
+            "size": { "x": 700, "y": 76 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": "#737373",
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "normal",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": null,
+            "TEXT": "Move your avatar to express how you feel\n",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 36,
+            "BACKGROUND_COLOR": "#ffffff",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "mannk2nr2kpgeana3bpw-",
+          "isLocked": false,
+          "zIndex": 449,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5478, "y": 18161 },
+            "size": { "x": 340, "y": 290 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": null,
+            "TEXT": "😞",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 222,
+            "BACKGROUND_COLOR": "transparent",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "sj1zbcxfjiuot2u76hg2v",
+          "isLocked": false,
+          "zIndex": 450,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5095, "y": 18165 },
+            "size": { "x": 348, "y": 298 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": null,
+            "TEXT": "😡",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 229,
+            "BACKGROUND_COLOR": "transparent",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "_wdvnedbokfy1qeh9dcad",
+          "isLocked": false,
+          "zIndex": 451,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5861, "y": 18165 },
+            "size": { "x": 340, "y": 290 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": null,
+            "TEXT": "😐",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 222,
+            "BACKGROUND_COLOR": "transparent",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "ovnp3r0br752ojvmrhipy",
+          "isLocked": false,
+          "zIndex": 452,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 6241, "y": 18166 },
+            "size": { "x": 344, "y": 294 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": null,
+            "TEXT": "😊",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 226,
+            "BACKGROUND_COLOR": "transparent",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "rpu2zs_swwphwjn-odtxl",
+          "isLocked": false,
+          "zIndex": 453,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 6624, "y": 18160 },
+            "size": { "x": 340, "y": 290 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": null,
+            "TEXT": "🥰",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 222,
+            "BACKGROUND_COLOR": "transparent",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "40rmt_5l2at8izltbhega",
+          "isLocked": false,
+          "zIndex": 898,
+          "layer": 0,
+          "renderer": "Circle",
+          "transform": {
+            "position": { "x": 5098.5, "y": 18165 },
+            "size": { "x": 125, "y": 124 },
+            "rotation": 0
+          },
+          "appearance": {
+            "COLOR": "transparent",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "OPACITY": 100,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "BODY_TYPE": "WALL",
+            "EVENTS": "",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "fchzavetgxc-qhz2o6pof",
+          "isLocked": false,
+          "zIndex": 899,
+          "layer": 0,
+          "renderer": "Circle",
+          "transform": {
+            "position": { "x": 5482.5, "y": 18165 },
+            "size": { "x": 125, "y": 124 },
+            "rotation": 0
+          },
+          "appearance": {
+            "COLOR": "transparent",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "OPACITY": 100,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "BODY_TYPE": "WALL",
+            "EVENTS": "",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "r95vl8bk2ea3jlzccy68k",
+          "isLocked": false,
+          "zIndex": 900,
+          "layer": 0,
+          "renderer": "Circle",
+          "transform": {
+            "position": { "x": 5861.5, "y": 18165 },
+            "size": { "x": 125, "y": 124 },
+            "rotation": 0
+          },
+          "appearance": {
+            "COLOR": "transparent",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "OPACITY": 100,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "BODY_TYPE": "WALL",
+            "EVENTS": "",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "l7zx422_hy-0auqcu91co",
+          "isLocked": false,
+          "zIndex": 901,
+          "layer": 0,
+          "renderer": "Circle",
+          "transform": {
+            "position": { "x": 6244.5, "y": 18165 },
+            "size": { "x": 125, "y": 124 },
+            "rotation": 0
+          },
+          "appearance": {
+            "COLOR": "transparent",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "OPACITY": 100,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "BODY_TYPE": "WALL",
+            "EVENTS": "",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "t4prjvkwbxezecifhbrkj",
+          "isLocked": false,
+          "zIndex": 902,
+          "layer": 0,
+          "renderer": "Circle",
+          "transform": {
+            "position": { "x": 6621.5, "y": 18165 },
+            "size": { "x": 125, "y": 124 },
+            "rotation": 0
+          },
+          "appearance": {
+            "COLOR": "transparent",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "OPACITY": 100,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "BODY_TYPE": "WALL",
+            "EVENTS": "",
+            "STROKE_COLOR": 13224393
+          }
+        }
+      ],
+      "groups": []
+    }
   }
 ]
