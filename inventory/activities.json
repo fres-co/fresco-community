@@ -4320,5 +4320,251 @@
       ],
       "groups": []
     }
+  },
+  {
+    "group": "ActivityTemplateSelectionModal.groups.others",
+    "name": "agree-or-disagree-1",
+    "displayName": "Agree or disagree?",
+    "displaySearch": "This activity is used when you need to share your screen or when a few people are going to do most of the talking.",
+    "url": "agree-or-disagree-1.png",
+    "parameters": [
+      {
+        "label": "Statement",
+        "placeholder": "Cats are better than dogs",
+        "targetElement": "question",
+        "targetProperty": "TEXT",
+        "rules": [
+          {
+            "required": true,
+            "message": "Please enter a statement"
+          }
+        ]
+      }
+    ],
+    "content": {
+      "visuals": [
+        {
+          "id": "0l1qmhvcgagt1svne27qy",
+          "isLocked": false,
+          "zIndex": 415,
+          "layer": 0,
+          "renderer": "ConversationZone",
+          "transform": {
+            "position": { "x": 5940, "y": 12150 },
+            "size": { "x": 2240, "y": 1060 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_DISABLED": true,
+            "EVENTS": "",
+            "NAME": "plenary",
+            "ACTIVITY_ID": "",
+            "VISIBLE_IN_CONTAINER": true,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "APPEARANCE_MARGIN": 150
+          }
+        },
+        {
+          "id": "hz0s-sjwm0rwudmp9bjy5",
+          "isLocked": false,
+          "zIndex": 416,
+          "layer": 0,
+          "renderer": "Rectangle",
+          "transform": {
+            "position": { "x": 5940, "y": 12150 },
+            "size": { "x": 2440, "y": 1260 },
+            "rotation": 0
+          },
+          "appearance": {
+            "COLOR": "#f7bec0",
+            "BORDER_RADIUS": 0,
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "OPACITY": 100,
+            "STROKE_THICKNESS": 0,
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "BODY_TYPE": "PASSTHROUGH",
+            "EVENTS": "",
+            "STROKE_COLOR": 13224393
+          }
+        },
+        {
+          "id": "q5kepb8m-mxjiperxkpmj",
+          "isLocked": false,
+          "zIndex": 417,
+          "layer": 0,
+          "renderer": "CameraFrame",
+          "transform": {
+            "position": { "x": 5940, "y": 12150 },
+            "size": { "x": 2240, "y": 1060 },
+            "rotation": 0
+          },
+          "appearance": {
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "APPEARANCE_MARGIN": 0,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT_DISABLED": true,
+            "VISIBLE_IN_CONTAINER": true,
+            "APPEARANCE_SCREEN_PADDING": 5,
+            "EVENTS": "",
+            "APPEARANCE_CAMERA_MIN_ZOOM": 0
+          }
+        },
+        {
+          "id": "feofy8ntrfdkxvwjlr5lb",
+          "isLocked": false,
+          "zIndex": 418,
+          "layer": 1,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5938, "y": 11725 },
+            "size": { "x": 614, "y": 90 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": "",
+            "NAME": "question",
+            "TEXT": "Cats are better than dogs",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 48,
+            "BACKGROUND_COLOR": "#ffffff",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "d1zu7kgz9hbcbiyftkca1",
+          "isLocked": false,
+          "zIndex": 419,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 6370, "y": 12171 },
+            "size": { "x": 544, "y": 462 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT": "👎",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 371,
+            "BACKGROUND_COLOR": "#e93e44",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "wjhiy7aqbnokwviuzb_zr",
+          "isLocked": false,
+          "zIndex": 420,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5509, "y": 12171 },
+            "size": { "x": 544, "y": 462 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT": "👍",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 371,
+            "BACKGROUND_COLOR": "#5905f8",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "n3c8jyde9f-2antxgeoxs",
+          "isLocked": false,
+          "zIndex": 464,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 5509, "y": 12458 },
+            "size": { "x": 136, "y": 76 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT": "Agree",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 36,
+            "BACKGROUND_COLOR": "transparent",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        },
+        {
+          "id": "b1f-u112jof2gqrodmwmu",
+          "isLocked": false,
+          "zIndex": 465,
+          "layer": 0,
+          "renderer": "Heading",
+          "transform": {
+            "position": { "x": 6370, "y": 12458 },
+            "size": { "x": 186, "y": 76 },
+            "rotation": 0
+          },
+          "appearance": {
+            "TEXT_PLACEHOLDER": "Heading",
+            "COLOR": 2434341,
+            "BORDER_RADIUS": 20,
+            "FONT_WEIGHT": "bold",
+            "FORCE_VISIBLE_IN_CONTAINER": false,
+            "TEXT_BEHAVIOUR": 1,
+            "ACTIVITY_ID": "",
+            "NAME": "",
+            "TEXT": "Disagree",
+            "TEXT_DISABLED": false,
+            "FONT_SIZE": 36,
+            "BACKGROUND_COLOR": "transparent",
+            "VISIBLE_IN_CONTAINER": true,
+            "FONT_FAMILY": "Arial",
+            "EVENTS": "",
+            "TEXT_MULTILINE": true
+          }
+        }
+      ],
+      "groups": []
+    }
   }
 ]
