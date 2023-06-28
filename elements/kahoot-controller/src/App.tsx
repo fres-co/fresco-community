@@ -111,6 +111,22 @@ const useAppStore = () => {
 };
 
 export function App() {
+  useEffect(() => {
+    fresco.onReady(() => {
+      const sdk = (window as any).fresco;
+      sdk.subscribeToGlobalEvent(
+        "custom.setKahootPin",
+        (payload: {
+          eventValue: string | number | boolean;
+          source: string;
+          eventName: string;
+        }) => {
+          fresco.setState({ pin: parseInt(payload.eventValue + "") });
+        }
+      );
+    });
+  }, []);
+
   const { state, dispatch } = useAppStore();
   const setPin = useCallback(
     (pin: number | "") => {
@@ -202,7 +218,8 @@ const Confirm = ({
       <div className="confirm-box">
         <div className="confirm--prompt">
           Are you sure you want to reset the Game&nbsp;PIN?
-          <br /><br />
+          <br />
+          <br />
           This will disconnect all players.
         </div>
 

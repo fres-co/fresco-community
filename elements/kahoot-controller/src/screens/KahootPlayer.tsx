@@ -1,5 +1,3 @@
-const KahootURL = "https://kahoot.it";
-
 import React, { useEffect, useRef } from "react";
 import { Styled } from "../components/Styled";
 
@@ -10,6 +8,12 @@ try {
   // no local storage
 }
 
+function getControllerUrl() {
+  // Allows to point to different environments
+  const url = new URL(window.location.href);
+  const controllerUrl = url.searchParams.get("controllerUrl");
+  return controllerUrl || "https://kahoot.it";
+}
 
 const KahootPlayerWithStorage = ({
   pin,
@@ -20,30 +24,35 @@ const KahootPlayerWithStorage = ({
   canSetPin: boolean;
   resetPin: () => void;
 }) => {
-
-  const isMounted = React.useRef(false)
+  const isMounted = React.useRef(false);
   useEffect(() => {
     isMounted.current = true;
   }, []);
 
-
-  const url = new URL(KahootURL);
+  const url = new URL(getControllerUrl());
   const prevUrlRef = useRef(url);
-  const savedPin = React.useMemo(() => window.localStorage.getItem('kahoot-pin'), [pin]);
+  const savedPin = React.useMemo(
+    () => window.localStorage.getItem("kahoot-pin"),
+    [pin]
+  );
 
   useEffect(() => {
     if (pin && savedPin !== `${pin}`) {
-      window.localStorage.setItem('kahoot-pin', `${pin}`);
+      window.localStorage.setItem("kahoot-pin", `${pin}`);
     }
-  }, [pin, savedPin])
+  }, [pin, savedPin]);
 
   if (pin && savedPin !== `${pin}`) {
     url.searchParams.set("pin", pin);
+    url.searchParams.set(
+      "nickname",
+      (window as any).fresco.localParticipant.name
+    );
     prevUrlRef.current = url;
   } else if (isMounted.current === false) {
     // pin is same as before but element is not mounted
     // lets try to continue game
-    url.pathname = '/start';
+    url.pathname += url.pathname.startsWith("/") ? "start" : "/start";
     prevUrlRef.current = url;
   }
 
@@ -75,9 +84,9 @@ const KahootPlayerWithStorage = ({
           RESET PIN
         </Styled>
       )}
-    </>);
-
-}
+    </>
+  );
+};
 
 export const KahootPlayer = ({
   pin,
@@ -88,8 +97,6 @@ export const KahootPlayer = ({
   canSetPin: boolean;
   resetPin: () => void;
 }) => {
-
-
   if (!haveLocalStorage) {
     return (
       <Styled css="text-align: center; padding-top: 30px; background-color: rgb(56, 18, 114); height: 100%; color:white; font-size: 24px; font-weight: bold;">
@@ -101,6 +108,11 @@ export const KahootPlayer = ({
     );
   }
 
-  return <KahootPlayerWithStorage pin={pin} resetPin={resetPin} canSetPin={canSetPin} />;
-
+  return (
+    <KahootPlayerWithStorage
+      pin={pin}
+      resetPin={resetPin}
+      canSetPin={canSetPin}
+    />
+  );
 };
