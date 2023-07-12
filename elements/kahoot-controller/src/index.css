@@ -32,6 +32,10 @@ body {
   min-height: 100vh;
 }
 
+iframe {
+  background-color: #321066;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -326,7 +330,7 @@ button:focus-visible {
 .confirm .confirm--prompt {
   text-align: center;
   color: rgb(51, 36, 74);
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .confirm .confirm--button-container {
