@@ -99,11 +99,11 @@ export const KahootPlayer = ({
 }) => {
   if (!haveLocalStorage) {
     return (
-      <Styled css="text-align: center; padding-top: 30px; background-color: rgb(56, 18, 114); height: 100%; color:white; font-size: 24px; font-weight: bold;">
-        Sorry, looks like you can not access this Kahoot!
-        <br />
-        Are you using incognito mode ?<br />
-        if so, please reopen in non-incognito mode.
+      <Styled css="position: absolute; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background-color: #321066; height: 100%; color:white; line-height: 2.2rem; font-size: 24px; font-weight: bold;">
+        <h2>Cannot open this Kahoot</h2>
+        <p>
+          If you are using incognito mode, please reopen in non-incognito mode.
+        </p>
       </Styled>
     );
   }
