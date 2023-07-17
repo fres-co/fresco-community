@@ -10,6 +10,7 @@ import { KahootPlayer } from "./screens/KahootPlayer";
 
 import { SettingScreen } from "./screens/SettingScreen";
 import { WaitPin } from "./screens/WaitPin";
+import { Styled } from "./components/Styled";
 
 interface FrescoElementState {
   pin: number | "";
@@ -110,7 +111,7 @@ const useAppStore = () => {
   return { state, dispatch };
 };
 
-export function App() {
+export function KahootApp() {
   useEffect(() => {
     fresco.onReady(() => {
       const sdk = (window as any).fresco;
@@ -236,3 +237,48 @@ const Confirm = ({
     </div>
   );
 };
+
+
+
+const checkStorage = (name: 'localStorage' | 'sessionStorage') => {
+  try {
+    const storage = window[name];
+    storage.setItem("test-storage", "success");
+    const status = storage.getItem("test-storage")
+    return status === 'success';
+  } catch (e) {
+    return false
+  }
+};
+
+export const App = () => {
+
+
+  const isStorageAvailable = React.useMemo(() => {
+    return checkStorage("localStorage") && checkStorage("sessionStorage");
+  }, [])
+
+  if (isStorageAvailable) {
+    return <KahootApp />
+  }
+
+  return <PhoneWrapper>
+    <Styled
+      css="
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    padding: 2rem;
+    background-color: rgb(56, 18, 114);
+    "
+    >
+      Some required feature are not available in your browser.<br />
+      Are you using private mode?
+    </Styled>
+  </PhoneWrapper>
+}
