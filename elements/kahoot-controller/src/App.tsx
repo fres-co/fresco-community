@@ -238,47 +238,43 @@ const Confirm = ({
   );
 };
 
-
-
-const checkStorage = (name: 'localStorage' | 'sessionStorage') => {
+const checkStorage = (name: "localStorage" | "sessionStorage") => {
   try {
     const storage = window[name];
     storage.setItem("test-storage", "success");
-    const status = storage.getItem("test-storage")
-    return status === 'success';
+    const status = storage.getItem("test-storage");
+    return status === "success";
   } catch (e) {
-    return false
+    return false;
   }
 };
 
 export const App = () => {
-
-
   const isStorageAvailable = React.useMemo(() => {
     return checkStorage("localStorage") && checkStorage("sessionStorage");
-  }, [])
+  }, []);
 
   if (isStorageAvailable) {
-    return <KahootApp />
+    return <KahootApp />;
   }
 
-  return <PhoneWrapper>
-    <Styled
-      css="
+  return (
+    <PhoneWrapper>
+      <Styled
+        css="
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
-    font-size: 24px;
     padding: 2rem;
     background-color: rgb(56, 18, 114);
     "
-    >
-      Some required feature are not available in your browser.<br />
-      Are you using private mode?
-    </Styled>
-  </PhoneWrapper>
-}
+      >
+        <h3>This browser is not compatible.</h3>
+        Are you using private mode?
+      </Styled>
+    </PhoneWrapper>
+  );
+};
